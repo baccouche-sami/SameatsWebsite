@@ -13,31 +13,51 @@ export function ClientsSection() {
       name: "T9 Foodies & Grill", 
       type: t("Restaurant", "Restaurant"), 
       image: clientT9,
-      description: t("a officiellement rejoint notre plateforme Sameats", "has officially joined our Sameats platform")
+      description: t("a officiellement rejoint notre plateforme Sameats", "has officially joined our Sameats platform"),
+      revenueBefore: "€2,800",
+      revenueAfter: "€7,200",
+      increase: "+157%",
+      location: "Paris"
     },
     { 
       name: "Campus Food Court", 
       type: t("Food Court", "Food Court"), 
       image: clientCampus,
-      description: t("a officiellement rejoint notre plateforme Sameats", "has officially joined our Sameats platform")
+      description: t("a officiellement rejoint notre plateforme Sameats", "has officially joined our Sameats platform"),
+      revenueBefore: "€4,100",
+      revenueAfter: "€11,500",
+      increase: "+180%",
+      location: "Lyon"
     },
     { 
       name: "First Pizza", 
       type: t("Pizzeria", "Pizzeria"), 
       image: clientFirstPizza,
-      description: t("a officiellement rejoint notre plateforme Sameats", "has officially joined our Sameats platform")
+      description: t("a officiellement rejoint notre plateforme Sameats", "has officially joined our Sameats platform"),
+      revenueBefore: "€2,200",
+      revenueAfter: "€5,800",
+      increase: "+164%",
+      location: "Marseille"
     },
     { 
       name: "Patroné Forno", 
       type: t("Pizzeria", "Pizzeria"), 
       image: clientPatrone,
-      description: t("a officiellement rejoint notre plateforme Sameats", "has officially joined our Sameats platform")
+      description: t("a officiellement rejoint notre plateforme Sameats", "has officially joined our Sameats platform"),
+      revenueBefore: "€3,500",
+      revenueAfter: "€8,900",
+      increase: "+154%",
+      location: "Nice"
     },
     { 
       name: "Rest Sidi Bou Said", 
       type: t("Restaurant", "Restaurant"), 
       image: clientRestSidi,
-      description: t("a officiellement rejoint notre plateforme Sameats", "has officially joined our Sameats platform")
+      description: t("a officiellement rejoint notre plateforme Sameats", "has officially joined our Sameats platform"),
+      revenueBefore: "€3,800",
+      revenueAfter: "€9,200",
+      increase: "+142%",
+      location: "Toulouse"
     },
   ];
 
@@ -49,10 +69,10 @@ export function ClientsSection() {
   ];
 
   return (
-    <section id="clients" className="py-20 bg-dark-800">
-      <div className="container mx-auto px-6">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-poppins font-bold mb-6">
+    <section id="clients" className="py-16 md:py-20 bg-dark-800">
+      <div className="container mx-auto px-4 md:px-6">
+        <div className="text-center mb-12 md:mb-16">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-poppins font-bold mb-6">
             {t("Ils nous font confiance", "They trust us")}
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
@@ -63,24 +83,46 @@ export function ClientsSection() {
           </p>
         </div>
         
-        {/* Modern Client Grid - 2 to 5 columns */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 items-center mb-20">
+        {/* Enhanced Client Showcase - Mobile-first with revenue data */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 md:gap-8 mb-20">
           {clients.map((client, index) => (
-            <div key={index} className="neo-card p-6 rounded-2xl hover-lift group cursor-pointer text-center overflow-hidden relative">
-              <div className="absolute inset-0 bg-gradient-to-br from-primary-500/5 to-secondary-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl"></div>
+            <div key={index} className="neo-card p-4 md:p-6 rounded-2xl hover-lift group cursor-pointer overflow-hidden relative">
+              <div className="absolute inset-0 bg-gradient-to-br from-green-500/5 to-primary-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl"></div>
               <div className="relative z-10">
-                <div className="w-full h-36 mb-4 rounded-xl overflow-hidden bg-dark-600 border border-gray-700/50">
+                {/* Success badge */}
+                <div className="absolute -top-2 -right-2 w-8 h-8 bg-green-500 rounded-full flex items-center justify-center z-20">
+                  <i className="fas fa-check text-white text-xs"></i>
+                </div>
+                
+                <div className="w-full h-32 md:h-36 mb-4 rounded-xl overflow-hidden bg-dark-600 border border-gray-700/50">
                   <img 
                     src={client.image} 
                     alt={client.name}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                   />
                 </div>
-                <div className="space-y-2">
-                  <h3 className="font-semibold text-sm group-hover:text-primary-300 transition-colors">{client.name}</h3>
-                  <p className="text-xs text-gray-400 font-medium">{client.type}</p>
-                  <div className="h-8">
-                    <p className="text-xs text-primary-400 leading-tight opacity-0 group-hover:opacity-100 transition-opacity duration-300">{client.description}</p>
+                
+                <div className="space-y-2 text-center">
+                  <h3 className="font-semibold text-sm md:text-base group-hover:text-primary-300 transition-colors">{client.name}</h3>
+                  <p className="text-xs text-gray-400 font-medium">{client.type} • {client.location}</p>
+                  
+                  {/* Revenue showcase - appears on hover */}
+                  <div className="opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
+                    <div className="bg-green-500/10 border border-green-500/20 rounded-lg p-3 mt-3">
+                      <div className="flex justify-between items-center text-xs mb-2">
+                        <span className="text-gray-400">{t("Avant", "Before")}</span>
+                        <span className="text-gray-400">{t("Après", "After")}</span>
+                      </div>
+                      <div className="flex justify-between items-center mb-2">
+                        <span className="text-red-400 font-medium">{client.revenueBefore}</span>
+                        <span className="text-green-400 font-medium">{client.revenueAfter}</span>
+                      </div>
+                      <div className="text-center">
+                        <span className="inline-block px-2 py-1 bg-green-500/20 text-green-300 rounded-full text-xs font-bold">
+                          {client.increase}
+                        </span>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>

@@ -62,8 +62,8 @@ export function FeaturesSection() {
         <div className="absolute bottom-20 left-10 w-40 h-40 bg-secondary-500/10 rounded-full blur-3xl"></div>
       </div>
       
-      <div className="container mx-auto px-6 relative z-10">
-        <div className="text-center mb-20">
+      <div className="container mx-auto px-4 md:px-6 relative z-10">
+        <div className="text-center mb-16 md:mb-20">
           <div className="inline-block px-4 py-2 bg-primary-500/10 border border-primary-500/20 rounded-full text-sm font-medium text-primary-300 mb-6">
             {t("🎯 Fonctionnalités Avancées", "🎯 Advanced Features")}
           </div>
@@ -78,9 +78,9 @@ export function FeaturesSection() {
           </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {features.map((feature, index) => (
-            <div key={index} className="neo-card p-8 rounded-2xl hover-lift group relative overflow-hidden">
+            <div key={index} className="neo-card p-6 md:p-8 rounded-2xl hover-lift group relative overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-br from-primary-500/5 to-secondary-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               <div className="relative z-10">
                 <div className="w-20 h-20 bg-primary-gradient rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">

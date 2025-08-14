@@ -227,4 +227,43 @@
   .animate-fadeInScale {
     animation: fadeInScale 0.8s ease-out;
   }
+
+  /* Mobile-first responsive improvements */
+  @media (max-width: 768px) {
+    .hover-lift:hover {
+      transform: translateY(-4px) scale(1.01);
+    }
+    
+    .glass-card, .neo-card {
+      backdrop-filter: blur(10px);
+    }
+    
+    .gradient-text {
+      background-size: 100% 100%;
+      animation: none;
+    }
+  }
+
+  /* Touch device optimizations */
+  @media (hover: none) and (pointer: coarse) {
+    .hover-lift:active {
+      transform: translateY(-2px) scale(1.02);
+    }
+    
+    .modern-button:active {
+      transform: scale(0.98);
+    }
+  }
+
+  /* Performance optimizations for mobile */
+  @media (max-width: 768px) {
+    .blob {
+      animation-duration: 30s;
+      filter: blur(40px);
+    }
+    
+    .floating-element {
+      animation-duration: 8s;
+    }
+  }
 }

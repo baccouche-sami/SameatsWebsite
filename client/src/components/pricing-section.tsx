@@ -71,8 +71,8 @@ export function PricingSection() {
         <div className="absolute bottom-10 right-20 w-64 h-64 bg-secondary-500/5 rounded-full blur-3xl"></div>
       </div>
       
-      <div className="container mx-auto px-6 relative z-10">
-        <div className="text-center mb-20">
+      <div className="container mx-auto px-4 md:px-6 relative z-10">
+        <div className="text-center mb-16 md:mb-20">
           <div className="inline-block px-4 py-2 bg-green-500/10 border border-green-500/20 rounded-full text-sm font-medium text-green-300 mb-6">
             {t("💰 Prix Transparents", "💰 Transparent Pricing")}
           </div>
@@ -122,7 +122,7 @@ export function PricingSection() {
           </div>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 max-w-7xl mx-auto">
           {plans.map((plan, index) => (
             <div key={index} className={`neo-card p-8 rounded-2xl hover-lift group relative transition-all duration-500 ${
               plan.popular ? 'border-2 border-primary-500 scale-105' : ''

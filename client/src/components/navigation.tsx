@@ -16,16 +16,16 @@ export function Navigation() {
 
   return (
     <nav className="fixed top-0 w-full z-50 bg-black/80 backdrop-blur-xl border-b border-gray-700/50 transition-all duration-300">
-      <div className="container mx-auto px-6 py-4">
+      <div className="container mx-auto px-4 md:px-6 py-3 md:py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <div className="flex items-center space-x-3 cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+          <div className="flex items-center space-x-2 md:space-x-3 cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
             <img 
               src={faviconImg} 
               alt="SAMEATS Icon" 
-              className="w-10 h-10 drop-shadow-lg"
+              className="w-8 h-8 md:w-10 md:h-10 drop-shadow-lg"
             />
-            <span className="text-2xl font-poppins font-bold gradient-text">SAMEATS</span>
+            <span className="text-xl md:text-2xl font-poppins font-bold gradient-text">SAMEATS</span>
           </div>
           
           {/* Navigation Links */}
