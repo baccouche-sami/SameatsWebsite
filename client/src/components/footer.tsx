@@ -1,5 +1,5 @@
 import { useLanguage } from "./language-provider";
-import logoWhite from "@assets/logo-blanc_1755206801232.png";
+import sameatsLogo from "@assets/logo-blanc_1755211740901.png";
 import favicon from "@assets/favicon_1755206801229.png";
 
 export function Footer() {
@@ -18,16 +18,11 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
           {/* Logo & Description */}
           <div className="col-span-1 md:col-span-2">
-            <div className="flex items-center space-x-3 mb-6">
+            <div className="flex items-center mb-6">
               <img 
-                src={favicon} 
+                src={sameatsLogo} 
                 alt="SAMEATS" 
-                className="w-12 h-12 drop-shadow-lg"
-              />
-              <img 
-                src={logoWhite} 
-                alt="SAMEATS" 
-                className="h-10"
+                className="h-12 w-auto drop-shadow-lg"
               />
             </div>
             <p className="text-gray-300 mb-6 max-w-lg text-lg leading-relaxed">

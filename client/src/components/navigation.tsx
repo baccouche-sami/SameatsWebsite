@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useLanguage } from "./language-provider";
+import sameatsLogo from "@assets/logo-blanc_1755211740901.png";
 import faviconImg from "@assets/favicon_1755206801229.png";
 
 export function Navigation() {
@@ -19,13 +20,12 @@ export function Navigation() {
       <div className="container mx-auto px-4 md:px-6 py-3 md:py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <div className="flex items-center space-x-2 md:space-x-3 cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+          <div className="flex items-center cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
             <img 
-              src={faviconImg} 
-              alt="SAMEATS Icon" 
-              className="w-8 h-8 md:w-10 md:h-10 drop-shadow-lg"
+              src={sameatsLogo} 
+              alt="SAMEATS" 
+              className="h-8 md:h-10 w-auto drop-shadow-lg hover:scale-105 transition-transform duration-300"
             />
-            <span className="text-xl md:text-2xl font-poppins font-bold gradient-text">SAMEATS</span>
           </div>
           
           {/* Navigation Links */}

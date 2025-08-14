@@ -1,5 +1,6 @@
 import { useLanguage } from "./language-provider";
 import { ThreeHeroBackground } from "./three-hero-background";
+import sameatsLogo from "@assets/logo-blanc_1755211740901.png";
 
 export function HeroSection() {
   const { t } = useLanguage();
@@ -27,6 +28,15 @@ export function HeroSection() {
               {t("🚀 Solution N°1 en France", "🚀 #1 Solution in France")}
             </span>
           </div>
+          {/* Logo showcase */}
+          <div className="mb-8 animate-fadeInScale">
+            <img 
+              src={sameatsLogo} 
+              alt="SAMEATS"
+              className="h-16 md:h-20 w-auto mx-auto drop-shadow-2xl"
+            />
+          </div>
+          
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-poppins font-bold mb-6 md:mb-8 leading-tight animate-slideInUp">
             <span className="block mb-2 md:mb-4">
               {t("Votre solution de commande en ligne", "Your fully branded online ordering solution")}

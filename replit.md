@@ -4,6 +4,8 @@
 
 SAMEATS is a modern, bilingual (French/English) restaurant ordering platform that provides a complete solution for restaurants to establish their online presence. The application features a responsive showcase website built with React, TypeScript, and Tailwind CSS, offering restaurant owners a comprehensive ordering system including website, mobile apps, and back-office management tools. The platform targets independent restaurants, restaurant groups, franchises, and dark kitchens with subscription-based pricing starting at €69/month and a €500 setup fee.
 
+The website now features professional Three.js visual elements, mobile-first responsive design, and compelling revenue showcase data to attract restaurant owners by demonstrating proven client success with +165% average revenue increases.
+
 ## User Preferences
 
 Preferred communication style: Simple, everyday language.
@@ -17,6 +19,9 @@ Preferred communication style: Simple, everyday language.
 - **UI Components**: Radix UI primitives with shadcn/ui component library for consistent, accessible interface elements
 - **State Management**: TanStack React Query for server state management and data fetching
 - **Internationalization**: Custom language provider supporting French and English with dynamic content switching
+- **Visual Effects**: Three.js integration for floating particles, geometric shapes, and interactive hero background
+- **Branding**: Professional SAMEATS logo with circular design and pixelated elements (logo-blanc_1755211740901.png)
+- **Design Philosophy**: Mobile-first responsive design with performance optimizations for all devices
 
 ### Backend Architecture
 - **Runtime**: Node.js with Express.js server framework
