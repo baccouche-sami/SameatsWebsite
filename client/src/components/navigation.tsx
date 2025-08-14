@@ -1,26 +1,31 @@
 import { useState } from "react";
 import { useLanguage } from "./language-provider";
+import faviconImg from "@assets/favicon_1755206801229.png";
 
 export function Navigation() {
   const { language, setLanguage, t } = useLanguage();
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
+      setIsMobileMenuOpen(false);
     }
   };
 
   return (
-    <nav className="fixed top-0 w-full z-50 bg-dark-800/90 backdrop-blur-md border-b border-gray-800">
+    <nav className="fixed top-0 w-full z-50 bg-black/80 backdrop-blur-xl border-b border-gray-700/50 transition-all duration-300">
       <div className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <div className="flex items-center space-x-3">
-            <div className="w-10 h-10 bg-primary-gradient rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-xl">S</span>
-            </div>
-            <span className="text-2xl font-poppins font-bold">SAMEATS</span>
+          <div className="flex items-center space-x-3 cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+            <img 
+              src={faviconImg} 
+              alt="SAMEATS Icon" 
+              className="w-10 h-10 drop-shadow-lg"
+            />
+            <span className="text-2xl font-poppins font-bold gradient-text">SAMEATS</span>
           </div>
           
           {/* Navigation Links */}

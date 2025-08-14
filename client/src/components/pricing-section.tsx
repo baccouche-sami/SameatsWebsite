@@ -64,18 +64,40 @@ export function PricingSection() {
   ];
 
   return (
-    <section id="pricing" className="py-20 bg-dark-700">
-      <div className="container mx-auto px-6">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-poppins font-bold mb-6">
+    <section id="pricing" className="py-24 bg-gradient-to-br from-dark-700 via-dark-800 to-dark-900 relative overflow-hidden">
+      {/* Background elements */}
+      <div className="absolute inset-0">
+        <div className="absolute top-10 left-20 w-64 h-64 bg-primary-500/5 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-10 right-20 w-64 h-64 bg-secondary-500/5 rounded-full blur-3xl"></div>
+      </div>
+      
+      <div className="container mx-auto px-6 relative z-10">
+        <div className="text-center mb-20">
+          <div className="inline-block px-4 py-2 bg-green-500/10 border border-green-500/20 rounded-full text-sm font-medium text-green-300 mb-6">
+            {t("💰 Prix Transparents", "💰 Transparent Pricing")}
+          </div>
+          <h2 className="text-4xl md:text-6xl font-poppins font-bold mb-6 gradient-text">
             {t("Tarifs transparents", "Transparent Pricing")}
           </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-8">
-            {t(
-              "0% commission SAMEATS • Frais PSP à votre charge • Installation 500€ + 1 mois gratuit",
-              "0% SAMEATS commission • PSP fees on you • €500 setup + 1 month free"
-            )}
-          </p>
+          <div className="max-w-4xl mx-auto">
+            <p className="text-xl text-gray-300 mb-6 leading-relaxed">
+              {t(
+                "0% commission SAMEATS • Frais PSP à votre charge • Installation 500€ + 1 mois gratuit",
+                "0% SAMEATS commission • PSP fees on you • €500 setup + 1 month free"
+              )}
+            </p>
+            <div className="flex flex-wrap justify-center gap-4 text-sm">
+              <span className="px-4 py-2 bg-green-500/20 text-green-300 rounded-full">
+                {t("✓ Sans engagement", "✓ No commitment")}
+              </span>
+              <span className="px-4 py-2 bg-blue-500/20 text-blue-300 rounded-full">
+                {t("✓ Support inclus", "✓ Support included")}
+              </span>
+              <span className="px-4 py-2 bg-purple-500/20 text-purple-300 rounded-full">
+                {t("✓ Mises à jour gratuites", "✓ Free updates")}
+              </span>
+            </div>
+          </div>
           <div className="flex items-center justify-center space-x-4 mb-8">
             <span className="text-gray-400">
               {t("Mensuel", "Monthly")}
@@ -100,49 +122,61 @@ export function PricingSection() {
           </div>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
           {plans.map((plan, index) => (
-            <div key={index} className={`glass-card p-8 rounded-xl hover-lift ${
-              plan.popular ? 'border-primary-500 border-2 relative' : ''
+            <div key={index} className={`neo-card p-8 rounded-2xl hover-lift group relative transition-all duration-500 ${
+              plan.popular ? 'border-2 border-primary-500 scale-105' : ''
             }`}>
               {plan.popular && (
                 <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                  <span className="bg-primary-gradient px-4 py-2 rounded-full text-sm font-medium">
+                  <span className="bg-primary-gradient px-6 py-2 rounded-full text-sm font-semibold shadow-lg">
+                    <i className="fas fa-crown mr-2"></i>
                     {t("Populaire", "Popular")}
                   </span>
                 </div>
               )}
-              <div className="text-center">
-                <h3 className="text-2xl font-poppins font-bold mb-2">{plan.name}</h3>
+              
+              <div className="absolute inset-0 bg-gradient-to-br from-primary-500/5 to-secondary-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl"></div>
+              
+              <div className="text-center relative z-10">
+                <div className="w-16 h-16 bg-primary-gradient rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                  <i className={`${plan.popular ? 'fas fa-crown' : 'fas fa-rocket'} text-white text-xl`}></i>
+                </div>
+                <h3 className="text-2xl font-poppins font-bold mb-4 group-hover:text-primary-300 transition-colors">{plan.name}</h3>
                 <div className="text-4xl font-bold mb-6">
                   <span className="gradient-text">{plan.price}</span>
                   {plan.price !== t("Sur devis", "On quote") && (
-                    <span className="text-lg text-gray-400">
+                    <span className="text-lg text-gray-400 block text-sm mt-1">
                       {t("/mois", "/month")}
                     </span>
                   )}
                 </div>
               </div>
-              <ul className="space-y-3 mb-8">
+              <ul className="space-y-4 mb-8 text-left relative z-10">
                 {plan.features.map((feature, featureIndex) => (
-                  <li key={featureIndex} className="flex items-center space-x-2">
-                    <i className="fas fa-check text-primary-500"></i>
-                    <span>{feature}</span>
+                  <li key={featureIndex} className="flex items-start text-sm">
+                    <div className="w-5 h-5 bg-green-500/20 rounded-full flex items-center justify-center mr-3 mt-0.5 flex-shrink-0">
+                      <i className="fas fa-check text-green-400 text-xs"></i>
+                    </div>
+                    <span className="text-gray-300">{feature}</span>
                   </li>
                 ))}
               </ul>
               <button 
                 onClick={scrollToContact}
-                className={`w-full py-3 rounded-lg font-semibold transition-all ${
+                className={`w-full py-4 rounded-xl font-semibold transition-all duration-300 relative overflow-hidden relative z-10 ${
                   plan.popular 
-                    ? 'bg-primary-gradient hover-lift' 
-                    : 'border-2 border-primary-500 hover:bg-primary-500'
+                    ? 'modern-button text-white shadow-lg' 
+                    : 'border-2 border-primary-500 hover:bg-primary-500 hover:shadow-lg bg-primary-500/10'
                 }`}
               >
-                {plan.name === "Enterprise" 
-                  ? t("Nous contacter", "Contact Us")
-                  : t("Commencer", "Get Started")
-                }
+                <span className="relative z-10 flex items-center justify-center gap-2">
+                  <i className={`fas ${plan.popular ? 'fa-rocket' : 'fa-arrow-right'}`}></i>
+                  {plan.name === "Enterprise" 
+                    ? t("Nous contacter", "Contact Us")
+                    : t("Commencer", "Get Started")
+                  }
+                </span>
               </button>
             </div>
           ))}

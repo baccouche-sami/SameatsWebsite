@@ -71,57 +71,160 @@
 
 @layer components {
   .glass-card {
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
   }
   
   .gradient-text {
-    background: linear-gradient(135deg, #FF6A00 0%, #FFC700 100%);
+    background: linear-gradient(135deg, #FF6A00 0%, #FFC700 50%, #FF6A00 100%);
+    background-size: 200% 200%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    animation: gradientShift 3s ease-in-out infinite;
   }
   
   .hover-lift {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   }
   
   .hover-lift:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 20px 40px rgba(255, 106, 0, 0.2);
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 25px 50px rgba(255, 106, 0, 0.25);
   }
   
   .blob {
     position: absolute;
     border-radius: 50%;
-    filter: blur(40px);
-    opacity: 0.3;
-    animation: blob 20s infinite;
+    filter: blur(60px);
+    opacity: 0.2;
+    animation: blob 25s infinite;
   }
   
   .bg-primary-gradient {
-    background: linear-gradient(135deg, #FF6A00 0%, #FFC700 100%);
+    background: linear-gradient(135deg, #FF6A00 0%, #FFC700 50%, #FF8C42 100%);
   }
   
   .bg-dark-gradient {
-    background: linear-gradient(135deg, #0F0F23 0%, #1A1A2E 100%);
+    background: linear-gradient(135deg, #0F0F23 0%, #1A1A2E 50%, #16213E 100%);
+  }
+  
+  .neo-card {
+    background: linear-gradient(145deg, #1a1a2e, #16213e);
+    border: 1px solid rgba(255, 106, 0, 0.1);
+    box-shadow: 
+      0 4px 15px rgba(0, 0, 0, 0.2),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  }
+  
+  .floating-element {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  .modern-button {
+    background: linear-gradient(135deg, #FF6A00 0%, #FFC700 100%);
+    border: none;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+  
+  .modern-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
+  }
+  
+  .modern-button:hover::before {
+    left: 100%;
+  }
+  
+  .section-glow {
+    position: relative;
+  }
+  
+  .section-glow::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: 50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 106, 0, 0.1) 0%, transparent 70%);
+    transform: translateX(-50%);
+    pointer-events: none;
   }
 }
 
 @layer utilities {
   @keyframes blob {
     0%, 100% { 
-      transform: translate(0, 0) scale(1); 
+      transform: translate(0, 0) scale(1) rotate(0deg); 
     }
     25% { 
-      transform: translate(20px, -50px) scale(1.1); 
+      transform: translate(20px, -50px) scale(1.1) rotate(90deg); 
     }
     50% { 
-      transform: translate(-20px, 20px) scale(0.9); 
+      transform: translate(-20px, 20px) scale(0.9) rotate(180deg); 
     }
     75% { 
-      transform: translate(50px, 10px) scale(1.05); 
+      transform: translate(50px, 10px) scale(1.05) rotate(270deg); 
     }
+  }
+  
+  @keyframes gradientShift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+  
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+  }
+  
+  @keyframes pulse-glow {
+    0%, 100% { 
+      box-shadow: 0 0 20px rgba(255, 106, 0, 0.3);
+    }
+    50% { 
+      box-shadow: 0 0 40px rgba(255, 106, 0, 0.6);
+    }
+  }
+  
+  @keyframes slideInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes fadeInScale {
+    from {
+      opacity: 0;
+      transform: scale(0.8);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  
+  .animate-slideInUp {
+    animation: slideInUp 0.6s ease-out;
+  }
+  
+  .animate-fadeInScale {
+    animation: fadeInScale 0.8s ease-out;
   }
 }

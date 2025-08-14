@@ -1,14 +1,44 @@
 import { useLanguage } from "./language-provider";
+import clientT9 from "@assets/Poste 1_1755206844217.jpg";
+import clientCampus from "@assets/Poste 2_1755206844219.jpg";
+import clientFirstPizza from "@assets/Poste 3_1755206844220.jpg";
+import clientPatrone from "@assets/Poste 4_1755206844220.jpg";
+import clientRestSidi from "@assets/Poste 5_1755206844221.jpg";
 
 export function ClientsSection() {
   const { t } = useLanguage();
 
   const clients = [
-    { name: "T9 Foodies & Grill", type: t("Restaurant", "Restaurant"), icon: "T9" },
-    { name: "Campus Food Court", type: t("Food Court", "Food Court"), icon: "fas fa-utensils" },
-    { name: "First Pizza", type: t("Pizzeria", "Pizzeria"), icon: "fas fa-pizza-slice" },
-    { name: "Patroné Forno", type: t("Pizzeria", "Pizzeria"), icon: "PF" },
-    { name: "Rest Sidi Bou Said", type: t("Restaurant", "Restaurant"), icon: "fas fa-star" },
+    { 
+      name: "T9 Foodies & Grill", 
+      type: t("Restaurant", "Restaurant"), 
+      image: clientT9,
+      description: t("a officiellement rejoint notre plateforme Sameats", "has officially joined our Sameats platform")
+    },
+    { 
+      name: "Campus Food Court", 
+      type: t("Food Court", "Food Court"), 
+      image: clientCampus,
+      description: t("a officiellement rejoint notre plateforme Sameats", "has officially joined our Sameats platform")
+    },
+    { 
+      name: "First Pizza", 
+      type: t("Pizzeria", "Pizzeria"), 
+      image: clientFirstPizza,
+      description: t("a officiellement rejoint notre plateforme Sameats", "has officially joined our Sameats platform")
+    },
+    { 
+      name: "Patroné Forno", 
+      type: t("Pizzeria", "Pizzeria"), 
+      image: clientPatrone,
+      description: t("a officiellement rejoint notre plateforme Sameats", "has officially joined our Sameats platform")
+    },
+    { 
+      name: "Rest Sidi Bou Said", 
+      type: t("Restaurant", "Restaurant"), 
+      image: clientRestSidi,
+      description: t("a officiellement rejoint notre plateforme Sameats", "has officially joined our Sameats platform")
+    },
   ];
 
   const stats = [
@@ -33,21 +63,27 @@ export function ClientsSection() {
           </p>
         </div>
         
-        {/* Responsive Client Grid - 2 to 5 columns */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 items-center mb-16">
+        {/* Modern Client Grid - 2 to 5 columns */}
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 items-center mb-20">
           {clients.map((client, index) => (
-            <div key={index} className="glass-card p-6 rounded-xl hover-lift group cursor-pointer text-center">
-              <div className="w-16 h-16 bg-dark-600 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-primary-gradient transition-all">
-                {client.icon.startsWith('fas') ? (
-                  <i className={`${client.icon} text-primary-500 group-hover:text-white text-xl`}></i>
-                ) : (
-                  <span className="text-lg font-bold text-primary-500 group-hover:text-white">
-                    {client.icon}
-                  </span>
-                )}
+            <div key={index} className="neo-card p-6 rounded-2xl hover-lift group cursor-pointer text-center overflow-hidden relative">
+              <div className="absolute inset-0 bg-gradient-to-br from-primary-500/5 to-secondary-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl"></div>
+              <div className="relative z-10">
+                <div className="w-full h-36 mb-4 rounded-xl overflow-hidden bg-dark-600 border border-gray-700/50">
+                  <img 
+                    src={client.image} 
+                    alt={client.name}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                </div>
+                <div className="space-y-2">
+                  <h3 className="font-semibold text-sm group-hover:text-primary-300 transition-colors">{client.name}</h3>
+                  <p className="text-xs text-gray-400 font-medium">{client.type}</p>
+                  <div className="h-8">
+                    <p className="text-xs text-primary-400 leading-tight opacity-0 group-hover:opacity-100 transition-opacity duration-300">{client.description}</p>
+                  </div>
+                </div>
               </div>
-              <h3 className="font-semibold text-sm mb-1">{client.name}</h3>
-              <p className="text-xs text-gray-400">{client.type}</p>
             </div>
           ))}
         </div>
