@@ -27,18 +27,10 @@ export function Footer() {
             </div>
             <p className="text-gray-300 mb-6 max-w-lg text-lg leading-relaxed">
               {t(
-                "Solution complète de commande en ligne pour restaurants. Vendez directement à vos clients sans commission additionnelle grâce à la technologie UpMenu.",
-                "Complete online ordering solution for restaurants. Sell directly to your customers with no additional commissions using UpMenu technology."
+                "Solution complète de commande en ligne pour restaurants. Vendez directement à vos clients sans commission additionnelle.",
+                "Complete online ordering solution for restaurants. Sell directly to your customers with no additional commissions."
               )}
             </p>
-            <div className="bg-primary-500/10 border border-primary-500/20 rounded-lg p-4 mb-6">
-              <p className="text-sm text-primary-300">
-                {t(
-                  "🤝 Partenaire officiel et distributeur agréé UpMenu en France", 
-                  "🤝 Official UpMenu partner and authorized distributor in France"
-                )}
-              </p>
-            </div>
             <div className="flex space-x-6">
               <a href="#" className="w-12 h-12 bg-primary-500/10 rounded-full flex items-center justify-center text-gray-400 hover:text-primary-500 hover:bg-primary-500/20 transition-all duration-300">
                 <i className="fab fa-twitter text-xl"></i>

@@ -48,24 +48,14 @@ export function HeroSection() {
           
           <p className="text-lg md:text-xl text-gray-300 mb-6 md:mb-8 max-w-4xl mx-auto leading-relaxed animate-slideInUp" style={{ animationDelay: '0.2s' }}>
             {t(
-              "Système de commande en ligne complet alimenté par la technologie UpMenu. Lancez votre boutique en ligne en quelques minutes.",
-              "Complete online ordering system powered by UpMenu technology. Launch your online store in minutes."
+              "Système de commande en ligne complet pour restaurants. Lancez votre boutique en ligne en quelques minutes sans commission.",
+              "Complete online ordering system for restaurants. Launch your online store in minutes without commission."
             )}
             <br />
             <span className="gradient-text font-semibold">
               {t("Installation 500 € + 1 mois gratuit", "€500 setup + 1 month free")}
             </span>
           </p>
-          
-          {/* UpMenu Partnership Badge */}
-          <div className="mb-8 animate-fadeInScale" style={{ animationDelay: '0.4s' }}>
-            <div className="inline-flex items-center gap-3 bg-primary-500/10 border border-primary-500/20 rounded-2xl px-6 py-3">
-              <i className="fas fa-handshake text-primary-400"></i>
-              <span className="text-sm font-medium text-primary-300">
-                {t("Technologie UpMenu - Partenaire officiel France", "UpMenu Technology - Official France Partner")}
-              </span>
-            </div>
-          </div>
           
 
           

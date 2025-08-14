@@ -72,8 +72,8 @@ export function FeaturesSection() {
           </h2>
           <p className="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
             {t(
-              "Une solution complète pour digitaliser votre restaurant et augmenter vos revenus avec les dernières technologies",
-              "A complete solution to digitize your restaurant and increase your revenue with the latest technology"
+              "Tout ce dont votre restaurant a besoin pour vendre en ligne. Découvrez comment SAMEATS peut révolutionner votre activité.",
+              "Everything your restaurant needs to sell online. Discover how SAMEATS can revolutionize your business."
             )}
           </p>
         </div>
