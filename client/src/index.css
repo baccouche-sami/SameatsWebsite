@@ -212,7 +212,7 @@
   @keyframes fadeInScale {
     from {
       opacity: 0;
-      transform: scale(0.8);
+      transform: scale(0.9);
     }
     to {
       opacity: 1;
@@ -220,50 +220,112 @@
     }
   }
   
-  .animate-slideInUp {
-    animation: slideInUp 0.6s ease-out;
+  @keyframes float-delayed {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-15px);
+    }
+  }
+  
+  @keyframes float-slow {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+  
+  @keyframes spin-slow {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  @keyframes bounce-slow {
+    0%, 20%, 50%, 80%, 100% {
+      transform: translateY(0) translateX(-50%);
+    }
+    40% {
+      transform: translateY(-10px) translateX(-50%);
+    }
+    60% {
+      transform: translateY(-5px) translateX(-50%);
+    }
+  }
+  
+  @keyframes scroll-indicator {
+    0% {
+      transform: translateY(0);
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(12px);
+      opacity: 0;
+    }
   }
   
   .animate-fadeInScale {
-    animation: fadeInScale 0.8s ease-out;
+    animation: fadeInScale 0.8s ease-out forwards;
   }
-
-  /* Mobile-first responsive improvements */
-  @media (max-width: 768px) {
-    .hover-lift:hover {
-      transform: translateY(-4px) scale(1.01);
-    }
-    
-    .glass-card, .neo-card {
-      backdrop-filter: blur(10px);
-    }
-    
-    .gradient-text {
-      background-size: 100% 100%;
-      animation: none;
-    }
+  
+  .animate-slideInUp {
+    animation: slideInUp 0.8s ease-out forwards;
   }
-
-  /* Touch device optimizations */
-  @media (hover: none) and (pointer: coarse) {
-    .hover-lift:active {
-      transform: translateY(-2px) scale(1.02);
-    }
-    
-    .modern-button:active {
-      transform: scale(0.98);
-    }
+  
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
   }
-
-  /* Performance optimizations for mobile */
-  @media (max-width: 768px) {
-    .blob {
-      animation-duration: 30s;
-      filter: blur(40px);
-    }
-    
-    .floating-element {
-      animation-duration: 8s;
-    }
+  
+  .animate-float-delayed {
+    animation: float-delayed 8s ease-in-out infinite 2s;
+  }
+  
+  .animate-float-slow {
+    animation: float-slow 10s ease-in-out infinite 4s;
+  }
+  
+  .animate-spin-slow {
+    animation: spin-slow 20s linear infinite;
+  }
+  
+  .animate-bounce-slow {
+    animation: bounce-slow 2s infinite;
+  }
+  
+  .animate-scroll-indicator {
+    animation: scroll-indicator 2s ease-in-out infinite;
+  }
+  
+  .delay-200 {
+    animation-delay: 0.2s;
+  }
+  
+  .delay-300 {
+    animation-delay: 0.3s;
+  }
+  
+  .delay-400 {
+    animation-delay: 0.4s;
+  }
+  
+  .delay-500 {
+    animation-delay: 0.5s;
+  }
+  
+  .delay-700 {
+    animation-delay: 0.7s;
+  }
+  
+  .delay-1000 {
+    animation-delay: 1s;
   }
 }

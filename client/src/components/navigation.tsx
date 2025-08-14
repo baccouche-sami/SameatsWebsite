@@ -1,18 +1,25 @@
 import { useState } from "react";
+import { Link, useLocation } from "wouter";
 import { useLanguage } from "./language-provider";
 import sameatsLogo from "@assets/logo-blanc_1755211740901.png";
-import faviconImg from "@assets/favicon_1755206801229.png";
 
 export function Navigation() {
   const { language, setLanguage, t } = useLanguage();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [location] = useLocation();
 
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-      setIsMobileMenuOpen(false);
-    }
+  const navigation = [
+    { name: t("Accueil", "Home"), href: "/", id: "home" },
+    { name: t("Fonctionnalités", "Features"), href: "/features", id: "features" },
+    { name: t("Tarifs", "Pricing"), href: "/pricing", id: "pricing" },
+    { name: t("À Propos", "About"), href: "/about", id: "about" },
+    { name: t("Contact", "Contact"), href: "/contact", id: "contact" }
+  ];
+
+  const isActive = (href: string) => {
+    if (href === "/" && location === "/") return true;
+    if (href !== "/" && location.startsWith(href)) return true;
+    return false;
   };
 
   return (
@@ -20,46 +27,27 @@ export function Navigation() {
       <div className="container mx-auto px-4 md:px-6 py-3 md:py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <div className="flex items-center cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-            <img 
-              src={sameatsLogo} 
-              alt="SAMEATS" 
-              className="h-8 md:h-10 w-auto drop-shadow-lg hover:scale-105 transition-transform duration-300"
-            />
-          </div>
+          <Link href="/">
+            <div className="flex items-center cursor-pointer">
+              <img 
+                src={sameatsLogo} 
+                alt="SAMEATS" 
+                className="h-8 md:h-10 w-auto drop-shadow-lg hover:scale-105 transition-transform duration-300"
+              />
+            </div>
+          </Link>
           
           {/* Navigation Links */}
           <div className="hidden md:flex items-center space-x-8">
-            <button 
-              onClick={() => scrollToSection('features')}
-              className="hover:text-primary-500 transition-colors"
-            >
-              {t("Fonctionnalités", "Features")}
-            </button>
-            <button 
-              onClick={() => scrollToSection('solutions')}
-              className="hover:text-primary-500 transition-colors"
-            >
-              {t("Solutions", "Solutions")}
-            </button>
-            <button 
-              onClick={() => scrollToSection('pricing')}
-              className="hover:text-primary-500 transition-colors"
-            >
-              {t("Tarifs", "Pricing")}
-            </button>
-            <button 
-              onClick={() => scrollToSection('clients')}
-              className="hover:text-primary-500 transition-colors"
-            >
-              {t("Clients", "Clients")}
-            </button>
-            <button 
-              onClick={() => scrollToSection('contact')}
-              className="hover:text-primary-500 transition-colors"
-            >
-              {t("Contact", "Contact")}
-            </button>
+            {navigation.map((item) => (
+              <Link key={item.id} href={item.href}>
+                <span className={`hover:text-primary-500 transition-colors cursor-pointer font-medium ${
+                  isActive(item.href) ? 'text-primary-400' : 'text-white'
+                }`}>
+                  {item.name}
+                </span>
+              </Link>
+            ))}
           </div>
           
           {/* Language Toggle & CTA */}
@@ -86,12 +74,11 @@ export function Navigation() {
                 EN
               </button>
             </div>
-            <button 
-              onClick={() => scrollToSection('demo')}
-              className="bg-primary-gradient px-6 py-2 rounded-lg font-medium hover:shadow-lg transition-all hover-lift"
-            >
-              {t("Démo gratuite", "Free Demo")}
-            </button>
+            <Link href="/contact">
+              <button className="bg-primary-gradient px-6 py-2 rounded-lg font-medium hover:shadow-lg transition-all hover-lift">
+                {t("Démo gratuite", "Free Demo")}
+              </button>
+            </Link>
           </div>
         </div>
       </div>
