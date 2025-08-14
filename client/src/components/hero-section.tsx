@@ -39,17 +39,17 @@ export function HeroSection() {
           
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-poppins font-bold mb-6 md:mb-8 leading-tight animate-slideInUp">
             <span className="block mb-2 md:mb-4">
-              {t("Vendez en ligne sans commission", "Sell online without commission")}
+              {t("Tout ce dont votre restaurant a besoin", "Everything your restaurant needs")}
             </span>
             <span className="gradient-text block">
-              {t("Site web + App mobile inclus", "Website + Mobile app included")}
+              {t("pour vendre en ligne", "to sell online")}
             </span>
           </h1>
           
           <p className="text-lg md:text-xl text-gray-300 mb-6 md:mb-8 max-w-4xl mx-auto leading-relaxed animate-slideInUp" style={{ animationDelay: '0.2s' }}>
             {t(
-              "Système de commande en ligne complet pour restaurants. Lancez votre boutique en ligne en quelques minutes sans commission.",
-              "Complete online ordering system for restaurants. Launch your online store in minutes without commission."
+              "SAMEATS est un système de commande en ligne pour restaurants qui permet à vos clients de passer des commandes directement depuis votre site web ou app sans commission additionnelle.",
+              "SAMEATS is an online ordering system for restaurants that lets your customers place their food orders directly from your website or app without additional commissions."
             )}
             <br />
             <span className="gradient-text font-semibold">

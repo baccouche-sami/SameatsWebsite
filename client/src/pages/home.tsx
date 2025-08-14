@@ -1,7 +1,9 @@
 import { Navigation } from "@/components/navigation";
 import { HeroSection } from "@/components/hero-section";
 import { FeaturesSection } from "@/components/features-section";
-import { SolutionsSection } from "@/components/solutions-section";
+import { SolutionsOverviewSection } from "@/components/solutions-overview-section";
+import { CoreFeaturesSection } from "@/components/core-features-section";
+import { WebsiteExamplesSection } from "@/components/website-examples-section";
 import { PricingSection } from "@/components/pricing-section";
 import { ClientsSection } from "@/components/clients-section";
 
@@ -16,8 +18,10 @@ export default function Home() {
       <FloatingThreeElements />
       <Navigation />
       <HeroSection />
+      <SolutionsOverviewSection />
       <FeaturesSection />
-      <SolutionsSection />
+      <CoreFeaturesSection />
+      <WebsiteExamplesSection />
       <PricingSection />
       <ClientsSection />
       <DemoSection />
