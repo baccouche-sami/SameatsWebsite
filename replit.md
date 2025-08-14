@@ -4,7 +4,7 @@
 
 SAMEATS is a modern, bilingual (French/English) restaurant ordering platform that provides a complete solution for restaurants to establish their online presence. The application features a responsive showcase website built with React, TypeScript, and Tailwind CSS, offering restaurant owners a comprehensive ordering system including website, mobile apps, and back-office management tools. The platform targets independent restaurants, restaurant groups, franchises, and dark kitchens with subscription-based pricing starting at €69/month and a €500 setup fee.
 
-The website now features professional Three.js visual elements, mobile-first responsive design, and content inspired by UpMenu's approach and messaging. All revenue showcases and partnership mentions have been removed per user request, focusing instead on the zero-commission value proposition and comprehensive restaurant ordering solutions using similar messaging to UpMenu but branded as SAMEATS.
+The website has been completely redesigned as an ultra-professional, mobile-first showcase following UpMenu's structure and messaging but branded as SAMEATS. Features include advanced Three.js 3D elements with progressive enhancement, comprehensive client testimonials with visual badges, enhanced pricing section, and dual contact/quote forms with RGPD compliance. The site now positions SAMEATS as a complete restaurant digitization solution without revealing the white label relationship with UpMenu.
 
 ## User Preferences
 
@@ -22,8 +22,11 @@ Preferred communication style: Simple, everyday language.
 - **Visual Effects**: Three.js integration for floating particles, geometric shapes, and interactive hero background
 - **Branding**: Professional SAMEATS logo with circular design and pixelated elements (logo-blanc_1755211740901.png)
 - **Design Philosophy**: Mobile-first responsive design with performance optimizations for all devices
-- **Content Strategy**: Inspired by UpMenu's messaging and approach but branded as SAMEATS
-- **Messaging**: Removed all revenue statistics and partnership mentions per user request, focusing on zero-commission value proposition
+- **Content Strategy**: Completely restructured following UpMenu's approach but branded as SAMEATS white label
+- **3D Implementation**: Three.js hero section with orbiting service elements and fallback for mobile/reduced motion
+- **Client Showcase**: Interactive carousel with testimonials, badges, and sectoral positioning for trust building
+- **Professional Forms**: Dual-tab contact/quote system with RGPD compliance and comprehensive restaurant profiling
+- **Performance**: Mobile-first responsive design with progressive enhancement and accessibility compliance
 
 ### Backend Architecture
 - **Runtime**: Node.js with Express.js server framework

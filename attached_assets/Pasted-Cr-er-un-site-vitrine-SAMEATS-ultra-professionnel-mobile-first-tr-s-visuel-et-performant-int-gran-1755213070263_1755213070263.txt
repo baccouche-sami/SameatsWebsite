@@ -1,0 +1,39 @@
+Créer un site vitrine SAMEATS ultra professionnel, mobile-first, très visuel et performant, intégrant des éléments 3D (Three.js) en progressive enhancement.
+Le site doit mettre en valeur nos clients (logos + témoignages + mise en avant sectorielle) pour inspirer confiance et déclencher la prise de contact.
+
+Périmètre & Stack
+	•	Front: HTML5, CSS (Tailwind ou équivalent), JS (ES modules).
+	•	Animations: Three.js (WebGL) + GSAP/CSS transitions + fallback images ou Lottie.
+	•	3D assets: GLTF/GLB optimisés, textures WebP/AVIF, compression DRACO/Meshopt.
+	•	Mobile-first: d’abord XS/SM, enhancements desktop.
+	•	Accessibilité: WCAG 2.1 AA, focus visible, ARIA, prefers-reduced-motion.
+	•	Perf: LCP < 2,5 s (4G), TTI < 3 s, bundle JS ≤ 180 Ko gz.
+
+Pages / Sections
+	1.	Hero 3D (Three.js)
+	•	Mobile: visuel statique léger (WebP) optimisé.
+	•	Desktop: scène 3D simple et élégante (ex. plateau + icônes “site / app / back-office” en orbite lente).
+	•	CTA visibles: “Démarrer à 500 €” + “Demander une démo”.
+	•	Microcopy: “Sans commission — vous gardez vos marges”.
+	2.	Bénéfices clés
+	•	3 à 6 cartes claires (icône + texte) : augmentation des commandes, fidélisation, gestion simple, click&collect, livraison.
+	3.	Nos clients (mise en valeur)
+	•	Galerie de logos responsive (2 à 5 colonnes).
+	•	Carrousel 3D (Three.js) pour desktop, slider simple pour mobile.
+	•	Chaque client avec logo, nom, ville/pays, secteur, et témoignage court (max 2 phrases).
+	•	Badges visuels : “Client depuis 2023”, “Réseau multi-établissements”, “Cuisine du monde”, etc.
+	•	CTA “Découvrir leurs histoires” (ouvre modal/galerie).
+	4.	Fonctionnalités produit
+	•	Site de commande, Apps iOS/Android, back-office, paiements, marketing, multi-boutiques, international.
+	•	Captures/mockups légers, lazy-load.
+	5.	Tarifs
+	•	Bandeau: Installation 500 € + 1 mois gratuit • Sans engagement • -15 % en annuel • 0 % commission SAMEATS.
+	•	Start: 69 €/mois, Grow: 119 €/mois, Pro: 199 €/mois, Enterprise: sur devis.
+	•	Cartes tarifaires avec CTA et FAQ.
+	6.	Contact / Devis
+	•	Deux onglets : Contact rapide et Demande de devis (infos de base, besoin apps, livraison oui/non).
+	•	Consentement RGPD et reCAPTCHA.
+	7.	Démo
+	•	Intégration Calendly ou équivalent.
+	8.	Footer
+	•	Logo, liens légaux (CGU, Confidentialité, Mentions légales), coordonnées, switch FR/EN, année dynamique.
