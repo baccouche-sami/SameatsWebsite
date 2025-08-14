@@ -5,51 +5,51 @@ export function FeaturesSection() {
 
   const features = [
     {
-      icon: "fas fa-globe",
-      title: t("Site de commande", "Ordering Website"),
+      icon: "fas fa-shopping-cart",
+      title: t("Commande en Ligne", "Online Ordering"),
       description: t(
-        "Site web responsive et optimisé pour la conversion avec votre branding",
-        "Responsive website optimized for conversion with your branding"
+        "Système de commande directe sans commission. Vos clients commandent depuis votre site.",
+        "Direct ordering system without commission. Customers order from your website."
       )
     },
     {
       icon: "fas fa-mobile-alt",
-      title: t("Apps iOS/Android", "iOS/Android Apps"),
+      title: t("App Mobile Personnalisée", "Branded Mobile App"),
       description: t(
-        "Applications natives avec notifications push et expérience utilisateur premium",
-        "Native apps with push notifications and premium user experience"
+        "Application iOS et Android avec votre marque. Notifications push pour fidéliser vos clients.",
+        "iOS and Android app with your branding. Push notifications to retain customers."
       )
     },
     {
-      icon: "fas fa-chart-line",
-      title: t("Back-office", "Back-office"),
+      icon: "fas fa-palette",
+      title: t("Site Web sur Mesure", "Custom Website"),
       description: t(
-        "Interface de gestion complète : commandes, menu, analyses, promotions",
-        "Complete management interface: orders, menu, analytics, promotions"
+        "Plus de 40 thèmes disponibles. Personnalisation complète sans codage.",
+        "Over 40 themes available. Complete customization without coding."
       )
     },
     {
-      icon: "fas fa-credit-card",
-      title: t("Paiements modernes", "Modern Payments"),
+      icon: "fas fa-truck",
+      title: t("Gestion Livraisons", "Delivery Management"),
       description: t(
-        "Intégration sécurisée avec tous les modes de paiement populaires",
-        "Secure integration with all popular payment methods"
+        "Intégration avec des flottes tierces. Gestion simplifiée depuis une seule app.",
+        "Integration with third-party fleets. Simplified management from a single app."
       )
     },
     {
-      icon: "fas fa-bullhorn",
-      title: t("Marketing intégré", "Built-in Marketing"),
+      icon: "fas fa-percentage",
+      title: t("Zéro Commission", "Zero Commission"),
       description: t(
-        "Outils de fidélisation, promotions et campagnes automatisées",
-        "Loyalty tools, promotions and automated campaigns"
+        "Vendez directement à vos clients. Gardez 100% de vos revenus sans frais cachés.",
+        "Sell directly to your customers. Keep 100% of your revenue without hidden fees."
       )
     },
     {
-      icon: "fas fa-language",
-      title: t("International", "International"),
+      icon: "fas fa-rocket",
+      title: t("Installation Rapide", "Quick Setup"),
       description: t(
-        "Support multi-langues et multi-devises pour vos marchés",
-        "Multi-language and multi-currency support for your markets"
+        "Lancez votre boutique en ligne en quelques minutes. Service d'installation gratuit inclus.",
+        "Launch your online store in minutes. Free setup service included."
       )
     }
   ];

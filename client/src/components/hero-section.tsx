@@ -39,35 +39,35 @@ export function HeroSection() {
           
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-poppins font-bold mb-6 md:mb-8 leading-tight animate-slideInUp">
             <span className="block mb-2 md:mb-4">
-              {t("Votre solution de commande en ligne", "Your fully branded online ordering solution")}
+              {t("Vendez en ligne sans commission", "Sell online without commission")}
             </span>
             <span className="gradient-text block">
-              {t("100% personnalisée", "100% customized")}
+              {t("Site web + App mobile inclus", "Website + Mobile app included")}
             </span>
           </h1>
           
           <p className="text-lg md:text-xl text-gray-300 mb-6 md:mb-8 max-w-4xl mx-auto leading-relaxed animate-slideInUp" style={{ animationDelay: '0.2s' }}>
-            {t("Site web + apps iOS & Android + back-office complet.", "Website + iOS & Android apps + complete back-office.")}
+            {t(
+              "Système de commande en ligne complet alimenté par la technologie UpMenu. Lancez votre boutique en ligne en quelques minutes.",
+              "Complete online ordering system powered by UpMenu technology. Launch your online store in minutes."
+            )}
             <br />
             <span className="gradient-text font-semibold">
               {t("Installation 500 € + 1 mois gratuit", "€500 setup + 1 month free")}
             </span>
           </p>
           
-          {/* Mobile-first revenue highlight */}
-          <div className="mb-8 md:mb-12 animate-fadeInScale" style={{ animationDelay: '0.4s' }}>
-            <div className="inline-flex flex-col sm:flex-row items-center gap-4 sm:gap-8 bg-green-500/10 border border-green-500/20 rounded-2xl p-4 md:p-6">
-              <div className="text-center">
-                <div className="text-2xl md:text-3xl font-bold text-green-400">+165%</div>
-                <div className="text-xs md:text-sm text-gray-300">{t("CA moyen", "Avg revenue")}</div>
-              </div>
-              <div className="w-px h-8 bg-green-500/30 hidden sm:block"></div>
-              <div className="text-center">
-                <div className="text-2xl md:text-3xl font-bold text-primary-400">€8,500</div>
-                <div className="text-xs md:text-sm text-gray-300">{t("après 6 mois", "after 6 months")}</div>
-              </div>
+          {/* UpMenu Partnership Badge */}
+          <div className="mb-8 animate-fadeInScale" style={{ animationDelay: '0.4s' }}>
+            <div className="inline-flex items-center gap-3 bg-primary-500/10 border border-primary-500/20 rounded-2xl px-6 py-3">
+              <i className="fas fa-handshake text-primary-400"></i>
+              <span className="text-sm font-medium text-primary-300">
+                {t("Technologie UpMenu - Partenaire officiel France", "UpMenu Technology - Official France Partner")}
+              </span>
             </div>
           </div>
+          
+
           
           <div className="flex flex-col sm:flex-row gap-6 justify-center mb-16">
             <button 
