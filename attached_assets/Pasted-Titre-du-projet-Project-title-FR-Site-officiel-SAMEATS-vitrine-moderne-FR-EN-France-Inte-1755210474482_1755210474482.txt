@@ -1,0 +1,117 @@
+Titre du projet / Project title
+
+FR : Site officiel SAMEATS – vitrine moderne FR & EN (France + International)
+EN : SAMEATS Official Website – Modern Showcase FR & EN (France + International)
+
+⸻
+
+Objectif / Goal
+
+FR : Créer un site web vitrine moderne et responsive pour SAMEATS, solution de commande en ligne pour restaurants, avec un design premium, un système d’abonnements simple et rentable, et un formulaire de contact/devis.
+EN : Create a modern, responsive showcase website for SAMEATS, an online ordering solution for restaurants, with a premium design, a simple and profitable subscription system, and a contact/quote form.
+
+⸻
+
+Identité & style / Identity & Style
+	•	FR : Thème sombre élégant avec dégradé orange (#FF6A00) → jaune (#FFC700), typo claire et moderne (Poppins, Inter), coins arrondis, ombres douces, micro-interactions.
+	•	EN : Elegant dark theme with orange (#FF6A00) → yellow (#FFC700) gradient, clean modern typography (Poppins, Inter), rounded corners, soft shadows, micro-interactions.
+
+⸻
+
+Structure du site / Website structure
+
+1. Accueil / Hero
+
+FR : Titre fort : “Votre solution de commande en ligne 100 % personnalisée”, sous-titre : “Site web + apps iOS & Android + back-office complet. Installation 500 € + 1 mois gratuit”.
+CTA : Démarrer à 500 € + Demander une démo.
+Points clés : “Prêt en quelques jours”, “Sans commission sur vos ventes”, “Support réactif”.
+
+EN : Strong headline: “Your fully branded online ordering solution”, subheadline: “Website + iOS & Android apps + complete back-office. €500 setup + 1 month free”.
+CTAs: Get started for €500 + Request a demo.
+Key points: “Go live in days”, “No commission on your sales”, “Responsive support”.
+
+⸻
+
+2. Fonctionnalités clés / Key Features
+
+FR : Site de commande, Apps iOS/Android, Back-office, Paiements modernes, Marketing intégré, International.
+EN : Ordering website, iOS/Android apps, Back-office, Modern payments, Built-in marketing, International.
+
+⸻
+
+3. Solutions
+
+FR :
+	•	Restaurateurs indépendants
+	•	Groupes & franchises
+	•	Dark kitchens
+
+EN :
+	•	Independent restaurants
+	•	Groups & franchises
+	•	Dark kitchens
+
+⸻
+
+4. Tarifs / Pricing
+
+FR : Modèle clair, 0 % commission SAMEATS, frais PSP à la charge du client.
+Installation : 500 € + 1 mois gratuit. Sans engagement (mensuel), −15 % en annuel.
+	•	Start : 69 €/mois (1 établissement, commandes illimitées, site de commande, paiement en ligne + click&collect, back-office basique, support email).
+	•	Grow : 119 €/mois (jusqu’à 3 établissements, zones livraison, upsell/cross-sell, impressions cuisine/KDS, rapports avancés, support prioritaire).
+	•	Pro : 199 €/mois (apps iOS/Android, multi-langues/devises, promos avancées, SLA 99,9 %, support chat).
+	•	Enterprise : sur devis (>10 établissements, intégrations, SSO, formation).
+
+EN : Clear model, 0% SAMEATS commission, PSP fees paid by the client.
+Setup: €500 + 1 month free. No commitment (monthly), −15% yearly discount.
+	•	Start: €69/month (1 location, unlimited orders, ordering website, online payment + click&collect, basic back-office, email support).
+	•	Grow: €119/month (up to 3 locations, delivery zones, upsell/cross-sell, kitchen printing/KDS, advanced reports, priority support).
+	•	Pro: €199/month (iOS/Android apps, multi-language/currency, advanced promos, 99.9% SLA, chat support).
+	•	Enterprise: on quote (>10 locations, integrations, SSO, training).
+
+⸻
+
+5. Démo / Demo
+
+FR : Calendrier (ex. Calendly) pour réserver une présentation.
+EN : Calendar (e.g. Calendly) to book a presentation.
+
+⸻
+
+6. Contact / Devis – Contact / Quote
+
+FR : Deux onglets :
+	•	Contact rapide (Nom, Email, Message, consentement RGPD).
+	•	Demande de devis (Nom resto, pays, nb établissements, commandes/mois, livraison oui/non, besoin apps, budget, message, consentement RGPD).
+
+EN : Two tabs:
+	•	Quick contact (Name, Email, Message, GDPR consent).
+	•	Quote request (Restaurant name, country, number of locations, orders/month, delivery yes/no, apps needed, budget, message, GDPR consent).
+
+⸻
+
+7. Footer
+
+FR : Logo, liens légaux (CGU, Politique de confidentialité, Mentions légales), coordonnées, année dynamique.
+EN : Logo, legal links (Terms, Privacy Policy, Imprint), contact details, dynamic year.
+
+⸻
+
+Fonctionnalités techniques / Technical features
+
+FR : HTML/CSS/JS responsive, FR+EN avec toggle, SEO (meta + Open Graph), formulaires POST vers /api/form, RGPD-ready, aucun fournisseur tiers mentionné.
+EN : Responsive HTML/CSS/JS, FR+EN with toggle, SEO (meta + Open Graph), forms POST to /api/form, GDPR-ready, no third-party provider mentioned.
+
+⸻
+
+Offre mise en avant / Highlighted offer
+
+FR : Installation 500 € + 1 mois gratuit, abonnements à partir de 69 €/mois, sans commission SAMEATS.
+EN : €500 setup + 1 month free, subscriptions from €69/month, no SAMEATS commission.
+
+⸻
+
+Livrable attendu / Expected deliverable
+
+FR : Code source complet (HTML, CSS, JS + assets), prêt à héberger sur Replit, avec textes FR/EN intégrés, responsive, optimisé SEO et RGPD-ready.
+EN : Full source code (HTML, CSS, JS + assets), ready to host on Replit, with integrated FR/EN texts, responsive, SEO-optimized and GDPR-ready.
