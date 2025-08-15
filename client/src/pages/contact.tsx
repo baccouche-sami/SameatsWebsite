@@ -118,19 +118,19 @@ export default function Contact() {
       <ModernNavigation />
       
       {/* Hero Section */}
-      <section className="pt-24 pb-16 bg-[var(--background)] relative overflow-hidden">
+      <section className="pt-20 sm:pt-24 lg:pt-28 pb-12 sm:pb-16 bg-[var(--background)] relative overflow-hidden">
         <div className="absolute inset-0 dot-pattern opacity-20"></div>
         
-        <div className="container mx-auto px-4 md:px-6 relative">
-          <div className="text-center mb-16 animate-fade-in-up">
-            <div className="inline-flex items-center px-4 py-2 bg-[var(--surface)] border border-[var(--border)] rounded-full mb-6">
+        <div className="container-responsive relative">
+          <div className="text-center mb-12 sm:mb-16 animate-fade-in-up">
+            <div className="inline-flex items-center px-3 sm:px-4 py-2 bg-[var(--surface)] border border-[var(--border)] rounded-full mb-4 sm:mb-6">
               <i className="fas fa-headset text-[var(--primary)] mr-2"></i>
-              <span className="text-sm text-[var(--text-secondary)]">
+              <span className="text-xs sm:text-sm text-[var(--text-secondary)]">
                 {t("Support 24/7 disponible", "24/7 support available")}
               </span>
             </div>
             
-            <h1 className="text-5xl md:text-7xl font-bold mb-6">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 sm:mb-6">
               <span className="text-[var(--text-primary)]">
                 {t("Parlons de votre", "Let's talk about your")}
               </span>
@@ -140,7 +140,7 @@ export default function Contact() {
               </span>
             </h1>
             
-            <p className="text-xl text-[var(--text-secondary)] max-w-3xl mx-auto mb-8">
+            <p className="text-base sm:text-lg md:text-xl text-[var(--text-secondary)] max-w-xs sm:max-w-2xl lg:max-w-3xl mx-auto mb-6 sm:mb-8 leading-relaxed">
               {t(
                 "Notre équipe d'experts est prête à vous accompagner dans la transformation digitale de votre restaurant. Obtenez une consultation gratuite et un devis personnalisé.",
                 "Our team of experts is ready to support you in the digital transformation of your restaurant. Get a free consultation and personalized quote."
@@ -148,18 +148,18 @@ export default function Contact() {
             </p>
 
             {/* Quick Stats */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 max-w-4xl mx-auto">
               {[
                 { value: '<2h', label: t('Temps de réponse', 'Response time') },
                 { value: '500+', label: t('Restaurants clients', 'Client restaurants') },
                 { value: '24/7', label: t('Support technique', 'Technical support') },
                 { value: '98%', label: t('Satisfaction', 'Satisfaction') }
               ].map((stat, index) => (
-                <div key={index} className="text-center">
-                  <div className="text-2xl md:text-3xl font-bold gradient-text-modern mb-1">
+                <div key={index} className="text-center p-2">
+                  <div className="text-xl sm:text-2xl lg:text-3xl font-bold gradient-text-modern mb-1">
                     {stat.value}
                   </div>
-                  <div className="text-[var(--text-secondary)] text-sm">
+                  <div className="text-[var(--text-secondary)] text-xs sm:text-sm">
                     {stat.label}
                   </div>
                 </div>
@@ -170,10 +170,10 @@ export default function Contact() {
       </section>
 
       {/* Contact Methods */}
-      <section className="py-16 bg-[var(--surface)] relative">
-        <div className="container mx-auto px-4 md:px-6">
-          <div className="text-center mb-12 animate-fade-in-up">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+      <section className="py-12 sm:py-16 bg-[var(--surface)] relative">
+        <div className="container-responsive">
+          <div className="text-center mb-8 sm:mb-12 animate-fade-in-up">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4">
               <span className="text-[var(--text-primary)]">
                 {t("Choisissez votre", "Choose your")}
               </span>
@@ -184,26 +184,26 @@ export default function Contact() {
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 mb-12 sm:mb-16">
             {contactMethods.map((method, index) => (
               <div
                 key={index}
-                className="modern-card p-8 text-center group hover:shadow-xl transition-all duration-300 animate-fade-in-up"
+                className="modern-card p-6 sm:p-8 text-center group hover:shadow-xl transition-all duration-300 animate-fade-in-up mobile-no-hover"
                 style={{ animationDelay: `${index * 200}ms` }}
               >
-                <div className={`w-16 h-16 bg-gradient-to-br ${method.color} rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300`}>
-                  <i className={`${method.icon} text-2xl text-white`}></i>
+                <div className={`w-12 sm:w-16 h-12 sm:h-16 bg-gradient-to-br ${method.color} rounded-2xl flex items-center justify-center mx-auto mb-4 sm:mb-6 group-hover:scale-110 transition-transform duration-300`}>
+                  <i className={`${method.icon} text-lg sm:text-2xl text-white`}></i>
                 </div>
                 
-                <h3 className="text-xl font-bold text-[var(--text-primary)] mb-2">
+                <h3 className="text-lg sm:text-xl font-bold text-[var(--text-primary)] mb-2">
                   {method.title}
                 </h3>
                 
-                <p className="text-[var(--text-secondary)] mb-6 leading-relaxed">
+                <p className="text-[var(--text-secondary)] mb-4 sm:mb-6 leading-relaxed text-sm sm:text-base">
                   {method.description}
                 </p>
 
-                <button className="btn-primary w-full">
+                <button className="btn-primary w-full touch-target text-sm sm:text-base">
                   {method.action}
                 </button>
               </div>

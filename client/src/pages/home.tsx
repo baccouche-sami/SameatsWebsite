@@ -13,7 +13,7 @@ export default function Home() {
   const { t, language } = useLanguage();
   
   return (
-    <div className="min-h-screen bg-[var(--background)] text-[var(--text-primary)] font-inter overflow-x-hidden">
+    <div className="min-h-screen bg-[var(--background)] text-[var(--text-primary)] font-inter overflow-x-hidden mobile-text-optimize">
       <SEOHead
         title={t(
           "SAMEATS - Solution complète de commande en ligne pour restaurants",
