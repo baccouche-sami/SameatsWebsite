@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { Navigation } from "@/components/navigation";
-import { Footer } from "@/components/footer";
+import { ModernNavigation } from "@/components/modern-navigation";
+import { ModernFooter } from "@/components/modern-footer";
 import { SEOHead, generateOrganizationSchema } from "@/components/seo-head";
 import { useLanguage } from "@/components/language-provider";
 
@@ -78,7 +78,7 @@ export default function Contact() {
         )}
         structuredData={generateOrganizationSchema(language)}
       />
-      <Navigation />
+      <ModernNavigation />
       
       {/* Hero Section */}
       <section className="pt-32 pb-20 bg-gradient-to-br from-dark-900 via-dark-800 to-dark-700 relative overflow-hidden">
@@ -362,7 +362,7 @@ export default function Contact() {
         </div>
       </section>
 
-      <Footer />
+      <ModernFooter />
     </div>
   );
 }
