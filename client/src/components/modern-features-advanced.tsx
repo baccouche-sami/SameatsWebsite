@@ -180,7 +180,13 @@ export function ModernFeaturesAdvanced() {
                 ))}
               </div>
               
-              <button className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-[var(--primary)] to-[var(--accent)] text-white font-semibold rounded-xl hover:shadow-lg transform hover:scale-105 transition-all duration-300">
+              <button 
+                className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-[var(--primary)] to-[var(--accent)] text-white font-semibold rounded-xl hover:shadow-lg transform hover:scale-105 transition-all duration-300"
+                onClick={() => {
+                  const contactSection = document.getElementById('contact');
+                  contactSection?.scrollIntoView({ behavior: 'smooth' });
+                }}
+              >
                 <span>{t("En savoir plus", "Learn more")}</span>
                 <i className="fas fa-arrow-right ml-2"></i>
               </button>

@@ -24,35 +24,35 @@ export function ModernFooter() {
       links: [
         { name: t("À propos", "About"), href: "/about" },
         { name: t("Contact", "Contact"), href: "/contact" },
-        { name: t("Blog", "Blog"), href: "#" },
-        { name: t("Carrières", "Careers"), href: "#" }
+        { name: t("Blog", "Blog"), href: "/blog" },
+        { name: t("Carrières", "Careers"), href: "/careers" }
       ]
     },
     {
       title: t("Support", "Support"),
       links: [
-        { name: t("Centre d'aide", "Help Center"), href: "#" },
-        { name: t("Documentation", "Documentation"), href: "#" },
-        { name: t("Formation", "Training"), href: "#" },
-        { name: t("Statut", "Status"), href: "#" }
+        { name: t("Centre d'aide", "Help Center"), href: "/help" },
+        { name: t("Documentation", "Documentation"), href: "/docs" },
+        { name: t("Formation", "Training"), href: "/training" },
+        { name: t("Statut", "Status"), href: "/status" }
       ]
     },
     {
       title: t("Légal", "Legal"),
       links: [
-        { name: t("Confidentialité", "Privacy"), href: "#" },
-        { name: t("Conditions", "Terms"), href: "#" },
-        { name: t("Cookies", "Cookies"), href: "#" },
-        { name: t("RGPD", "GDPR"), href: "#" }
+        { name: t("Confidentialité", "Privacy"), href: "/privacy" },
+        { name: t("Conditions", "Terms"), href: "/terms" },
+        { name: t("Cookies", "Cookies"), href: "/cookies" },
+        { name: t("RGPD", "GDPR"), href: "/gdpr" }
       ]
     }
   ];
 
   const socialLinks = [
-    { icon: "fab fa-twitter", href: "#", name: "Twitter" },
-    { icon: "fab fa-linkedin", href: "#", name: "LinkedIn" },
-    { icon: "fab fa-facebook", href: "#", name: "Facebook" },
-    { icon: "fab fa-instagram", href: "#", name: "Instagram" }
+    { icon: "fab fa-twitter", href: "https://twitter.com/sameats_fr", name: "Twitter" },
+    { icon: "fab fa-linkedin", href: "https://linkedin.com/company/sameats", name: "LinkedIn" },
+    { icon: "fab fa-facebook", href: "https://facebook.com/sameats.fr", name: "Facebook" },
+    { icon: "fab fa-instagram", href: "https://instagram.com/sameats_fr", name: "Instagram" }
   ];
 
   const handleNewsletterSubmit = async (e: React.FormEvent) => {

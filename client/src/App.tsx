@@ -10,6 +10,7 @@ import { ClientsPage } from "@/pages/clients";
 import Pricing from "@/pages/pricing";
 import About from "@/pages/about";
 import Contact from "@/pages/contact";
+import { BlogPage, CareersPage, HelpPage, DocsPage, TrainingPage, StatusPage, PrivacyPage, TermsPage, CookiesPage, GDPRPage } from "@/pages/coming-soon";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -21,6 +22,19 @@ function Router() {
       <Route path="/pricing" component={Pricing} />
       <Route path="/about" component={About} />
       <Route path="/contact" component={Contact} />
+      
+      {/* Additional pages */}
+      <Route path="/blog" component={BlogPage} />
+      <Route path="/careers" component={CareersPage} />
+      <Route path="/help" component={HelpPage} />
+      <Route path="/docs" component={DocsPage} />
+      <Route path="/training" component={TrainingPage} />
+      <Route path="/status" component={StatusPage} />
+      <Route path="/privacy" component={PrivacyPage} />
+      <Route path="/terms" component={TermsPage} />
+      <Route path="/cookies" component={CookiesPage} />
+      <Route path="/gdpr" component={GDPRPage} />
+      
       <Route component={NotFound} />
     </Switch>
   );
