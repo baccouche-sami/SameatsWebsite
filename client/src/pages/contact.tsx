@@ -3,10 +3,13 @@ import { ModernNavigation } from "@/components/modern-navigation";
 import { ModernFooter } from "@/components/modern-footer";
 import { SEOHead, generateOrganizationSchema } from "@/components/seo-head";
 import { useLanguage } from "@/components/language-provider";
+import { submitContactForm, type ContactFormData } from "@/lib/api";
 
 export default function Contact() {
   const { t, language } = useLanguage();
   const [activeTab, setActiveTab] = useState<'contact' | 'quote'>('contact');
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitMessage, setSubmitMessage] = useState("");
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -30,10 +33,73 @@ export default function Contact() {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
-    // TODO: Implement form submission
+    
+    if (!formData.rgpdConsent) {
+      setSubmitMessage(t("Veuillez accepter les conditions RGPD", "Please accept GDPR conditions"));
+      return;
+    }
+
+    setIsSubmitting(true);
+    setSubmitMessage("");
+
+    try {
+      const contactData: ContactFormData = {
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        company: formData.company,
+        message: formData.message,
+        type: activeTab,
+        restaurantName: formData.company, // Use company as restaurant name for quotes
+        restaurantType: formData.restaurantType,
+        services: [
+          ...(formData.needsApp ? ['Applications mobiles'] : []),
+          ...(formData.needsDelivery ? ['Système de livraison'] : [])
+        ],
+        timeline: formData.urgency,
+        budget: formData.urgency === 'urgent' ? 'Premium' : 'Standard'
+      };
+
+      const result = await submitContactForm(contactData);
+      
+      if (result.success) {
+        setSubmitMessage(
+          t(
+            `Merci ! Votre ${activeTab === 'quote' ? 'demande de devis' : 'message'} a été envoyé avec succès. Nous vous recontacterons rapidement.`,
+            `Thank you! Your ${activeTab === 'quote' ? 'quote request' : 'message'} has been sent successfully. We'll contact you soon.`
+          )
+        );
+        
+        // Reset form
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          company: '',
+          message: '',
+          restaurantType: '',
+          needsApp: false,
+          needsDelivery: false,
+          locations: '1',
+          currentSolution: '',
+          urgency: 'medium',
+          rgpdConsent: false
+        });
+      } else {
+        setSubmitMessage(
+          t("Erreur lors de l'envoi. Veuillez réessayer.", "Error sending. Please try again.")
+        );
+      }
+    } catch (error) {
+      setSubmitMessage(
+        t("Erreur réseau. Veuillez vérifier votre connexion.", "Network error. Please check your connection.")
+      );
+    } finally {
+      setIsSubmitting(false);
+      setTimeout(() => setSubmitMessage(""), 8000);
+    }
   };
 
   const contactMethods = [
@@ -519,19 +585,40 @@ export default function Contact() {
                 <div className="text-center pt-4">
                   <button
                     type="submit"
-                    className="btn-primary text-lg px-12 py-4 rounded-2xl font-semibold group relative overflow-hidden"
+                    disabled={isSubmitting || !formData.rgpdConsent}
+                    className="btn-primary text-lg px-12 py-4 rounded-2xl font-semibold group relative overflow-hidden disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     <span className="flex items-center justify-center space-x-3 relative z-10">
-                      <i className={activeTab === 'contact' ? "fas fa-paper-plane" : "fas fa-calculator"}></i>
-                      <span>
-                        {activeTab === 'contact' 
-                          ? t("Envoyer le message", "Send message")
-                          : t("Recevoir mon devis", "Get my quote")
-                        }
-                      </span>
-                      <i className="fas fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                      {isSubmitting ? (
+                        <>
+                          <i className="fas fa-spinner fa-spin"></i>
+                          <span>{t("Envoi en cours...", "Sending...")}</span>
+                        </>
+                      ) : (
+                        <>
+                          <i className={activeTab === 'contact' ? "fas fa-paper-plane" : "fas fa-calculator"}></i>
+                          <span>
+                            {activeTab === 'contact' 
+                              ? t("Envoyer le message", "Send message")
+                              : t("Recevoir mon devis", "Get my quote")
+                            }
+                          </span>
+                          <i className="fas fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                        </>
+                      )}
                     </span>
                   </button>
+                  
+                  {/* Submit message */}
+                  {submitMessage && (
+                    <div className={`mt-6 p-4 rounded-xl text-center font-medium ${
+                      submitMessage.includes('Merci') || submitMessage.includes('Thank') 
+                        ? 'bg-green-50 text-green-700 border border-green-200' 
+                        : 'bg-red-50 text-red-700 border border-red-200'
+                    }`}>
+                      {submitMessage}
+                    </div>
+                  )}
                   
                   <p className="text-[var(--text-muted)] text-sm mt-4">
                     {activeTab === 'contact' 

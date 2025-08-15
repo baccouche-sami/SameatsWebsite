@@ -1,9 +1,13 @@
+import { useState } from "react";
 import { Link } from "wouter";
 import { useLanguage } from "./language-provider";
 import sameatsLogo from "@assets/logo-blanc_1755211740901.png";
 
 export function ModernFooter() {
   const { t, language, setLanguage } = useLanguage();
+  const [newsletterEmail, setNewsletterEmail] = useState("");
+  const [isSubscribing, setIsSubscribing] = useState(false);
+  const [subscriptionMessage, setSubscriptionMessage] = useState("");
 
   const footerSections = [
     {
@@ -51,6 +55,38 @@ export function ModernFooter() {
     { icon: "fab fa-instagram", href: "#", name: "Instagram" }
   ];
 
+  const handleNewsletterSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!newsletterEmail.trim()) return;
+
+    setIsSubscribing(true);
+    setSubscriptionMessage("");
+
+    try {
+      const response = await fetch('/api/newsletter', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email: newsletterEmail }),
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        setSubscriptionMessage(t("Inscription réussie !", "Subscription successful!"));
+        setNewsletterEmail("");
+      } else {
+        setSubscriptionMessage(t("Erreur lors de l'inscription", "Subscription failed"));
+      }
+    } catch (error) {
+      setSubscriptionMessage(t("Erreur réseau", "Network error"));
+    } finally {
+      setIsSubscribing(false);
+      setTimeout(() => setSubscriptionMessage(""), 5000);
+    }
+  };
+
   return (
     <footer className="bg-[var(--surface)] border-t border-[var(--border)] relative overflow-hidden">
       {/* Background Pattern */}
@@ -87,16 +123,33 @@ export function ModernFooter() {
                 <h4 className="font-semibold text-[var(--text-primary)] mb-3 text-sm sm:text-base">
                   {t("Restez informé", "Stay updated")}
                 </h4>
-                <div className="flex flex-col sm:flex-row gap-2">
+                <form onSubmit={handleNewsletterSubmit} className="flex flex-col sm:flex-row gap-2">
                   <input
                     type="email"
+                    value={newsletterEmail}
+                    onChange={(e) => setNewsletterEmail(e.target.value)}
                     placeholder={t("Votre email", "Your email")}
                     className="flex-1 px-3 sm:px-4 py-2.5 bg-[var(--surface-light)] border border-[var(--border)] rounded-lg text-[var(--text-primary)] placeholder-[var(--text-muted)] focus:outline-none focus:border-[var(--primary)] transition-colors text-sm sm:text-base touch-target"
+                    required
+                    disabled={isSubscribing}
                   />
-                  <button className="px-4 sm:px-6 py-2.5 bg-gradient-to-r from-[var(--primary)] to-[var(--accent)] text-white rounded-lg hover:shadow-[var(--shadow-glow)] transition-all duration-300 hover:scale-105 touch-target mobile-no-hover">
-                    <i className="fas fa-arrow-right"></i>
+                  <button 
+                    type="submit"
+                    disabled={isSubscribing || !newsletterEmail.trim()}
+                    className="px-4 sm:px-6 py-2.5 bg-gradient-to-r from-[var(--primary)] to-[var(--accent)] text-white rounded-lg hover:shadow-[var(--shadow-glow)] transition-all duration-300 hover:scale-105 touch-target mobile-no-hover disabled:opacity-50 disabled:cursor-not-allowed"
+                  >
+                    {isSubscribing ? (
+                      <i className="fas fa-spinner fa-spin"></i>
+                    ) : (
+                      <i className="fas fa-arrow-right"></i>
+                    )}
                   </button>
-                </div>
+                </form>
+                {subscriptionMessage && (
+                  <div className={`mt-2 text-xs sm:text-sm ${subscriptionMessage.includes('réussie') || subscriptionMessage.includes('successful') ? 'text-green-500' : 'text-red-500'}`}>
+                    {subscriptionMessage}
+                  </div>
+                )}
               </div>
 
               {/* Social Links */}

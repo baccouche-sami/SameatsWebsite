@@ -2,6 +2,7 @@ import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { z } from "zod";
 import { storage } from "./storage";
+import { sendEmail, getContactEmailTemplate, getQuoteEmailTemplate, getNewsletterEmailTemplate } from "./email";
 
 export async function registerRoutes(app: Express): Promise<Server> {
   // Contact form submission endpoint
@@ -24,10 +25,25 @@ export async function registerRoutes(app: Express): Promise<Server> {
       const validatedData = contactSchema.parse(req.body);
       const contact = await storage.createContact(validatedData);
       
+      // Envoyer l'email selon le type de formulaire
+      let emailSent = false;
+      try {
+        if (validatedData.type === "quote") {
+          const emailData = getQuoteEmailTemplate(validatedData);
+          emailSent = await sendEmail(emailData);
+        } else {
+          const emailData = getContactEmailTemplate(validatedData);
+          emailSent = await sendEmail(emailData);
+        }
+      } catch (error) {
+        console.error("Error sending email:", error);
+      }
+      
       res.json({ 
         success: true, 
         message: "Contact form submitted successfully",
-        id: contact.id 
+        id: contact.id,
+        emailSent 
       });
     } catch (error) {
       if (error instanceof z.ZodError) {
@@ -38,6 +54,46 @@ export async function registerRoutes(app: Express): Promise<Server> {
         });
       } else {
         console.error("Contact form submission error:", error);
+        res.status(500).json({ 
+          success: false, 
+          message: "Internal server error" 
+        });
+      }
+    }
+  });
+
+  // Newsletter subscription endpoint
+  app.post("/api/newsletter", async (req, res) => {
+    try {
+      const newsletterSchema = z.object({
+        email: z.string().email("Valid email is required")
+      });
+
+      const validatedData = newsletterSchema.parse(req.body);
+      
+      // Envoyer l'email de notification
+      let emailSent = false;
+      try {
+        const emailData = getNewsletterEmailTemplate(validatedData.email);
+        emailSent = await sendEmail(emailData);
+      } catch (error) {
+        console.error("Error sending newsletter email:", error);
+      }
+      
+      res.json({ 
+        success: true, 
+        message: "Newsletter subscription successful",
+        emailSent 
+      });
+    } catch (error) {
+      if (error instanceof z.ZodError) {
+        res.status(400).json({ 
+          success: false, 
+          message: "Invalid email address",
+          errors: error.errors 
+        });
+      } else {
+        console.error("Newsletter subscription error:", error);
         res.status(500).json({ 
           success: false, 
           message: "Internal server error" 
