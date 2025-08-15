@@ -1,4 +1,4 @@
-// API utilities for form submissions
+// API utilities for form submissions - Optimized Brevo integration
 
 export interface ContactFormData {
   name: string;

@@ -1,4 +1,4 @@
-import * as SibApiV3Sdk from "@sendinblue/client";
+// Optimisation : suppression du SDK Brevo, utilisation directe de l'API REST
 
 // Configuration Brevo simplifiée - on utilise directement l'API REST
 console.log(
