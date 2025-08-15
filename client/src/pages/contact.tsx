@@ -46,6 +46,15 @@ export default function Contact() {
     setIsSubmitting(true);
     setSubmitMessage("");
 
+    // Add visual feedback immediately
+    const submitButton = e.currentTarget.querySelector('button[type="submit"]') as HTMLButtonElement;
+    if (submitButton) {
+      submitButton.style.transform = 'scale(0.98)';
+      setTimeout(() => {
+        submitButton.style.transform = '';
+      }, 150);
+    }
+
     try {
       const contactData: ContactFormData = {
         name: formData.name,
@@ -266,7 +275,7 @@ export default function Contact() {
             {contactMethods.map((method, index) => (
               <div
                 key={index}
-                className="modern-card p-6 sm:p-8 text-center group hover:shadow-xl transition-all duration-300 animate-fade-in-up mobile-no-hover"
+                className="modern-card p-6 sm:p-8 text-center group hover-lift transition-all duration-300 animate-fade-in-up mobile-no-hover cursor-pointer"
                 style={{ animationDelay: `${index * 200}ms` }}
               >
                 <div className={`w-12 sm:w-16 h-12 sm:h-16 bg-gradient-to-br ${method.color} rounded-2xl flex items-center justify-center mx-auto mb-4 sm:mb-6 group-hover:scale-110 transition-transform duration-300`}>
@@ -281,7 +290,7 @@ export default function Contact() {
                   {method.description}
                 </p>
 
-                <button className="btn-primary w-full touch-target text-sm sm:text-base">
+                <button className="interactive-button w-full touch-target text-sm sm:text-base text-white py-3 px-6 rounded-xl font-semibold smooth-transition hover:scale-105">
                   {method.action}
                 </button>
               </div>
@@ -389,7 +398,7 @@ export default function Contact() {
                       value={formData.name}
                       onChange={handleInputChange}
                       required
-                      className="w-full px-4 py-4 bg-[var(--background)] border border-[var(--border)] rounded-xl text-[var(--text-primary)] placeholder-[var(--text-muted)] focus:border-[var(--primary)] focus:outline-none focus:ring-2 focus:ring-[var(--primary)]/20 transition-colors"
+                      className="w-full px-4 py-4 bg-[var(--background)] border border-[var(--border)] rounded-xl text-[var(--text-primary)] placeholder-[var(--text-muted)] focus-ring smooth-transition hover:border-[var(--primary)]/70"
                       placeholder={t("Jean Dupont", "John Doe")}
                     />
                   </div>
@@ -404,7 +413,7 @@ export default function Contact() {
                       value={formData.email}
                       onChange={handleInputChange}
                       required
-                      className="w-full px-4 py-4 bg-[var(--background)] border border-[var(--border)] rounded-xl text-[var(--text-primary)] placeholder-[var(--text-muted)] focus:border-[var(--primary)] focus:outline-none focus:ring-2 focus:ring-[var(--primary)]/20 transition-colors"
+                      className="w-full px-4 py-4 bg-[var(--background)] border border-[var(--border)] rounded-xl text-[var(--text-primary)] placeholder-[var(--text-muted)] focus-ring smooth-transition hover:border-[var(--primary)]/70"
                       placeholder={t("jean@restaurant.com", "john@restaurant.com")}
                     />
                   </div>
@@ -418,7 +427,7 @@ export default function Contact() {
                       name="phone"
                       value={formData.phone}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-4 bg-[var(--background)] border border-[var(--border)] rounded-xl text-[var(--text-primary)] placeholder-[var(--text-muted)] focus:border-[var(--primary)] focus:outline-none focus:ring-2 focus:ring-[var(--primary)]/20 transition-colors"
+                      className="w-full px-4 py-4 bg-[var(--background)] border border-[var(--border)] rounded-xl text-[var(--text-primary)] placeholder-[var(--text-muted)] focus-ring smooth-transition hover:border-[var(--primary)]/70"
                       placeholder={t("+33 1 23 45 67 89", "+1 234 567 890")}
                     />
                   </div>
@@ -433,7 +442,7 @@ export default function Contact() {
                       value={formData.company}
                       onChange={handleInputChange}
                       required
-                      className="w-full px-4 py-4 bg-[var(--background)] border border-[var(--border)] rounded-xl text-[var(--text-primary)] placeholder-[var(--text-muted)] focus:border-[var(--primary)] focus:outline-none focus:ring-2 focus:ring-[var(--primary)]/20 transition-colors"
+                      className="w-full px-4 py-4 bg-[var(--background)] border border-[var(--border)] rounded-xl text-[var(--text-primary)] placeholder-[var(--text-muted)] focus-ring smooth-transition hover:border-[var(--primary)]/70"
                       placeholder={t("Chez Marcel", "Marcel's Restaurant")}
                     />
                   </div>
@@ -598,7 +607,7 @@ export default function Contact() {
                   <button
                     type="submit"
                     disabled={isSubmitting || !formData.rgpdConsent}
-                    className="btn-primary text-lg px-12 py-4 rounded-2xl font-semibold group relative overflow-hidden disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="interactive-button text-lg px-12 py-4 rounded-2xl font-semibold group relative overflow-hidden disabled:opacity-50 disabled:cursor-not-allowed text-white shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 focus-ring"
                   >
                     <span className="flex items-center justify-center space-x-3 relative z-10">
                       {isSubmitting ? (
@@ -623,11 +632,12 @@ export default function Contact() {
                   
                   {/* Submit message */}
                   {submitMessage && (
-                    <div className={`mt-6 p-4 rounded-xl text-center font-medium ${
+                    <div className={`mt-6 p-4 rounded-xl text-center font-medium bounce-in ${
                       submitMessage.includes('Merci') || submitMessage.includes('Thank') 
-                        ? 'bg-green-50 text-green-700 border border-green-200' 
-                        : 'bg-red-50 text-red-700 border border-red-200'
+                        ? 'bg-green-50 dark:bg-green-900/20 text-green-700 dark:text-green-400 border border-green-200 dark:border-green-700' 
+                        : 'bg-red-50 dark:bg-red-900/20 text-red-700 dark:text-red-400 border border-red-200 dark:border-red-700'
                     }`}>
+                      <i className={`fas ${submitMessage.includes('Merci') || submitMessage.includes('Thank') ? 'fa-check-circle' : 'fa-exclamation-triangle'} mr-2`}></i>
                       {submitMessage}
                     </div>
                   )}

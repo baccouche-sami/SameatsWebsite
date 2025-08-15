@@ -52,9 +52,9 @@ export function ModernNavigation() {
           <div className="hidden lg:flex items-center space-x-6 xl:space-x-8">
             {navigation.map((item) => (
               <Link key={item.name} href={item.href}>
-                <span className={`relative py-2 px-1 text-sm font-medium transition-colors cursor-pointer group touch-target ${
+                <span className={`relative py-2 px-3 text-sm font-medium smooth-transition cursor-pointer group touch-target rounded-lg hover:bg-[var(--surface)]/50 ${
                   location === item.href
-                    ? 'text-[var(--primary)]'
+                    ? 'text-[var(--primary)] bg-[var(--surface)]/30'
                     : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)]'
                 }`}>
                   {item.name}
