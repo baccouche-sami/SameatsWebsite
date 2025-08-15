@@ -49,15 +49,15 @@ export function ClientsPage() {
             
             <p className="text-xl text-[var(--text-secondary)] max-w-4xl mx-auto mb-8">
               {t(
-                "Plus de 500 restaurants dans 25 pays font confiance à SAMEATS pour digitaliser leur business. Découvrez leurs histoires de succès et leurs retours d'expérience.",
-                "More than 500 restaurants in 25 countries trust SAMEATS to digitize their business. Discover their success stories and feedback."
+                "Plus de 15 restaurants dans 3 pays font confiance à SAMEATS pour digitaliser leur business. Découvrez leurs histoires de succès et leurs retours d'expérience.",
+                "More than 15 restaurants in 3 countries trust SAMEATS to digitize their business. Discover their success stories and feedback."
               )}
             </p>
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
               {[
-                { value: "500+", label: t("Restaurants clients", "Restaurant clients"), icon: "fas fa-store" },
-                { value: "25", label: t("Pays", "Countries"), icon: "fas fa-globe" },
+                { value: "15+", label: t("Restaurants clients", "Restaurant clients"), icon: "fas fa-store" },
+                { value: "3", label: t("Pays", "Countries"), icon: "fas fa-globe" },
                 { value: "98%", label: t("Satisfaction", "Satisfaction"), icon: "fas fa-heart" }
               ].map((stat, index) => (
                 <div key={index} className="modern-card p-6 text-center">

@@ -10,7 +10,7 @@ export function ModernClientShowcase() {
 
   const clients = [
     {
-      name: "T9 Foodies & Grill",
+      name: "T9 Restaurant",
       type: t("Restaurant & Grill", "Restaurant & Grill"),
       revenue: "+45%",
       orders: "2,500+",
@@ -21,7 +21,8 @@ export function ModernClientShowcase() {
       image: poste1,
       logo: "T9",
       growth: "+45%",
-      metric: t("de CA en plus", "revenue increase")
+      metric: t("de CA en plus", "revenue increase"),
+      website: "https://www.t9-restaurant.fr/"
     },
     {
       name: "Campus Food Court",
@@ -35,7 +36,8 @@ export function ModernClientShowcase() {
       image: poste2,
       logo: "CFC",
       growth: "+60%",
-      metric: t("de commandes", "more orders")
+      metric: t("de commandes", "more orders"),
+      website: "https://www.campusfoodcourt.fr/"
     },
     {
       name: "First Pizza",
@@ -49,7 +51,8 @@ export function ModernClientShowcase() {
       image: poste3,
       logo: "FP",
       growth: "+38%",
-      metric: t("de satisfaction client", "customer satisfaction")
+      metric: t("de satisfaction client", "customer satisfaction"),
+      website: "https://www.firstpizza60.fr/"
     },
     {
       name: "Patroné Forno",
@@ -63,10 +66,11 @@ export function ModernClientShowcase() {
       image: poste4,
       logo: "PF",
       growth: "+52%",
-      metric: t("de croissance", "growth")
+      metric: t("de croissance", "growth"),
+      website: "https://www.patroneforno.fr/"
     },
     {
-      name: "Rest Sidi Bou Said",
+      name: "Sidi Bou Le Mans",
       type: t("Restaurant traditionnel", "Traditional restaurant"),
       revenue: "+35%",
       orders: "2,800+",
@@ -75,15 +79,31 @@ export function ModernClientShowcase() {
         "A modern solution that respects our traditions. Perfect for our clientele!"
       ),
       image: poste5,
-      logo: "RSBS",
+      logo: "SBLM",
       growth: "+35%",
-      metric: t("de fidélisation", "customer retention")
+      metric: t("de fidélisation", "customer retention"),
+      website: "https://www.sidibou-lemans.fr/"
+    },
+    {
+      name: "World Food",
+      type: t("Restaurant international", "International restaurant"),
+      revenue: "+28%",
+      orders: "1,900+",
+      quote: t(
+        "SAMEATS nous a permis d'atteindre une clientèle plus large avec notre cuisine du monde !",
+        "SAMEATS allowed us to reach a wider audience with our world cuisine!"
+      ),
+      image: poste1,
+      logo: "WF",
+      growth: "+28%",
+      metric: t("de nouveaux clients", "new customers"),
+      website: "https://www.worldfood-75.fr/"
     }
   ];
 
   const stats = [
-    { value: "500+", label: t("Restaurants", "Restaurants") },
-    { value: "25", label: t("Pays", "Countries") },
+    { value: "15+", label: t("Restaurants", "Restaurants") },
+    { value: "3", label: t("Pays", "Countries") },
     { value: "98%", label: t("Satisfaction", "Satisfaction") },
     { value: "€2M+", label: t("CA généré", "Revenue generated") }
   ];
@@ -213,12 +233,12 @@ export function ModernClientShowcase() {
             <div className="w-px h-4 bg-[var(--border)]"></div>
             <div className="flex items-center text-sm text-[var(--text-secondary)]">
               <i className="fas fa-award text-[var(--primary)] mr-2"></i>
-              <span>{t("500+ clients satisfaits", "500+ satisfied clients")}</span>
+              <span>{t("15+ clients satisfaits", "15+ satisfied clients")}</span>
             </div>
             <div className="w-px h-4 bg-[var(--border)]"></div>
             <div className="flex items-center text-sm text-[var(--text-secondary)]">
               <i className="fas fa-globe text-[var(--accent)] mr-2"></i>
-              <span>{t("25 pays", "25 countries")}</span>
+              <span>{t("3 pays", "3 countries")}</span>
             </div>
           </div>
         </div>

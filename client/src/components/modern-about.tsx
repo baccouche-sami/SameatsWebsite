@@ -94,8 +94,8 @@ export function ModernAbout() {
               <div className="grid grid-cols-2 gap-6">
                 {[
                   { value: "6+", label: t("Années d'expérience", "Years of experience"), icon: "fas fa-calendar-alt" },
-                  { value: "500+", label: t("Restaurants clients", "Restaurant clients"), icon: "fas fa-store" },
-                  { value: "25", label: t("Pays", "Countries"), icon: "fas fa-globe" },
+                  { value: "15+", label: t("Restaurants clients", "Restaurant clients"), icon: "fas fa-store" },
+                  { value: "3", label: t("Pays", "Countries"), icon: "fas fa-globe" },
                   { value: "98%", label: t("Satisfaction", "Satisfaction"), icon: "fas fa-heart" }
                 ].map((stat, index) => (
                   <div key={index} className="text-center">

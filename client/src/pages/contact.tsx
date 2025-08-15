@@ -238,7 +238,7 @@ export default function Contact() {
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 max-w-4xl mx-auto">
               {[
                 { value: '<2h', label: t('Temps de réponse', 'Response time') },
-                { value: '500+', label: t('Restaurants clients', 'Client restaurants') },
+                { value: '15+', label: t('Restaurants clients', 'Client restaurants') },
                 { value: '24/7', label: t('Support technique', 'Technical support') },
                 { value: '98%', label: t('Satisfaction', 'Satisfaction') }
               ].map((stat, index) => (

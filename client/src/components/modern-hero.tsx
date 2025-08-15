@@ -26,8 +26,8 @@ export function ModernHero() {
   ];
 
   const stats = [
-    { number: "500+", label: t("Restaurants", "Restaurants") },
-    { number: "25", label: t("Pays", "Countries") },
+    { number: "15+", label: t("Restaurants", "Restaurants") },
+    { number: "3", label: t("Pays", "Countries") },
     { number: "98%", label: t("Satisfaction", "Satisfaction") },
     { number: "24/7", label: t("Support", "Support") }
   ];

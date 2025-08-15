@@ -10,54 +10,70 @@ export function ModernClientGallery() {
 
   const clients = [
     {
-      name: "T9 Foodies & Grill",
+      name: "T9 Restaurant",
       type: t("Restaurant & Grill", "Restaurant & Grill"),
-      location: t("Tunis, Tunisie", "Tunis, Tunisia"),
+      location: t("Vitry-sur-Seine, France", "Vitry-sur-Seine, France"),
       image: poste1,
       description: t(
         "Restaurant moderne spécialisé dans les grillades et la cuisine internationale",
         "Modern restaurant specializing in grills and international cuisine"
-      )
+      ),
+      website: "https://www.t9-restaurant.fr/"
     },
     {
       name: "Campus Food Court",
       type: t("Food Court", "Food Court"),
-      location: t("Université", "University"),
+      location: t("Champs-sur-Marne, France", "Champs-sur-Marne, France"),
       image: poste2,
       description: t(
         "Espace de restauration universitaire avec plusieurs concepts culinaires",
         "University dining space with multiple culinary concepts"
-      )
+      ),
+      website: "https://www.campusfoodcourt.fr/"
     },
     {
       name: "First Pizza",
       type: t("Pizzeria", "Pizzeria"),
-      location: t("Centre-ville", "Downtown"),
+      location: t("Noyon, France", "Noyon, France"),
       image: poste3,
       description: t(
         "Pizzeria artisanale proposant des pizzas fraîches et authentiques",
         "Artisanal pizzeria offering fresh and authentic pizzas"
-      )
+      ),
+      website: "https://www.firstpizza60.fr/"
     },
     {
       name: "Patroné Forno",
       type: t("Pizzeria italienne", "Italian Pizzeria"),
-      location: t("Quartier italien", "Italian District"),
+      location: t("Viry-Châtillon, France", "Viry-Châtillon, France"),
       image: poste4,
       description: t(
         "Authentique pizzeria italienne avec four à bois traditionnel",
         "Authentic Italian pizzeria with traditional wood-fired oven"
-      )
+      ),
+      website: "https://www.patroneforno.fr/"
     },
     {
-      name: "Rest Sidi Bou Said",
+      name: "Sidi Bou Le Mans",
       type: t("Restaurant traditionnel", "Traditional Restaurant"),
-      location: t("Sidi Bou Said", "Sidi Bou Said"),
+      location: t("Le Mans, France", "Le Mans, France"),
       image: poste5,
       description: t(
-        "Restaurant traditionnel tunisien dans un cadre authentique",
-        "Traditional Tunisian restaurant in an authentic setting"
-      )
+        "Restaurant traditionnel proposant une cuisine authentique dans un cadre moderne",
+        "Traditional restaurant offering authentic cuisine in a modern setting"
+      ),
+      website: "https://www.sidibou-lemans.fr/"
+    },
+    {
+      name: "World Food",
+      type: t("Restaurant international", "International Restaurant"),
+      location: t("Paris, France", "Paris, France"),
+      image: poste1,
+      description: t(
+        "Restaurant international proposant une cuisine du monde variée",
+        "International restaurant offering diverse world cuisine"
+      ),
+      website: "https://www.worldfood-75.fr/"
     }
   ];
 
@@ -158,9 +174,9 @@ export function ModernClientGallery() {
         {/* Stats Section */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
           {[
-            { value: "500+", label: t("Restaurants clients", "Restaurant clients"), icon: "fas fa-store" },
-            { value: "25", label: t("Pays actifs", "Active countries"), icon: "fas fa-globe" },
-            { value: "2M+", label: t("Commandes traitées", "Orders processed"), icon: "fas fa-shopping-cart" },
+            { value: "15+", label: t("Restaurants clients", "Restaurant clients"), icon: "fas fa-store" },
+            { value: "3", label: t("Pays actifs", "Active countries"), icon: "fas fa-globe" },
+            { value: "50K+", label: t("Commandes traitées", "Orders processed"), icon: "fas fa-shopping-cart" },
             { value: "98%", label: t("Satisfaction client", "Client satisfaction"), icon: "fas fa-heart" }
           ].map((stat, index) => (
             <div

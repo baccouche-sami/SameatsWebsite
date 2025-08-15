@@ -9,7 +9,8 @@ export function ModernTestimonials() {
     {
       name: "Ahmed Ben Salem",
       position: t("Gérant", "Manager"),
-      restaurant: "T9 Foodies & Grill",
+      restaurant: "T9 Restaurant",
+      location: t("Vitry-sur-Seine", "Vitry-sur-Seine"),
       avatar: "AB",
       quote: t(
         "SAMEATS a complètement transformé notre façon de gérer les commandes. Nos ventes ont augmenté de 45% en seulement 3 mois. L'interface est intuitive et nos clients adorent l'application mobile.",
@@ -21,12 +22,14 @@ export function ModernTestimonials() {
         metric: t("de ventes", "sales increase"),
         orders: "2,500+",
         period: t("commandes/mois", "orders/month")
-      }
+      },
+      website: "https://www.t9-restaurant.fr/"
     },
     {
       name: "Fatima Khelifi",
       position: t("Directrice", "Director"),
-      restaurant: "Campus Food Court", 
+      restaurant: "Campus Food Court",
+      location: t("Champs-sur-Marne", "Champs-sur-Marne"),
       avatar: "FK",
       quote: t(
         "La solution SAMEATS nous a permis de centraliser tous nos points de vente en un seul système. Le support client est exceptionnel et l'équipe est toujours disponible pour nous aider.",
@@ -38,12 +41,14 @@ export function ModernTestimonials() {
         metric: t("d'efficacité", "efficiency"),
         orders: "4,200+",
         period: t("commandes/mois", "orders/month")
-      }
+      },
+      website: "https://www.campusfoodcourt.fr/"
     },
     {
       name: "Marco Rossi",
       position: t("Propriétaire", "Owner"),
       restaurant: "Patroné Forno",
+      location: t("Viry-Châtillon", "Viry-Châtillon"),
       avatar: "MR",
       quote: t(
         "En tant que pizzeria traditionnelle, nous avions besoin d'une solution moderne qui respecte notre authenticité. SAMEATS a parfaitement répondu à nos attentes avec un design élégant.",
@@ -55,12 +60,14 @@ export function ModernTestimonials() {
         metric: t("de croissance", "growth"),
         orders: "3,100+",
         period: t("commandes/mois", "orders/month")
-      }
+      },
+      website: "https://www.patroneforno.fr/"
     },
     {
       name: "Mohamed Trabelsi",
       position: t("Chef propriétaire", "Chef Owner"),
-      restaurant: "Rest Sidi Bou Said",
+      restaurant: "Sidi Bou Le Mans",
+      location: t("Le Mans", "Le Mans"),
       avatar: "MT",
       quote: t(
         "SAMEATS nous a aidés à préserver nos traditions tout en nous modernisant. Nos clients peuvent maintenant commander facilement tout en gardant l'essence de notre restaurant traditionnel.",
@@ -72,7 +79,46 @@ export function ModernTestimonials() {
         metric: t("de fidélisation", "customer retention"),
         orders: "2,800+",
         period: t("commandes/mois", "orders/month")
-      }
+      },
+      website: "https://www.sidibou-lemans.fr/"
+    },
+    {
+      name: "Laurent Dubois",
+      position: t("Gérant", "Manager"),
+      restaurant: "First Pizza",
+      location: t("Noyon", "Noyon"),
+      avatar: "LD",
+      quote: t(
+        "La solution complète dont nous avions besoin. Nos clients adorent commander via l'app et notre chiffre d'affaires a vraiment décollé !",
+        "The complete solution we needed. Our customers love ordering through the app and our revenue has really taken off!"
+      ),
+      rating: 5,
+      metrics: {
+        growth: "+38%",
+        metric: t("de satisfaction client", "customer satisfaction"),
+        orders: "1,800+",
+        period: t("commandes/mois", "orders/month")
+      },
+      website: "https://www.firstpizza60.fr/"
+    },
+    {
+      name: "Sarah Martinez",
+      position: t("Propriétaire", "Owner"),
+      restaurant: "World Food",
+      location: t("Paris", "Paris"),
+      avatar: "SM",
+      quote: t(
+        "SAMEATS nous a permis d'atteindre une clientèle internationale avec notre cuisine du monde. Les fonctionnalités multilingues sont parfaites !",
+        "SAMEATS allowed us to reach an international clientele with our world cuisine. The multilingual features are perfect!"
+      ),
+      rating: 5,
+      metrics: {
+        growth: "+28%",
+        metric: t("de nouveaux clients", "new customers"),
+        orders: "1,900+",
+        period: t("commandes/mois", "orders/month")
+      },
+      website: "https://www.worldfood-75.fr/"
     }
   ];
 
@@ -258,7 +304,7 @@ export function ModernTestimonials() {
             <div className="w-px h-4 bg-[var(--border)]"></div>
             <div className="flex items-center text-sm text-[var(--text-secondary)]">
               <i className="fas fa-users text-[var(--primary)] mr-2"></i>
-              <span>{t("500+ restaurants satisfaits", "500+ satisfied restaurants")}</span>
+              <span>{t("15+ restaurants satisfaits", "15+ satisfied restaurants")}</span>
             </div>
             <div className="w-px h-4 bg-[var(--border)]"></div>
             <div className="flex items-center text-sm text-[var(--text-secondary)]">
