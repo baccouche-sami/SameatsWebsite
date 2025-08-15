@@ -1,4 +1,4 @@
-// Optimisation : suppression du SDK Brevo, utilisation directe de l'API REST
+import * as SibApiV3Sdk from "@sendinblue/client";
 
 // Configuration Brevo simplifiée - on utilise directement l'API REST
 console.log(
@@ -26,7 +26,7 @@ export async function sendEmail(data: EmailData): Promise<boolean> {
         const emailPayload = {
             sender: {
                 name: data.senderName || "SAMEATS Contact",
-                email: data.senderEmail || "noreply@sameats.fr",
+                email: data.senderEmail || "sameats.france@gmail.com",
             },
             to: [{ email: data.to }],
             subject: data.subject,
@@ -126,7 +126,7 @@ export function getContactEmailTemplate(formData: any): EmailData {
         subject: `SAMEATS - Nouvelle demande de contact de ${formData.name || formData.email}`,
         htmlContent,
         senderName: "SAMEATS",
-        senderEmail: "noreply@sameats.fr",
+        senderEmail: "sameats.france@gmail.com",
     };
 }
 
@@ -241,7 +241,7 @@ export function getQuoteEmailTemplate(formData: any): EmailData {
         subject: `SAMEATS - DEVIS URGENT de ${formData.name || formData.email} - ${formData.restaurantName || "Restaurant"}`,
         htmlContent,
         senderName: "Site SAMEATS",
-        senderEmail: "noreply@sameats.fr",
+        senderEmail: "sameats.france@gmail.com",
     };
 }
 
@@ -282,6 +282,6 @@ export function getNewsletterEmailTemplate(email: string): EmailData {
         subject: `SAMEATS - Nouvelle inscription newsletter : ${email}`,
         htmlContent,
         senderName: "SAMEATS",
-        senderEmail: "noreply@sameats.fr",
+        senderEmail: "sameats.france@gmail.com",
     };
 }
