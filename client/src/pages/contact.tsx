@@ -17,6 +17,8 @@ export default function Contact() {
     company: '',
     message: '',
     restaurantType: '',
+    address: '',
+    website: '',
     needsApp: false,
     needsDelivery: false,
     locations: '1',
@@ -52,12 +54,20 @@ export default function Contact() {
         company: formData.company,
         message: formData.message,
         type: activeTab,
-        restaurantName: formData.company, // Use company as restaurant name for quotes
+        // Tous les champs du formulaire de devis
+        restaurantName: formData.company,
         restaurantType: formData.restaurantType,
+        address: formData.address || '',
+        website: formData.website || '',
+        currentSolution: formData.currentSolution,
+        urgency: formData.urgency,
+        needsApp: formData.needsApp,
+        needsDelivery: formData.needsDelivery,
+        locations: formData.locations,
         services: [
           ...(formData.needsApp ? ['Applications mobiles'] : []),
           ...(formData.needsDelivery ? ['Système de livraison'] : [])
-        ],
+        ].join(', '),
         timeline: formData.urgency,
         budget: formData.urgency === 'urgent' ? 'Premium' : 'Standard'
       };
@@ -80,6 +90,8 @@ export default function Contact() {
           company: '',
           message: '',
           restaurantType: '',
+          address: '',
+          website: '',
           needsApp: false,
           needsDelivery: false,
           locations: '1',

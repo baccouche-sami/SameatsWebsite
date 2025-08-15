@@ -13,13 +13,25 @@ export async function registerRoutes(app: Express): Promise<Server> {
         email: z.string().email("Valid email is required"),
         message: z.string().min(1, "Message is required"),
         type: z.enum(["contact", "quote"]).default("contact"),
+        phone: z.string().optional(),
+        company: z.string().optional(),
+        subject: z.string().optional(),
+        // Champs du formulaire de devis
         restaurantName: z.string().optional(),
+        restaurantType: z.string().optional(),
+        address: z.string().optional(),
+        website: z.string().optional(),
         country: z.string().optional(),
         locations: z.string().optional(),
         ordersPerMonth: z.string().optional(),
-        needsDelivery: z.string().optional(),
-        needsMobileApps: z.string().optional(),
+        needsDelivery: z.union([z.boolean(), z.string()]).optional(),
+        needsApp: z.union([z.boolean(), z.string()]).optional(),
+        currentSolution: z.string().optional(),
         budget: z.string().optional(),
+        urgency: z.string().optional(),
+        services: z.string().optional(),
+        timeline: z.string().optional(),
+        rgpdConsent: z.boolean().optional(),
       });
 
       const validatedData = contactSchema.parse(req.body);

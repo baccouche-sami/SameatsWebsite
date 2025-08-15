@@ -11,8 +11,13 @@ export interface ContactFormData {
   restaurantName?: string;
   restaurantType?: string;
   address?: string;
-  currentWebsite?: string;
-  services?: string[];
+  website?: string;
+  currentSolution?: string;
+  urgency?: string;
+  needsApp?: boolean;
+  needsDelivery?: boolean;
+  locations?: string;
+  services?: string;
   budget?: string;
   timeline?: string;
 }

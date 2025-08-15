@@ -1,6 +1,4 @@
-import * as SibApiV3Sdk from "@sendinblue/client";
-
-// Configuration Brevo simplifiée - on utilise directement l'API REST
+// Configuration Brevo optimisée - API REST directe sans SDK
 console.log(
     "Brevo API configuration:",
     process.env.BREVO_API_KEY ? "API key found" : "API key missing",
@@ -171,6 +169,58 @@ export function getQuoteEmailTemplate(formData: any): EmailData {
                     <div class="field">
                         <span class="label">Entreprise :</span>
                         <span class="value">${formData.company || "Non spécifié"}</span>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h3>Détails du restaurant</h3>
+                    <div class="field">
+                        <span class="label">Nom restaurant :</span>
+                        <span class="value">${formData.restaurantName || "Non spécifié"}</span>
+                    </div>
+                    <div class="field">
+                        <span class="label">Type :</span>
+                        <span class="value">${formData.restaurantType || "Non spécifié"}</span>
+                    </div>
+                    <div class="field">
+                        <span class="label">Adresse :</span>
+                        <span class="value">${formData.address || "Non spécifié"}</span>
+                    </div>
+                    <div class="field">
+                        <span class="label">Site web actuel :</span>
+                        <span class="value">${formData.website || "Aucun"}</span>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h3>Services demandés</h3>
+                    <div class="field">
+                        <span class="label">Services :</span>
+                        <span class="value">${formData.services || "Non spécifié"}</span>
+                    </div>
+                    <div class="field">
+                        <span class="label">Budget :</span>
+                        <span class="value">${formData.budget || "Standard"}</span>
+                    </div>
+                    <div class="field">
+                        <span class="label">Timeline :</span>
+                        <span class="value">${formData.timeline || "Non spécifié"}</span>
+                    </div>
+                    <div class="field">
+                        <span class="label">Applications mobiles :</span>
+                        <span class="value">${formData.needsApp ? "Oui" : "Non"}</span>
+                    </div>
+                    <div class="field">
+                        <span class="label">Système de livraison :</span>
+                        <span class="value">${formData.needsDelivery ? "Oui" : "Non"}</span>
+                    </div>
+                    <div class="field">
+                        <span class="label">Solution actuelle :</span>
+                        <span class="value">${formData.currentSolution || "Non spécifié"}</span>
+                    </div>
+                    <div class="field">
+                        <span class="label">Urgence :</span>
+                        <span class="value">${formData.urgency || "Non spécifié"}</span>
                     </div>
                 </div>
 
