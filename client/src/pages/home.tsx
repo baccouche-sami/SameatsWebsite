@@ -1,7 +1,8 @@
 import { ModernNavigation } from "@/components/modern-navigation";
 import { ModernHero } from "@/components/modern-hero";
 import { ModernFeaturesAdvanced } from "@/components/modern-features-advanced";
-import { ModernClientShowcase } from "@/components/modern-client-showcase";
+import { ModernClientGallery } from "@/components/modern-client-gallery";
+import { ModernTestimonials } from "@/components/modern-testimonials";
 import { ModernPricingSection } from "@/components/modern-pricing-section";
 import { ModernQuoteSection } from "@/components/modern-quote-section";
 import { ModernFooter } from "@/components/modern-footer";
@@ -32,7 +33,8 @@ export default function Home() {
       <ModernNavigation />
       <ModernHero />
       <ModernFeaturesAdvanced />
-      <ModernClientShowcase />
+      <ModernClientGallery />
+      <ModernTestimonials />
       <ModernPricingSection />
       <ModernQuoteSection />
       <ModernFooter />

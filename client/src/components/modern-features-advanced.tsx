@@ -1,8 +1,10 @@
 import { useState } from "react";
 import { useLanguage } from "./language-provider";
-import dashboardImage from "@assets/generated_images/Restaurant_dashboard_interface_f9841e0c.png";
-import mobileAppImage from "@assets/generated_images/Restaurant_mobile_app_e4bf46a3.png";
-import websiteImage from "@assets/generated_images/Restaurant_website_mockup_eed2dfd1.png";
+import mobileAppImage from "@assets/Poste-Layout_05_1755216769453.jpg";
+import desktopLoginImage from "@assets/Poste-Layout_03_1755216769456.jpg";
+import mobileDesktopImage from "@assets/Poste-Layout_04_1755216769457.jpg";
+import contactFormImage from "@assets/Poste-Layout_06_1755216769457.jpg";
+import pricingImage from "@assets/Poste-Layout_02_1755216769457.jpg";
 
 export function ModernFeaturesAdvanced() {
   const { t } = useLanguage();
@@ -10,58 +12,58 @@ export function ModernFeaturesAdvanced() {
 
   const mainFeatures = [
     {
-      id: "website",
-      icon: "fas fa-globe",
-      title: t("Site Web Professionnel", "Professional Website"),
-      shortDesc: t("Site responsive optimisé", "Optimized responsive site"),
-      description: t(
-        "Créez une présence en ligne professionnelle avec votre site de commande personnalisé. Design responsive, optimisé pour mobile et référencement SEO.",
-        "Create a professional online presence with your custom ordering site. Responsive design, mobile-optimized and SEO-ready."
-      ),
-      image: websiteImage,
-      features: [
-        t("Design 100% personnalisé", "100% custom design"),
-        t("Optimisation mobile-first", "Mobile-first optimization"),
-        t("SEO et référencement", "SEO optimization"),
-        t("Intégration réseaux sociaux", "Social media integration")
-      ],
-      color: "from-[var(--primary)] to-blue-500"
-    },
-    {
-      id: "mobile",
-      icon: "fas fa-mobile-alt", 
+      id: "mobile-apps",
+      icon: "fas fa-mobile-alt",
       title: t("Applications Mobiles", "Mobile Applications"),
-      shortDesc: t("Apps iOS & Android natives", "Native iOS & Android apps"),
+      shortDesc: t("Apps iOS & Android", "iOS & Android Apps"),
       description: t(
-        "Applications mobiles natives avec votre marque pour iOS et Android. Interface intuitive, notifications push et synchronisation en temps réel.",
-        "Native mobile apps with your brand for iOS and Android. Intuitive interface, push notifications and real-time sync."
+        "Applications mobiles complètes avec interface de commande intuitive, promotions en temps réel et gestion des commandes pour vos clients.",
+        "Complete mobile applications with intuitive ordering interface, real-time promotions and order management for your customers."
       ),
       image: mobileAppImage,
       features: [
-        t("Apps natives iOS/Android", "Native iOS/Android apps"),
-        t("Notifications push", "Push notifications"),
-        t("Commande hors-ligne", "Offline ordering"),
-        t("Géolocalisation intégrée", "Built-in geolocation")
+        t("Interface de commande intuitive", "Intuitive ordering interface"),
+        t("Promotions et événements", "Promotions and events"),
+        t("Suivi commandes en temps réel", "Real-time order tracking"),
+        t("Programme de fidélité intégré", "Integrated loyalty program")
       ],
-      color: "from-purple-500 to-[var(--accent)]"
+      color: "from-[var(--primary)] to-[var(--accent)]"
     },
     {
-      id: "dashboard",
-      icon: "fas fa-chart-line",
-      title: t("Back-Office Intelligent", "Smart Back-Office"),
-      shortDesc: t("Gestion complète restaurant", "Complete restaurant management"),
+      id: "desktop-solution",
+      icon: "fas fa-desktop",
+      title: t("Solution Desktop", "Desktop Solution"),
+      shortDesc: t("Interface web complète", "Complete web interface"),
       description: t(
-        "Tableau de bord complet pour gérer votre restaurant : commandes en temps réel, analytics avancés, gestion du menu et des stocks.",
-        "Complete dashboard to manage your restaurant: real-time orders, advanced analytics, menu and inventory management."
+        "Solution de commande en ligne 100% personnalisée pour restaurants avec interface d'administration complète et tableau de connexion sécurisé.",
+        "100% customized online ordering solution for restaurants with complete admin interface and secure login dashboard."
       ),
-      image: dashboardImage,
+      image: desktopLoginImage,
       features: [
-        t("Analytics en temps réel", "Real-time analytics"),
-        t("Gestion des commandes", "Order management"),
-        t("Contrôle des stocks", "Inventory control"),
-        t("Rapports détaillés", "Detailed reports")
+        t("Solution 100% personnalisée", "100% customized solution"),
+        t("Interface d'administration", "Admin interface"),
+        t("Connexion sécurisée", "Secure login"),
+        t("Gestion complète restaurant", "Complete restaurant management")
       ],
-      color: "from-green-500 to-emerald-400"
+      color: "from-blue-500 to-cyan-400"
+    },
+    {
+      id: "cross-platform",
+      icon: "fas fa-laptop-mobile",
+      title: t("Multi-Plateformes", "Cross-Platform"),
+      shortDesc: t("Disponible partout", "Available everywhere"),
+      description: t(
+        "Applications disponibles sur iOS & Android avec interface desktop synchronisée. Vos clients commandent depuis n'importe quel appareil.",
+        "Applications available on iOS & Android with synchronized desktop interface. Your customers order from any device."
+      ),
+      image: mobileDesktopImage,
+      features: [
+        t("Applications iOS & Android", "iOS & Android applications"),
+        t("Interface desktop", "Desktop interface"),
+        t("Synchronisation en temps réel", "Real-time synchronization"),
+        t("Expérience utilisateur uniforme", "Unified user experience")
+      ],
+      color: "from-purple-500 to-pink-500"
     }
   ];
 
