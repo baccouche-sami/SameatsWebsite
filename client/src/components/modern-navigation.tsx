@@ -20,6 +20,7 @@ export function ModernNavigation() {
   const navigation = [
     { name: t("Accueil", "Home"), href: "/" },
     { name: t("Fonctionnalités", "Features"), href: "/features" },
+    { name: t("Clients", "Clients"), href: "/clients" },
     { name: t("Tarifs", "Pricing"), href: "/pricing" },
     { name: t("À Propos", "About"), href: "/about" },
     { name: t("Contact", "Contact"), href: "/contact" }
