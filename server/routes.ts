@@ -35,6 +35,10 @@ export async function registerRoutes(app: Express): Promise<Server> {
       });
 
       const validatedData = contactSchema.parse(req.body);
+      
+      // Log pour debug
+      console.log('Données reçues:', JSON.stringify(validatedData, null, 2));
+      
       const contact = await storage.createContact(validatedData);
       
       // Envoyer l'email selon le type de formulaire

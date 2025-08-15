@@ -104,6 +104,26 @@ export function getContactEmailTemplate(formData: any): EmailData {
                     <span class="label">Sujet :</span>
                     <span class="value">${formData.subject || "Contact général"}</span>
                 </div>
+                ${formData.restaurantName ? `
+                <div class="field">
+                    <span class="label">Restaurant :</span>
+                    <span class="value">${formData.restaurantName}</span>
+                </div>` : ''}
+                ${formData.restaurantType ? `
+                <div class="field">
+                    <span class="label">Type de restaurant :</span>
+                    <span class="value">${formData.restaurantType}</span>
+                </div>` : ''}
+                ${formData.budget ? `
+                <div class="field">
+                    <span class="label">Budget :</span>
+                    <span class="value">${formData.budget}</span>
+                </div>` : ''}
+                ${formData.services ? `
+                <div class="field">
+                    <span class="label">Services :</span>
+                    <span class="value">${formData.services}</span>
+                </div>` : ''}
                 <div class="field">
                     <span class="label">Message :</span>
                     <div style="background: white; padding: 15px; border-radius: 5px; margin-top: 10px;">
