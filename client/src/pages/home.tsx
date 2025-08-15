@@ -2,6 +2,8 @@ import { ModernNavigation } from "@/components/modern-navigation";
 import { ModernHero } from "@/components/modern-hero";
 import { ModernFeaturesGrid } from "@/components/modern-features-grid";
 import { ModernClientShowcase } from "@/components/modern-client-showcase";
+import { ModernPricingSection } from "@/components/modern-pricing-section";
+import { ModernQuoteSection } from "@/components/modern-quote-section";
 import { ModernFooter } from "@/components/modern-footer";
 import { SEOHead, generateOrganizationSchema } from "@/components/seo-head";
 import { useLanguage } from "@/components/language-provider";
@@ -31,6 +33,8 @@ export default function Home() {
       <ModernHero />
       <ModernFeaturesGrid />
       <ModernClientShowcase />
+      <ModernPricingSection />
+      <ModernQuoteSection />
       <ModernFooter />
     </div>
   );

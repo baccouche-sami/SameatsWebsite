@@ -1,0 +1,315 @@
+ that work with your business
+Enhance your restaurant's efficiency with seamless integrations for online ordering system.
+
+
+Categories
+Delivery Services
+Point of Sale
+Marketplaces
+Payments
+Order Management
+Printing
+Marketing
+Website Builders
+Staff Management
+Delivery Services
+Glovo_logo
+Glovo
+Glovo integration connects your restaurant with a global delivery platform, streamlining order management and expanding your reach to a wider audience.
+
+Read more 
+stuart
+Stuart
+Stuart is a reliable on-demand delivery platform that connects businesses with local couriers, enabling fast and flexible last-mile delivery solutions.
+
+Read more 
+Wolt Drive logo
+Wolt Drive
+Wolt Drive helps your restaurant grow with fast and reliable last-mile deliveries. From your store to your customer’s door in one hour or less.
+
+Read more 
+stava
+Stava
+Stava is a comprehensive logistics management platform that streamlines shipping operations, providing businesses with tools for route optimization and real-time tracking.
+
+Read more 
+deligoo
+DeliGoo
+DeliGoo is a user-friendly delivery management system that simplifies order fulfillment, offering businesses seamless control over their delivery processes.
+
+Read more 
+relay
+Relay
+Relay integration offers a comprehensive delivery management service for your restaurant, optimizing logistics and ensuring efficient order fulfillment.
+
+Read more 
+Point of Sale
+posbistro
+POS Bistro
+User-friendly, cloud-based POS system for restaurants, cafes, and bars.
+
+Read more 
+foodsoft
+Foodsoft
+A payment method tailored for food-related services, allowing seamless transactions for ordering and paying for food online or in-app.
+
+Read more 
+izzyrest
+izzyRest
+IzzyRest is a convenient payment solution for restaurants, enabling customers to make quick and secure payments for their dining experiences.
+
+Read more 
+x2
+X2
+X2 is a versatile and user-friendly payment platform that supports various payment options for businesses and consumers alike.
+
+Read more 
+simple-gastro
+SimpleGastronomy
+SimpleGastronomy offers a straightforward and efficient payment process specifically designed for the gastronomy industry, streamlining transactions for both customers and vendors.
+
+Read more 
+restapi
+Generic REST API
+Integrate your POS or your food delivery system - give your customers a complete solution and earn more.
+
+Read more 
+Marketplaces
+Payments
+stripe
+Stripe
+Stripe is a popular payment processing platform that enables businesses to accept payments online, providing a seamless and customizable experience.
+
+Read more 
+adyen
+Adyen
+Adyen is a global payment service provider that offers a comprehensive solution for businesses to accept payments across different channels and regions.
+
+Read more 
+payu
+PayU
+PayU is a secure online payment gateway that facilitates smooth transactions, making it easy for customers to pay for goods and services.
+
+Read more 
+paypal
+PayPal
+PayPal is a widely recognized online payment system that allows users to send and receive money securely through their email addresses.
+
+Read more 
+apple-pay-logo
+Apple Pay
+Apple Pay is a mobile payment service offered by Apple, allowing users to make quick and secure payments using their iPhones, iPads, and other Apple devices.
+
+Read more 
+google-pay-logo
+Google Pay
+Google Pay is a digital wallet and payment service by Google that allows users to make payments using their Android devices or web browsers.
+
+Read more 
+alipay-logo
+AliPay
+AliPay is a leading digital wallet and payment platform in China, enabling users to make purchases, transfer money, and pay bills through their smartphones.
+
+Read more 
+cash-app-logo
+CashApp Pay
+CashApp Pay is a mobile payment service that allows users in the United States to send and receive money quickly and easily.
+
+Read more 
+link-logo
+Link
+Link is a straightforward and secure payment method that allows users to make transactions online easily.
+
+Read more 
+grab-pay-logo
+GrabPay
+GrabPay is a mobile payment service provided by the Grab app, offering users in Southeast Asia a convenient way to pay for various services, including rides, food delivery, and more.
+
+Read more 
+mobile-pay-logo
+Mobile Pay
+Mobile Pay refers to various mobile payment services that allow users to make transactions using their smartphones or other mobile devices.
+
+Read more 
+paynow-logo-2
+PayNow
+PayNow is an electronic funds transfer service in Singapore that enables real-time payments between individuals and businesses.
+
+Read more 
+prompt-pay-logo
+PromptPay
+PromptPay is a mobile payment system in Thailand that allows users to transfer funds quickly and easily using their mobile phone numbers.
+
+Read more 
+affirm-logo
+Affirm
+Affirm offers a "buy now, pay later" solution, allowing customers to finance their purchases and pay for them in installments.
+
+Read more 
+afterpay-logo
+AfterPay
+AfterPay is a popular "pay later" service in several countries, allowing customers to split their purchase into multiple interest-free installments.
+
+Read more 
+clearpay-logo
+ClearPay
+ClearPay is a "buy now, pay later" service in the United Kingdom, providing customers with flexible payment options.
+
+Read more 
+klarna-logo
+Klarna
+Klarna is a payment service provider that offers various payment solutions, including "buy now, pay later," providing consumers with more purchasing flexibility.
+
+Read more 
+bancontact-logo
+Bancontact
+Bancontact is a widely used electronic payment system in Belgium, allowing users to make secure online transactions.
+
+Read more 
+blik-logo
+Blik
+Blik is a mobile payment system in Poland that allows users to make payments using QR codes or mobile phone numbers.
+
+Read more 
+eps-logo
+EPS
+EPS (Electronic Payment Standard) is an online payment system in Austria, enabling secure and efficient transactions.
+
+Read more 
+fpx-logo
+FPX
+FPX (Financial Process Exchange) is an online banking payment system in Malaysia, facilitating real-time interbank transfers.
+
+Read more 
+giropay-logo
+Giropay
+Giropay is an online payment method in Germany, allowing customers to make secure payments using their bank accounts.
+
+Read more 
+ideal-logo
+iDEAL
+iDEAL is a popular payment method in the Netherlands, allowing customers to make online payments directly from their bank accounts.
+
+Read more 
+p24-logo
+P24
+P24 is an online payment method in Poland, enabling customers to make secure transactions through various channels.
+
+Read more 
+sofort-logo
+Sofort
+Sofort is an online payment system in Europe, allowing customers to make real-time bank transfers without disclosing sensitive data.
+
+Read more 
+ach-logo
+ACH Direct Debit
+ACH Direct Debit is a payment method commonly used in the United States, allowing merchants to debit funds directly from customers' bank accounts.
+
+Read more 
+bacs-logo
+Bacs Direct Debit
+Bacs Direct Debit is a payment method in the United Kingdom that enables companies to collect payments directly from customers' bank accounts.
+
+Read more 
+wechat-logo
+WeChat
+WeChat Pay is a popular mobile payment platform integrated into the WeChat app, widely used in China for various transactions.
+
+Read more 
+becs-logo
+BECS direct debit
+BECS (Bulk Electronic Clearing System) direct debit is a payment method used in Australia, facilitating automated payments.
+
+Read more 
+pre-authorized-logo
+Pre-authorized debit in Canada
+Pre-authorized debit is a payment method in Canada, allowing businesses to collect payments directly from customers' bank accounts with their consent.
+
+Read more 
+boleto-logo
+Boleto
+Boleto is a popular payment method in Brazil, providing customers with a ticket they can use to pay for online and offline purchases.
+
+Read more 
+sepa-logo
+SEPA debit
+SEPA (Single Euro Payments Area) debit allows users in the Eurozone to make euro-denominated direct debit payments across countries.
+
+Read more 
+konbini-logo
+Konbini
+Konbini refers to payment methods in Japan that allow customers to make payments at convenience stores, providing ease and accessibility.
+
+Read more 
+oxxo-logo
+OXXO
+OXXO is a payment system in Mexico, enabling customers to make payments at OXXO convenience stores for online purchases.
+
+Read more 
+Order Management
+shipday
+ShipDay
+ShipDay is a reliable shipping and logistics service that streamlines deliveries for businesses and customers, ensuring on-time and hassle-free shipping experiences.
+
+Read more 
+logo-restimo
+Restimo
+Restimo is a dependable and efficient shipping and logistics service, dedicated to providing businesses and customers with seamless and punctual deliveries.
+
+Read more 
+papuio
+PAPU.io
+Order management system dedicated to restaurants handling high volumes of delivery orders. It collects orders from various sources, such as UpMenu and food ordering apps, and simplifies the delivery management process.
+
+Read more 
+smartDeliveryTrack
+Smart Delivery Track
+Smart Delivery Track is an intelligent tracking system that allows businesses to monitor and optimize their delivery processes, ensuring efficient and transparent shipment tracking.
+
+Read more 
+Printing
+star-cloud-prnt
+Star CloudPRNT
+Star CloudPRNT is a cloud-based printing solution that enables businesses to print receipts and labels remotely, offering flexibility and convenience.
+
+Read more 
+Marketing
+google-analytics
+Google Analytics
+Google Analytics is a powerful web analytics service by Google, allowing website owners to track and analyze website traffic and user behavior.
+
+Read more 
+gtm
+Google Tag Manager
+Google Tag Manager is a tool that simplifies the process of adding and managing tags on a website, facilitating the integration of various marketing and analytics tools.
+
+Read more 
+meta
+Meta
+Meta is a digital marketing platform that helps businesses enhance their online presence and drive engagement through targeted advertising and content strategies.
+
+Read more 
+cookieyes
+CookieYes
+CookieYes is a consent management platform that assists website owners in complying with privacy regulations by obtaining user consent for cookies and tracking technologies.
+
+Read more 
+Website Builders
+wordpress
+WordPress
+WordPress is a popular content management system (CMS) that allows users to create and manage websites easily, offering a wide range of themes and plugins.
+
+Read more 
+duda-logo
+Duda
+Duda is a website builder platform that empowers businesses and agencies to create responsive and visually appealing websites without coding knowledge.
+
+Read more 
+wix-logo
+Wix
+Wix is a user-friendly website builder that enables individuals and businesses to create stunning websites using customizable templates and drag-and-drop features.
+
+Read more 
+squarespace-logo
+SquareSpace
+SquareSpace is an all-in-one website building platform, offering a variety of stylish templates and tools for individuals and businesses to create professional websites.

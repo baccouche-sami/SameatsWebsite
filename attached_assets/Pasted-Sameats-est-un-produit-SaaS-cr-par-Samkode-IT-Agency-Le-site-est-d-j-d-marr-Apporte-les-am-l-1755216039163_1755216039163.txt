@@ -1,0 +1,60 @@
+Sameats est un produit SaaS créé par Samkode (IT Agency). Le site est déjà démarré. Apporte les améliorations suivantes sans casser la structure actuelle : réutilise les composants existants quand c’est possible, factorise ce qui se répète, et garde le design responsive.
+
+1) Accroche & mise en valeur clients
+	•	Remplacer le texte d’intro par :
+	•	FR : « Nous travaillons avec votre entreprise. Optimisez l’efficacité de votre restaurant grâce à des intégrations fluides pour la commande en ligne. »
+	•	EN : « We work with your business — Enhance your restaurant’s efficiency with seamless integrations for online ordering. »
+	•	Ajouter un carrousel/galerie mettant en valeur les logos de nos clients (utiliser nos images existantes) + une grille de logos partenaires (intégrations).
+	•	Chaque logo : alt text propre, hover subtle, ratio uniforme.
+
+2) Intégrations (utiliser les catégories existantes)
+
+Catégories : Delivery Services, Point of Sale, Marketplaces, Payments, Order Management, Printing, Marketing, Website Builders, Staff Management.
+	•	Afficher sous forme de grilles par catégorie.
+	•	Pour chaque intégration : logo, nom, description courte, bouton “Read more”.
+	•	Créer un schéma de données unique (ex. integrations.json) et générer les cartes depuis ce fichier (pas de duplication en dur).
+
+3) Page “À propos” (simplifiée)
+	•	Supprimer “Notre équipe”.
+	•	Remplacer le contenu par :
+Notre histoire
+Après plus de 6 ans d’expérience dans la restauration et le fast-food, et après avoir travaillé avec de nombreux types de services, j’ai décidé de créer une solution complète et simple : Sameats.
+Sameats est un produit SaaS développé par mon agence Samkode (IT Agency) pour simplifier et optimiser la gestion des restaurants.
+
+4) Devis (page et CTA)
+	•	Améliorer le formulaire “Devis” (validation, messages clairs).
+	•	Champs : Nom/Entreprise, Email, Téléphone, Nombre d’établissements, Système de caisse, Intégrations souhaitées (multi-sélection), Volume de commandes/mois, Message libre, Consentement RGPD.
+	•	CTA visibles : “Demander un devis” (header + sections pertinentes).
+	•	Après envoi : confirmer la réception + indiquer délai de réponse (texte statique).
+
+5) Témoignages
+	•	Ajouter une section 3–5 témoignages (carte avec photo/logo, nom, rôle, citation).
+	•	Exemple de contenu (placeholder à ajuster) :
+	•	« Sameats a réduit notre temps de traitement de 35%. » — Lina M., gérante, Le Patio
+	•	« L’intégration POS + livraison a été plug-and-play. » — Karim A., co-fondateur, Wrap&Go
+	•	« Interface simple, support réactif. » — Sofia R., directrice, Casa Verde
+
+6) Compléter/soigner les autres pages
+	•	Harmoniser typographies, espacements, et styles de cartes.
+	•	Ajouter meta titles/descriptions uniques par page.
+	•	Accessibilité : contrastes AA, focus states, alt text pour toutes les images/logos.
+	•	Performances : lazy-load des images logos, formats modernes (WebP), tailles cohérentes.
+
+7) Détails de mise en œuvre
+	•	Design : style épuré, moderne, responsive.
+	•	Tech : réutiliser stack existante. Si composants manquent, créer Card, LogoGrid, Testimonial, CategoryTabs, QuoteForm.
+	•	Contenu : utiliser la liste d’intégrations fournie (Glovo, Stuart, Wolt Drive, Stava, DeliGoo, Relay, POS Bistro, Foodsoft, izzyRest, X2, SimpleGastronomy, Generic REST API, Stripe, Adyen, PayU, PayPal, Apple Pay, Google Pay, AliPay, Cash App Pay, Link, GrabPay, Mobile Pay, PayNow, PromptPay, Affirm, AfterPay, ClearPay, Klarna, Bancontact, Blik, EPS, FPX, Giropay, iDEAL, P24, Sofort, ACH Direct Debit, Bacs Direct Debit, WeChat Pay, BECS, Pre-authorized debit (Canada), Boleto, SEPA debit, Konbini, OXXO, ShipDay, Restimo, PAPU.io, Smart Delivery Track, Star CloudPRNT, Google Analytics, Google Tag Manager, Meta, CookieYes, WordPress, Duda, Wix, SquareSpace).
+
+8) Micro-copy prêt à coller (FR)
+	•	Hero CTA principal : « Commencer » / « Demander un devis »
+	•	Sous-titre intégrations : « Des partenaires fiables pour une efficacité maximale. »
+	•	Bouton carte : « En savoir plus »
+	•	Devis – confirmation : « Merci ! Votre demande a bien été envoyée. Nous reviendrons vers vous très vite. »
+
+⸻
+
+Livrables attendus
+	•	Pages mises à jour (Accueil, Intégrations, À propos, Devis, Témoignages) sans casser le routage existant.
+	•	Un fichier de données unique pour les intégrations + import côté UI.
+	•	Optimisations accessibilité/perf de base (lazy-load, alt, titles).
+	•	Styles/espacements harmonisés.
