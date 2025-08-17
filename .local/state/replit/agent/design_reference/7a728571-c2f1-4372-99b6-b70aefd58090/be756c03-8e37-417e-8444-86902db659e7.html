@@ -1,0 +1,956 @@
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAMEATS - Solution de commande en ligne pour restaurants</title>
+    <meta name="description" content="Solution complète de commande en ligne pour restaurants : site web, apps mobiles, back-office. Installation 500€ + 1 mois gratuit.">
+    <meta property="og:title" content="SAMEATS - Solution de commande en ligne pour restaurants">
+    <meta property="og:description" content="Site web + apps iOS & Android + back-office complet. Installation 500 € + 1 mois gratuit.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sameats.fr">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+    tailwind.config = {
+        theme: {
+            extend: {
+                fontFamily: {
+                    'poppins': ['Poppins', 'sans-serif'],
+                    'inter': ['Inter', 'sans-serif']
+                },
+                colors: {
+                    primary: {
+                        50: '#FFF7ED',
+                        500: '#FF6A00',
+                        600: '#E55A00',
+                        700: '#CC4F00'
+                    },
+                    secondary: {
+                        500: '#FFC700',
+                        600: '#E6B300'
+                    },
+                    dark: {
+                        800: '#0F0F23',
+                        700: '#1A1A2E',
+                        600: '#16213E',
+                        500: '#2D3748'
+                    }
+                },
+                backgroundImage: {
+                    'primary-gradient': 'linear-gradient(135deg, #FF6A00 0%, #FFC700 100%)',
+                    'dark-gradient': 'linear-gradient(135deg, #0F0F23 0%, #1A1A2E 100%)'
+                }
+            }
+        }
+    };
+    </script>
+    
+    <style>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #FF6A00 0%, #FFC700 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hover-lift {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .hover-lift:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(255, 106, 0, 0.2);
+        }
+        
+        .blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(40px);
+            opacity: 0.3;
+            animation: blob 20s infinite;
+        }
+        
+        @keyframes blob {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            25% { transform: translate(20px, -50px) scale(1.1); }
+            50% { transform: translate(-20px, 20px) scale(0.9); }
+            75% { transform: translate(50px, 10px) scale(1.05); }
+        }
+    </style>
+</head>
+
+<body class="bg-dark-800 text-white font-inter overflow-x-hidden">
+    <!-- Language Toggle & Navigation -->
+    <nav class="fixed top-0 w-full z-50 bg-dark-800/90 backdrop-blur-md border-b border-gray-800">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <!-- Logo -->
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 bg-primary-gradient rounded-lg flex items-center justify-center">
+                        <span class="text-white font-bold text-xl">S</span>
+                    </div>
+                    <span class="text-2xl font-poppins font-bold">SAMEATS</span>
+                </div>
+                
+                <!-- Navigation Links -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#features" class="hover:text-primary-500 transition-colors" data-fr="Fonctionnalités" data-en="Features">Fonctionnalités</a>
+                    <a href="#solutions" class="hover:text-primary-500 transition-colors" data-fr="Solutions" data-en="Solutions">Solutions</a>
+                    <a href="#pricing" class="hover:text-primary-500 transition-colors" data-fr="Tarifs" data-en="Pricing">Tarifs</a>
+                    <a href="#clients" class="hover:text-primary-500 transition-colors" data-fr="Clients" data-en="Clients">Clients</a>
+                    <a href="#contact" class="hover:text-primary-500 transition-colors" data-fr="Contact" data-en="Contact">Contact</a>
+                </div>
+                
+                <!-- Language Toggle & CTA -->
+                <div class="flex items-center space-x-4">
+                    <div class="flex items-center bg-dark-600 rounded-lg p-1">
+                        <button id="lang-fr" class="px-3 py-1 rounded text-sm font-medium bg-primary-gradient text-white">FR</button>
+                        <button id="lang-en" class="px-3 py-1 rounded text-sm font-medium text-gray-400 hover:text-white transition-colors">EN</button>
+                    </div>
+                    <button class="bg-primary-gradient px-6 py-2 rounded-lg font-medium hover:shadow-lg transition-all hover-lift" data-fr="Démo gratuite" data-en="Free Demo">
+                        Démo gratuite
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
+        <!-- Background Elements -->
+        <div class="blob w-96 h-96 bg-primary-500 top-10 -right-20"></div>
+        <div class="blob w-80 h-80 bg-secondary-500 bottom-10 -left-20 animation-delay-2s"></div>
+        
+        <div class="container mx-auto px-6 text-center relative z-10">
+            <div class="max-w-4xl mx-auto">
+                <h1 class="text-5xl md:text-7xl font-poppins font-bold mb-6 leading-tight">
+                    <span data-fr="Votre solution de commande en ligne" data-en="Your fully branded online ordering solution">Votre solution de commande en ligne</span>
+                    <span class="gradient-text block" data-fr="100% personnalisée" data-en="100% customized">100% personnalisée</span>
+                </h1>
+                
+                <p class="text-xl md:text-2xl text-gray-300 mb-8 leading-relaxed">
+                    <span data-fr="Site web + apps iOS & Android + back-office complet." data-en="Website + iOS & Android apps + complete back-office.">Site web + apps iOS & Android + back-office complet.</span><br>
+                    <span class="gradient-text font-semibold" data-fr="Installation 500 € + 1 mois gratuit" data-en="€500 setup + 1 month free">Installation 500 € + 1 mois gratuit</span>
+                </p>
+                
+                <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+                    <button class="bg-primary-gradient px-8 py-4 rounded-xl font-semibold text-lg hover-lift" data-fr="Démarrer à 500 €" data-en="Get started for €500">
+                        Démarrer à 500 €
+                    </button>
+                    <button class="border-2 border-primary-500 px-8 py-4 rounded-xl font-semibold text-lg hover:bg-primary-500 transition-all" data-fr="Demander une démo" data-en="Request a demo">
+                        Demander une démo
+                    </button>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-3xl mx-auto">
+                    <div class="flex items-center justify-center space-x-3">
+                        <i class="fas fa-rocket text-primary-500 text-xl"></i>
+                        <span class="font-medium" data-fr="Prêt en quelques jours" data-en="Go live in days">Prêt en quelques jours</span>
+                    </div>
+                    <div class="flex items-center justify-center space-x-3">
+                        <i class="fas fa-hand-holding-dollar text-primary-500 text-xl"></i>
+                        <span class="font-medium" data-fr="Sans commission sur vos ventes" data-en="No commission on your sales">Sans commission sur vos ventes</span>
+                    </div>
+                    <div class="flex items-center justify-center space-x-3">
+                        <i class="fas fa-headset text-primary-500 text-xl"></i>
+                        <span class="font-medium" data-fr="Support réactif" data-en="Responsive support">Support réactif</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-20 bg-dark-700">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-poppins font-bold mb-6" data-fr="Fonctionnalités clés" data-en="Key Features">Fonctionnalités clés</h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto" data-fr="Une solution complète pour digitaliser votre restaurant et augmenter vos revenus" data-en="A complete solution to digitize your restaurant and increase your revenue">
+                    Une solution complète pour digitaliser votre restaurant et augmenter vos revenus
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Feature 1 -->
+                <div class="glass-card p-8 rounded-xl hover-lift">
+                    <div class="w-16 h-16 bg-primary-gradient rounded-xl flex items-center justify-center mb-6">
+                        <i class="fas fa-globe text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-poppins font-semibold mb-4" data-fr="Site de commande" data-en="Ordering Website">Site de commande</h3>
+                    <p class="text-gray-300" data-fr="Site web responsive et optimisé pour la conversion avec votre branding" data-en="Responsive website optimized for conversion with your branding">
+                        Site web responsive et optimisé pour la conversion avec votre branding
+                    </p>
+                </div>
+                
+                <!-- Feature 2 -->
+                <div class="glass-card p-8 rounded-xl hover-lift">
+                    <div class="w-16 h-16 bg-primary-gradient rounded-xl flex items-center justify-center mb-6">
+                        <i class="fas fa-mobile-alt text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-poppins font-semibold mb-4" data-fr="Apps iOS/Android" data-en="iOS/Android Apps">Apps iOS/Android</h3>
+                    <p class="text-gray-300" data-fr="Applications natives avec notifications push et expérience utilisateur premium" data-en="Native apps with push notifications and premium user experience">
+                        Applications natives avec notifications push et expérience utilisateur premium
+                    </p>
+                </div>
+                
+                <!-- Feature 3 -->
+                <div class="glass-card p-8 rounded-xl hover-lift">
+                    <div class="w-16 h-16 bg-primary-gradient rounded-xl flex items-center justify-center mb-6">
+                        <i class="fas fa-chart-line text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-poppins font-semibold mb-4" data-fr="Back-office" data-en="Back-office">Back-office</h3>
+                    <p class="text-gray-300" data-fr="Interface de gestion complète : commandes, menu, analyses, promotions" data-en="Complete management interface: orders, menu, analytics, promotions">
+                        Interface de gestion complète : commandes, menu, analyses, promotions
+                    </p>
+                </div>
+                
+                <!-- Feature 4 -->
+                <div class="glass-card p-8 rounded-xl hover-lift">
+                    <div class="w-16 h-16 bg-primary-gradient rounded-xl flex items-center justify-center mb-6">
+                        <i class="fas fa-credit-card text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-poppins font-semibold mb-4" data-fr="Paiements modernes" data-en="Modern Payments">Paiements modernes</h3>
+                    <p class="text-gray-300" data-fr="Intégration sécurisée avec tous les modes de paiement populaires" data-en="Secure integration with all popular payment methods">
+                        Intégration sécurisée avec tous les modes de paiement populaires
+                    </p>
+                </div>
+                
+                <!-- Feature 5 -->
+                <div class="glass-card p-8 rounded-xl hover-lift">
+                    <div class="w-16 h-16 bg-primary-gradient rounded-xl flex items-center justify-center mb-6">
+                        <i class="fas fa-bullhorn text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-poppins font-semibold mb-4" data-fr="Marketing intégré" data-en="Built-in Marketing">Marketing intégré</h3>
+                    <p class="text-gray-300" data-fr="Outils de fidélisation, promotions et campagnes automatisées" data-en="Loyalty tools, promotions and automated campaigns">
+                        Outils de fidélisation, promotions et campagnes automatisées
+                    </p>
+                </div>
+                
+                <!-- Feature 6 -->
+                <div class="glass-card p-8 rounded-xl hover-lift">
+                    <div class="w-16 h-16 bg-primary-gradient rounded-xl flex items-center justify-center mb-6">
+                        <i class="fas fa-language text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-poppins font-semibold mb-4" data-fr="International" data-en="International">International</h3>
+                    <p class="text-gray-300" data-fr="Support multi-langues et multi-devises pour vos marchés" data-en="Multi-language and multi-currency support for your markets">
+                        Support multi-langues et multi-devises pour vos marchés
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solutions Section -->
+    <section id="solutions" class="py-20 bg-dark-800">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-poppins font-bold mb-6" data-fr="Solutions adaptées" data-en="Tailored Solutions">Solutions adaptées</h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto" data-fr="Nous accompagnons tous types d'établissements dans leur transformation digitale" data-en="We support all types of establishments in their digital transformation">
+                    Nous accompagnons tous types d'établissements dans leur transformation digitale
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Solution 1 -->
+                <div class="glass-card p-8 rounded-xl text-center hover-lift">
+                    <!-- Stylized restaurant icon with orange background -->
+                    <div class="w-24 h-24 bg-primary-gradient rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-utensils text-white text-3xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-poppins font-semibold mb-4" data-fr="Restaurateurs indépendants" data-en="Independent Restaurants">Restaurateurs indépendants</h3>
+                    <p class="text-gray-300 mb-6" data-fr="Solution clé en main pour développer vos ventes en ligne rapidement" data-en="Turnkey solution to develop your online sales quickly">
+                        Solution clé en main pour développer vos ventes en ligne rapidement
+                    </p>
+                    <ul class="text-left space-y-2 text-gray-300">
+                        <li class="flex items-center space-x-2">
+                            <i class="fas fa-check text-primary-500"></i>
+                            <span data-fr="Configuration rapide" data-en="Quick setup">Configuration rapide</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <i class="fas fa-check text-primary-500"></i>
+                            <span data-fr="Prix accessible" data-en="Affordable pricing">Prix accessible</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <i class="fas fa-check text-primary-500"></i>
+                            <span data-fr="Support dédié" data-en="Dedicated support">Support dédié</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Solution 2 -->
+                <div class="glass-card p-8 rounded-xl text-center hover-lift">
+                    <!-- Stylized group/franchise icon -->
+                    <div class="w-24 h-24 bg-primary-gradient rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-building text-white text-3xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-poppins font-semibold mb-4" data-fr="Groupes & franchises" data-en="Groups & Franchises">Groupes & franchises</h3>
+                    <p class="text-gray-300 mb-6" data-fr="Gestion centralisée de plusieurs établissements avec branding unifié" data-en="Centralized management of multiple locations with unified branding">
+                        Gestion centralisée de plusieurs établissements avec branding unifié
+                    </p>
+                    <ul class="text-left space-y-2 text-gray-300">
+                        <li class="flex items-center space-x-2">
+                            <i class="fas fa-check text-primary-500"></i>
+                            <span data-fr="Multi-établissements" data-en="Multi-location">Multi-établissements</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <i class="fas fa-check text-primary-500"></i>
+                            <span data-fr="Rapports consolidés" data-en="Consolidated reports">Rapports consolidés</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <i class="fas fa-check text-primary-500"></i>
+                            <span data-fr="Gestion centralisée" data-en="Centralized management">Gestion centralisée</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Solution 3 -->
+                <div class="glass-card p-8 rounded-xl text-center hover-lift">
+                    <!-- Stylized kitchen/cloud icon -->
+                    <div class="w-24 h-24 bg-primary-gradient rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-cloud-meatball text-white text-3xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-poppins font-semibold mb-4" data-fr="Dark kitchens" data-en="Dark Kitchens">Dark kitchens</h3>
+                    <p class="text-gray-300 mb-6" data-fr="Solution optimisée pour la livraison et le click & collect" data-en="Solution optimized for delivery and click & collect">
+                        Solution optimisée pour la livraison et le click & collect
+                    </p>
+                    <ul class="text-left space-y-2 text-gray-300">
+                        <li class="flex items-center space-x-2">
+                            <i class="fas fa-check text-primary-500"></i>
+                            <span data-fr="100% digital" data-en="100% digital">100% digital</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <i class="fas fa-check text-primary-500"></i>
+                            <span data-fr="Zones de livraison" data-en="Delivery zones">Zones de livraison</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <i class="fas fa-check text-primary-500"></i>
+                            <span data-fr="KDS intégré" data-en="Integrated KDS">KDS intégré</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="py-20 bg-dark-700">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-poppins font-bold mb-6" data-fr="Tarifs transparents" data-en="Transparent Pricing">Tarifs transparents</h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto mb-8" data-fr="0% commission SAMEATS • Frais PSP à votre charge • Installation 500€ + 1 mois gratuit" data-en="0% SAMEATS commission • PSP fees on you • €500 setup + 1 month free">
+                    0% commission SAMEATS • Frais PSP à votre charge • Installation 500€ + 1 mois gratuit
+                </p>
+                <div class="flex items-center justify-center space-x-4 mb-8">
+                    <span class="text-gray-400" data-fr="Mensuel" data-en="Monthly">Mensuel</span>
+                    <div class="relative">
+                        <input type="checkbox" id="annual-toggle" class="sr-only">
+                        <label for="annual-toggle" class="block w-14 h-8 bg-gray-600 rounded-full cursor-pointer">
+                            <div class="w-6 h-6 bg-white rounded-full shadow-md transform transition-transform duration-300 translate-x-1 mt-1"></div>
+                        </label>
+                    </div>
+                    <span class="text-primary-500 font-medium" data-fr="Annuel (-15%)" data-en="Annual (-15%)">Annuel (-15%)</span>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Start Plan -->
+                <div class="glass-card p-8 rounded-xl hover-lift">
+                    <div class="text-center">
+                        <h3 class="text-2xl font-poppins font-bold mb-2">Start</h3>
+                        <div class="text-4xl font-bold mb-6">
+                            <span class="gradient-text">69€</span>
+                            <span class="text-lg text-gray-400" data-fr="/mois" data-en="/month">/mois</span>
+                        </div>
+                    </div>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center space-x-2">
+                            <i class="fas fa-check text-primary-500"></i>
+                            <span data-fr="1 établissement" data-en="1 location">1 établissement</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <i class="fas fa-check text-primary-500"></i>
+                            <span data-fr="Commandes illimitées" data-en="Unlimited orders">Commandes illimitées</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <i class="fas fa-check text-primary-500"></i>
+                            <span data-fr="Site de commande" data-en="Ordering website">Site de commande</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <i class="fas fa-check text-primary-500"></i>
+                            <span data-fr="Click & collect" data-en="Click & collect">Click & collect</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <i class="fas fa-check text-primary-500"></i>
+                            <span data-fr="Support email" data-en="Email support">Support email</span>
+                        </li>
+                    </ul>
+                    <button class="w-full border-2 border-primary-500 py-3 rounded-lg font-semibold hover:bg-primary-500 transition-all" data-fr="Commencer" data-en="Get Started">
+                        Commencer
+                    </button>
+                </div>
+                
+                <!-- Grow Plan -->
+                <div class="glass-card p-8 rounded-xl hover-lift border-primary-500 border-2 relative">
+                    <div class="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                        <span class="bg-primary-gradient px-4 py-2 rounded-full text-sm font-medium" data-fr="Populaire" data-en="Popular">Populaire</span>
+                    </div>
+                    <div class="text-center">
+                        <h3 class="text-2xl font-poppins font-bold mb-2">Grow</h3>
+                        <div class="text-4xl font-bold mb-6">
+                            <span class="gradient-text">119€</span>
+                            <span class="text-lg text-gray-400" data-fr="/mois" data-en="/month">/mois</span>
+                        </div>
+                    </div>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center space-x-2">
+                            <i class="fas fa-check text-primary-500"></i>
+                            <span data-fr="Jusqu'à 3 établissements" data-en="Up to 3 locations">Jusqu'à 3 établissements</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <i class="fas fa-check text-primary-500"></i>
+                            <span data-fr="Zones de livraison" data-en="Delivery zones">Zones de livraison</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <i class="fas fa-check text-primary-500"></i>
+                            <span data-fr="Upsell/cross-sell" data-en="Upsell/cross-sell">Upsell/cross-sell</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <i class="fas fa-check text-primary-500"></i>
+                            <span data-fr="Impressions cuisine/KDS" data-en="Kitchen printing/KDS">Impressions cuisine/KDS</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <i class="fas fa-check text-primary-500"></i>
+                            <span data-fr="Support prioritaire" data-en="Priority support">Support prioritaire</span>
+                        </li>
+                    </ul>
+                    <button class="w-full bg-primary-gradient py-3 rounded-lg font-semibold hover-lift" data-fr="Commencer" data-en="Get Started">
+                        Commencer
+                    </button>
+                </div>
+                
+                <!-- Pro Plan -->
+                <div class="glass-card p-8 rounded-xl hover-lift">
+                    <div class="text-center">
+                        <h3 class="text-2xl font-poppins font-bold mb-2">Pro</h3>
+                        <div class="text-4xl font-bold mb-6">
+                            <span class="gradient-text">199€</span>
+                            <span class="text-lg text-gray-400" data-fr="/mois" data-en="/month">/mois</span>
+                        </div>
+                    </div>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center space-x-2">
+                            <i class="fas fa-check text-primary-500"></i>
+                            <span data-fr="Apps iOS/Android" data-en="iOS/Android apps">Apps iOS/Android</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <i class="fas fa-check text-primary-500"></i>
+                            <span data-fr="Multi-langues/devises" data-en="Multi-language/currency">Multi-langues/devises</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <i class="fas fa-check text-primary-500"></i>
+                            <span data-fr="Promos avancées" data-en="Advanced promos">Promos avancées</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <i class="fas fa-check text-primary-500"></i>
+                            <span data-fr="SLA 99,9%" data-en="99.9% SLA">SLA 99,9%</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <i class="fas fa-check text-primary-500"></i>
+                            <span data-fr="Support chat" data-en="Chat support">Support chat</span>
+                        </li>
+                    </ul>
+                    <button class="w-full border-2 border-primary-500 py-3 rounded-lg font-semibold hover:bg-primary-500 transition-all" data-fr="Commencer" data-en="Get Started">
+                        Commencer
+                    </button>
+                </div>
+                
+                <!-- Enterprise Plan -->
+                <div class="glass-card p-8 rounded-xl hover-lift">
+                    <div class="text-center">
+                        <h3 class="text-2xl font-poppins font-bold mb-2">Enterprise</h3>
+                        <div class="text-4xl font-bold mb-6">
+                            <span class="gradient-text" data-fr="Sur devis" data-en="On quote">Sur devis</span>
+                        </div>
+                    </div>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center space-x-2">
+                            <i class="fas fa-check text-primary-500"></i>
+                            <span data-fr=">10 établissements" data-en=">10 locations">>10 établissements</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <i class="fas fa-check text-primary-500"></i>
+                            <span data-fr="Intégrations" data-en="Integrations">Intégrations</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <i class="fas fa-check text-primary-500"></i>
+                            <span data-fr="SSO" data-en="SSO">SSO</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <i class="fas fa-check text-primary-500"></i>
+                            <span data-fr="Formation" data-en="Training">Formation</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <i class="fas fa-check text-primary-500"></i>
+                            <span data-fr="Account manager" data-en="Account manager">Account manager</span>
+                        </li>
+                    </ul>
+                    <button class="w-full border-2 border-primary-500 py-3 rounded-lg font-semibold hover:bg-primary-500 transition-all" data-fr="Nous contacter" data-en="Contact Us">
+                        Nous contacter
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Clients Section -->
+    <section id="clients" class="py-20 bg-dark-800">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-poppins font-bold mb-6" data-fr="Ils nous font confiance" data-en="They trust us">Ils nous font confiance</h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto" data-fr="Découvrez quelques-uns des établissements qui utilisent SAMEATS" data-en="Discover some of the businesses using SAMEATS">
+                    Découvrez quelques-uns des établissements qui utilisent SAMEATS
+                </p>
+            </div>
+            
+            <!-- Responsive Client Grid -->
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 items-center">
+                <!-- T9 Foodies & Grill -->
+                <div class="glass-card p-6 rounded-xl hover-lift group cursor-pointer text-center">
+                    <div class="w-16 h-16 bg-dark-600 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-primary-gradient transition-all">
+                        <span class="text-2xl font-bold text-primary-500 group-hover:text-white">T9</span>
+                    </div>
+                    <h3 class="font-semibold text-sm mb-1">T9 Foodies & Grill</h3>
+                    <p class="text-xs text-gray-400" data-fr="Restaurant" data-en="Restaurant">Restaurant</p>
+                </div>
+                
+                <!-- Campus Food Court -->
+                <div class="glass-card p-6 rounded-xl hover-lift group cursor-pointer text-center">
+                    <div class="w-16 h-16 bg-dark-600 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-primary-gradient transition-all">
+                        <i class="fas fa-utensils text-primary-500 group-hover:text-white text-xl"></i>
+                    </div>
+                    <h3 class="font-semibold text-sm mb-1">Campus Food Court</h3>
+                    <p class="text-xs text-gray-400" data-fr="Food Court" data-en="Food Court">Food Court</p>
+                </div>
+                
+                <!-- First Pizza -->
+                <div class="glass-card p-6 rounded-xl hover-lift group cursor-pointer text-center">
+                    <div class="w-16 h-16 bg-dark-600 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-primary-gradient transition-all">
+                        <i class="fas fa-pizza-slice text-primary-500 group-hover:text-white text-xl"></i>
+                    </div>
+                    <h3 class="font-semibold text-sm mb-1">First Pizza</h3>
+                    <p class="text-xs text-gray-400" data-fr="Pizzeria" data-en="Pizzeria">Pizzeria</p>
+                </div>
+                
+                <!-- Patroné Forno -->
+                <div class="glass-card p-6 rounded-xl hover-lift group cursor-pointer text-center">
+                    <div class="w-16 h-16 bg-dark-600 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-primary-gradient transition-all">
+                        <span class="text-lg font-bold text-primary-500 group-hover:text-white">PF</span>
+                    </div>
+                    <h3 class="font-semibold text-sm mb-1">Patroné Forno</h3>
+                    <p class="text-xs text-gray-400" data-fr="Pizzeria" data-en="Pizzeria">Pizzeria</p>
+                </div>
+                
+                <!-- Rest Sidi Bou Said -->
+                <div class="glass-card p-6 rounded-xl hover-lift group cursor-pointer text-center">
+                    <div class="w-16 h-16 bg-dark-600 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-primary-gradient transition-all">
+                        <i class="fas fa-star text-primary-500 group-hover:text-white text-xl"></i>
+                    </div>
+                    <h3 class="font-semibold text-sm mb-1">Rest Sidi Bou Said</h3>
+                    <p class="text-xs text-gray-400" data-fr="Restaurant" data-en="Restaurant">Restaurant</p>
+                </div>
+            </div>
+            
+            <!-- Client Stats -->
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mt-16">
+                <div class="text-center">
+                    <div class="text-4xl font-bold gradient-text mb-2">500+</div>
+                    <p class="text-gray-300" data-fr="Restaurants partenaires" data-en="Partner restaurants">Restaurants partenaires</p>
+                </div>
+                <div class="text-center">
+                    <div class="text-4xl font-bold gradient-text mb-2">50M+</div>
+                    <p class="text-gray-300" data-fr="Commandes traitées" data-en="Orders processed">Commandes traitées</p>
+                </div>
+                <div class="text-center">
+                    <div class="text-4xl font-bold gradient-text mb-2">15+</div>
+                    <p class="text-gray-300" data-fr="Pays desservis" data-en="Countries served">Pays desservis</p>
+                </div>
+                <div class="text-center">
+                    <div class="text-4xl font-bold gradient-text mb-2">99.9%</div>
+                    <p class="text-gray-300" data-fr="Disponibilité" data-en="Uptime">Disponibilité</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Demo Section -->
+    <section id="demo" class="py-20 bg-dark-700">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-4xl md:text-5xl font-poppins font-bold mb-6" data-fr="Réservez votre démo personnalisée" data-en="Book your personalized demo">Réservez votre démo personnalisée</h2>
+                <p class="text-xl text-gray-300 mb-8" data-fr="Découvrez comment SAMEATS peut transformer votre restaurant en 30 minutes" data-en="Discover how SAMEATS can transform your restaurant in 30 minutes">
+                    Découvrez comment SAMEATS peut transformer votre restaurant en 30 minutes
+                </p>
+                
+                <div class="glass-card p-8 rounded-xl max-w-2xl mx-auto">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-video text-primary-500 text-xl"></i>
+                            <span data-fr="Démo en direct" data-en="Live demo">Démo en direct</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-clock text-primary-500 text-xl"></i>
+                            <span data-fr="30 minutes" data-en="30 minutes">30 minutes</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-user-tie text-primary-500 text-xl"></i>
+                            <span data-fr="Expert dédié" data-en="Dedicated expert">Expert dédié</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-gift text-primary-500 text-xl"></i>
+                            <span data-fr="Sans engagement" data-en="No commitment">Sans engagement</span>
+                        </div>
+                    </div>
+                    
+                    <!-- TODO: Integrate with Calendly or similar booking system -->
+                    <button class="bg-primary-gradient px-8 py-4 rounded-xl font-semibold text-lg hover-lift" data-fr="Réserver ma démo gratuite" data-en="Book my free demo">
+                        Réserver ma démo gratuite
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-dark-800">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-poppins font-bold mb-6" data-fr="Contactez-nous" data-en="Contact Us">Contactez-nous</h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto" data-fr="Prêt à transformer votre restaurant ? Parlons de votre projet" data-en="Ready to transform your restaurant? Let's talk about your project">
+                    Prêt à transformer votre restaurant ? Parlons de votre projet
+                </p>
+            </div>
+            
+            <div class="max-w-4xl mx-auto">
+                <!-- Tab Navigation -->
+                <div class="flex justify-center mb-8">
+                    <div class="bg-dark-600 p-1 rounded-xl">
+                        <button id="tab-contact" class="px-6 py-3 rounded-lg font-medium bg-primary-gradient text-white" data-fr="Contact rapide" data-en="Quick Contact">
+                            Contact rapide
+                        </button>
+                        <button id="tab-quote" class="px-6 py-3 rounded-lg font-medium text-gray-400 hover:text-white transition-colors" data-fr="Demande de devis" data-en="Quote Request">
+                            Demande de devis
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Contact Form -->
+                <div id="contact-form" class="glass-card p-8 rounded-xl">
+                    <form class="space-y-6" action="/api/form" method="POST" data-mock="true">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-medium mb-2" data-fr="Nom" data-en="Name">Nom</label>
+                                <input type="text" class="w-full bg-dark-600 border border-gray-600 rounded-lg px-4 py-3 focus:border-primary-500 focus:outline-none" required data-mock="true">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Email</label>
+                                <input type="email" class="w-full bg-dark-600 border border-gray-600 rounded-lg px-4 py-3 focus:border-primary-500 focus:outline-none" required data-mock="true">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Message</label>
+                            <textarea rows="5" class="w-full bg-dark-600 border border-gray-600 rounded-lg px-4 py-3 focus:border-primary-500 focus:outline-none" required data-mock="true"></textarea>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <input type="checkbox" id="consent-contact" class="mt-1" required data-mock="true">
+                            <label for="consent-contact" class="text-sm text-gray-300" data-fr="J'accepte que mes données soient utilisées pour me recontacter dans le cadre de ma demande (conforme RGPD)" data-en="I agree that my data may be used to contact me regarding my request (GDPR compliant)">
+                                J'accepte que mes données soient utilisées pour me recontacter dans le cadre de ma demande (conforme RGPD)
+                            </label>
+                        </div>
+                        <button type="submit" class="w-full bg-primary-gradient py-3 rounded-lg font-semibold hover-lift" data-fr="Envoyer le message" data-en="Send Message">
+                            Envoyer le message
+                        </button>
+                    </form>
+                </div>
+                
+                <!-- Quote Form -->
+                <div id="quote-form" class="glass-card p-8 rounded-xl hidden">
+                    <form class="space-y-6" action="/api/form" method="POST" data-mock="true">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-medium mb-2" data-fr="Nom du restaurant" data-en="Restaurant name">Nom du restaurant</label>
+                                <input type="text" class="w-full bg-dark-600 border border-gray-600 rounded-lg px-4 py-3 focus:border-primary-500 focus:outline-none" required data-mock="true">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium mb-2" data-fr="Pays" data-en="Country">Pays</label>
+                                <select class="w-full bg-dark-600 border border-gray-600 rounded-lg px-4 py-3 focus:border-primary-500 focus:outline-none" required data-mock="true">
+                                    <option value="">Sélectionner...</option>
+                                    <option value="FR">France</option>
+                                    <option value="BE">Belgique</option>
+                                    <option value="CH">Suisse</option>
+                                    <option value="Other">Autre</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-medium mb-2" data-fr="Nombre d'établissements" data-en="Number of locations">Nombre d'établissements</label>
+                                <select class="w-full bg-dark-600 border border-gray-600 rounded-lg px-4 py-3 focus:border-primary-500 focus:outline-none" required data-mock="true">
+                                    <option value="">Sélectionner...</option>
+                                    <option value="1">1</option>
+                                    <option value="2-3">2-3</option>
+                                    <option value="4-10">4-10</option>
+                                    <option value="10+">10+</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium mb-2" data-fr="Commandes/mois (estimation)" data-en="Orders/month (estimate)">Commandes/mois (estimation)</label>
+                                <select class="w-full bg-dark-600 border border-gray-600 rounded-lg px-4 py-3 focus:border-primary-500 focus:outline-none" required data-mock="true">
+                                    <option value="">Sélectionner...</option>
+                                    <option value="<100"><100</option>
+                                    <option value="100-500">100-500</option>
+                                    <option value="500-1000">500-1000</option>
+                                    <option value="1000+">1000+</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-medium mb-2" data-fr="Livraison souhaitée" data-en="Delivery needed">Livraison souhaitée</label>
+                                <select class="w-full bg-dark-600 border border-gray-600 rounded-lg px-4 py-3 focus:border-primary-500 focus:outline-none" required data-mock="true">
+                                    <option value="">Sélectionner...</option>
+                                    <option value="yes" data-fr="Oui" data-en="Yes">Oui</option>
+                                    <option value="no" data-fr="Non" data-en="No">Non</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium mb-2" data-fr="Apps mobiles souhaitées" data-en="Mobile apps needed">Apps mobiles souhaitées</label>
+                                <select class="w-full bg-dark-600 border border-gray-600 rounded-lg px-4 py-3 focus:border-primary-500 focus:outline-none" required data-mock="true">
+                                    <option value="">Sélectionner...</option>
+                                    <option value="yes" data-fr="Oui" data-en="Yes">Oui</option>
+                                    <option value="no" data-fr="Non" data-en="No">Non</option>
+                                    <option value="maybe" data-fr="Peut-être" data-en="Maybe">Peut-être</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2" data-fr="Budget mensuel envisagé" data-en="Expected monthly budget">Budget mensuel envisagé</label>
+                            <select class="w-full bg-dark-600 border border-gray-600 rounded-lg px-4 py-3 focus:border-primary-500 focus:outline-none" required data-mock="true">
+                                <option value="">Sélectionner...</option>
+                                <option value="<100€"><100€</option>
+                                <option value="100-200€">100-200€</option>
+                                <option value="200-500€">200-500€</option>
+                                <option value="500€+">500€+</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2" data-fr="Message / Besoins spécifiques" data-en="Message / Specific needs">Message / Besoins spécifiques</label>
+                            <textarea rows="4" class="w-full bg-dark-600 border border-gray-600 rounded-lg px-4 py-3 focus:border-primary-500 focus:outline-none" data-mock="true"></textarea>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <input type="checkbox" id="consent-quote" class="mt-1" required data-mock="true">
+                            <label for="consent-quote" class="text-sm text-gray-300" data-fr="J'accepte que mes données soient utilisées pour me recontacter dans le cadre de ma demande de devis (conforme RGPD)" data-en="I agree that my data may be used to contact me regarding my quote request (GDPR compliant)">
+                                J'accepte que mes données soient utilisées pour me recontacter dans le cadre de ma demande de devis (conforme RGPD)
+                            </label>
+                        </div>
+                        <button type="submit" class="w-full bg-primary-gradient py-3 rounded-lg font-semibold hover-lift" data-fr="Demander un devis" data-en="Request Quote">
+                            Demander un devis
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark-800 border-t border-gray-800 py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <!-- Logo & Description -->
+                <div class="col-span-1 md:col-span-2">
+                    <div class="flex items-center space-x-3 mb-4">
+                        <div class="w-10 h-10 bg-primary-gradient rounded-lg flex items-center justify-center">
+                            <span class="text-white font-bold text-xl">S</span>
+                        </div>
+                        <span class="text-2xl font-poppins font-bold">SAMEATS</span>
+                    </div>
+                    <p class="text-gray-300 mb-4 max-w-md" data-fr="Solution complète de commande en ligne pour restaurants. Augmentez vos revenus sans commission." data-en="Complete online ordering solution for restaurants. Increase your revenue without commission.">
+                        Solution complète de commande en ligne pour restaurants. Augmentez vos revenus sans commission.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-primary-500 transition-colors">
+                            <i class="fab fa-twitter text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-primary-500 transition-colors">
+                            <i class="fab fa-linkedin text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-primary-500 transition-colors">
+                            <i class="fab fa-facebook text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Legal Links -->
+                <div>
+                    <h4 class="font-semibold mb-4" data-fr="Légal" data-en="Legal">Légal</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-300 hover:text-primary-500 transition-colors" data-fr="Conditions générales" data-en="Terms of Service">Conditions générales</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-primary-500 transition-colors" data-fr="Politique de confidentialité" data-en="Privacy Policy">Politique de confidentialité</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-primary-500 transition-colors" data-fr="Mentions légales" data-en="Legal Notice">Mentions légales</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact Info -->
+                <div>
+                    <h4 class="font-semibold mb-4">Contact</h4>
+                    <ul class="space-y-2 text-gray-300">
+                        <li class="flex items-center space-x-2">
+                            <i class="fas fa-phone text-primary-500"></i>
+                            <span>+33 7 58 23 19 96</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <i class="fas fa-envelope text-primary-500"></i>
+                            <span>contact@sameats.fr</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <i class="fas fa-globe text-primary-500"></i>
+                            <span>www.sameats.fr</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-8 text-center text-gray-400">
+                <p>&copy; <span id="current-year">2024</span> SAMEATS. <span data-fr="Tous droits réservés." data-en="All rights reserved.">Tous droits réservés.</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        (function() {
+            // Language Toggle Functionality
+            const langFr = document.getElementById('lang-fr');
+            const langEn = document.getElementById('lang-en');
+            let currentLang = 'fr';
+            
+            function updateLanguage(lang) {
+                currentLang = lang;
+                const elements = document.querySelectorAll('[data-fr][data-en]');
+                
+                elements.forEach(element => {
+                    if (lang === 'fr') {
+                        element.textContent = element.getAttribute('data-fr');
+                    } else {
+                        element.textContent = element.getAttribute('data-en');
+                    }
+                });
+                
+                // Update button states
+                if (lang === 'fr') {
+                    langFr.className = 'px-3 py-1 rounded text-sm font-medium bg-primary-gradient text-white';
+                    langEn.className = 'px-3 py-1 rounded text-sm font-medium text-gray-400 hover:text-white transition-colors';
+                } else {
+                    langEn.className = 'px-3 py-1 rounded text-sm font-medium bg-primary-gradient text-white';
+                    langFr.className = 'px-3 py-1 rounded text-sm font-medium text-gray-400 hover:text-white transition-colors';
+                }
+                
+                // Update document language
+                document.documentElement.lang = lang;
+                
+                // Update page title and meta description
+                const title = lang === 'fr' 
+                    ? 'SAMEATS - Solution de commande en ligne pour restaurants'
+                    : 'SAMEATS - Online ordering solution for restaurants';
+                const description = lang === 'fr'
+                    ? 'Solution complète de commande en ligne pour restaurants : site web, apps mobiles, back-office. Installation 500€ + 1 mois gratuit.'
+                    : 'Complete online ordering solution for restaurants: website, mobile apps, back-office. €500 setup + 1 month free.';
+                    
+                document.title = title;
+                document.querySelector('meta[name="description"]').content = description;
+            }
+            
+            langFr.addEventListener('click', () => updateLanguage('fr'));
+            langEn.addEventListener('click', () => updateLanguage('en'));
+            
+            // Contact Form Tabs
+            const tabContact = document.getElementById('tab-contact');
+            const tabQuote = document.getElementById('tab-quote');
+            const contactForm = document.getElementById('contact-form');
+            const quoteForm = document.getElementById('quote-form');
+            
+            function showContactForm() {
+                contactForm.classList.remove('hidden');
+                quoteForm.classList.add('hidden');
+                tabContact.className = 'px-6 py-3 rounded-lg font-medium bg-primary-gradient text-white';
+                tabQuote.className = 'px-6 py-3 rounded-lg font-medium text-gray-400 hover:text-white transition-colors';
+            }
+            
+            function showQuoteForm() {
+                contactForm.classList.add('hidden');
+                quoteForm.classList.remove('hidden');
+                tabQuote.className = 'px-6 py-3 rounded-lg font-medium bg-primary-gradient text-white';
+                tabContact.className = 'px-6 py-3 rounded-lg font-medium text-gray-400 hover:text-white transition-colors';
+            }
+            
+            tabContact.addEventListener('click', showContactForm);
+            tabQuote.addEventListener('click', showQuoteForm);
+            
+            // Smooth Scrolling for Navigation Links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+            
+            // Dynamic Year in Footer
+            document.getElementById('current-year').textContent = new Date().getFullYear();
+            
+            // Annual Toggle for Pricing
+            const annualToggle = document.getElementById('annual-toggle');
+            annualToggle.addEventListener('change', function() {
+                const toggle = this.nextElementSibling.querySelector('div');
+                if (this.checked) {
+                    toggle.style.transform = 'translateX(1.5rem)';
+                    // TODO: Update pricing to show annual discount
+                } else {
+                    toggle.style.transform = 'translateX(0.25rem)';
+                    // TODO: Update pricing to show monthly rates
+                }
+            });
+            
+            // Form Submissions (Mock Implementation)
+            document.querySelectorAll('form[data-mock="true"]').forEach(form => {
+                form.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    // TODO: Implement actual form submission to /api/form
+                    console.log('Form submission prevented - mock implementation');
+                    alert(currentLang === 'fr' 
+                        ? 'Formulaire soumis avec succès ! (Mode démo)' 
+                        : 'Form submitted successfully! (Demo mode)');
+                });
+            });
+            
+            // Mobile Menu Toggle (if needed)
+            // TODO: Add mobile hamburger menu functionality
+            
+        })();
+    </script>
+</body>
+</html>
