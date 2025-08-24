@@ -24,18 +24,7 @@ export function ModernFooter() {
       links: [
         { name: t("À propos", "About"), href: "/about" },
         { name: t("Contact", "Contact"), href: "/contact" },
-        { name: t("Blog", "Blog"), href: "/blog" },
-        { name: t("Carrières", "Careers"), href: "/careers" }
-      ]
-    },
-    {
-      title: t("Support", "Support"),
-      links: [
-        { name: t("Centre d'aide", "Help Center"), href: "/help" },
-        { name: t("Documentation", "Documentation"), href: "/docs" },
-        { name: t("Formation", "Training"), href: "/training" },
-        { name: t("Statut", "Status"), href: "/status" }
-      ]
+            ]
     },
     {
       title: t("Légal", "Legal"),
@@ -49,10 +38,8 @@ export function ModernFooter() {
   ];
 
   const socialLinks = [
-    { icon: "fab fa-twitter", href: "https://twitter.com/sameats_fr", name: "Twitter" },
-    { icon: "fab fa-linkedin", href: "https://linkedin.com/company/sameats", name: "LinkedIn" },
-    { icon: "fab fa-facebook", href: "https://facebook.com/sameats.fr", name: "Facebook" },
-    { icon: "fab fa-instagram", href: "https://instagram.com/sameats_fr", name: "Instagram" }
+    { icon: "fab fa-facebook", href: "https://www.facebook.com/profile.php?id=61578228934581", name: "Facebook" },
+    { icon: "fab fa-instagram", href: "https://www.instagram.com/sameats.fr/", name: "Instagram" }
   ];
 
   const handleNewsletterSubmit = async (e: React.FormEvent) => {
@@ -238,7 +225,7 @@ export function ModernFooter() {
               </div>
               <div className="flex items-center gap-2">
                 <i className="fas fa-phone text-[var(--primary)]"></i>
-                <span>+33 1 23 45 67 89</span>
+                <span>+33 07 58 23 19 96</span>
               </div>
             </div>
           </div>

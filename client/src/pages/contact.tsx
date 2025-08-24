@@ -154,24 +154,17 @@ export default function Contact() {
     {
       title: t("Support technique", "Technical support"),
       subtitle: t("Disponible 24/7", "Available 24/7"),
-      details: ["support@sameats.com", "+33 1 23 45 67 89"],
+      details: ["contact@sameats.com", "+33 07 58 23 19 96"],
       icon: "fas fa-headset",
       color: "text-blue-400"
     },
     {
       title: t("Ventes & Partenariats", "Sales & Partnerships"),
       subtitle: t("Lun-Ven 9h-18h", "Mon-Fri 9am-6pm"),
-      details: ["sales@sameats.com", "+33 1 23 45 67 90"],
+      details: ["contact@sameats.com", "+33 07 58 23 19 96"],
       icon: "fas fa-handshake",
       color: "text-green-400"
     },
-    {
-      title: t("Siège social", "Headquarters"),
-      subtitle: t("Paris, France", "Paris, France"),
-      details: ["123 Avenue des Champs-Élysées", "75008 Paris"],
-      icon: "fas fa-building",
-      color: "text-purple-400"
-    }
   ];
 
   const restaurantTypes = [
