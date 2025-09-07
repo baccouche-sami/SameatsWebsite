@@ -20,6 +20,7 @@ export interface ContactFormData {
   services?: string;
   budget?: string;
   timeline?: string;
+  rgpdConsent?: boolean;
 }
 
 export interface ApiResponse {

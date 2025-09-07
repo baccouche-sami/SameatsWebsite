@@ -63,6 +63,7 @@ export default function Contact() {
         company: formData.company,
         message: formData.message,
         type: activeTab,
+        rgpdConsent: formData.rgpdConsent,
         // Tous les champs du formulaire de devis
         restaurantName: formData.company,
         restaurantType: formData.restaurantType,

@@ -302,10 +302,10 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       return res.status(400).json({ error: 'Invalid email format' });
     }
 
-    // Validation RGPD pour les devis
-    if (formData.type === 'quote' && !formData.rgpdConsent) {
+    // Validation RGPD pour tous les formulaires
+    if (!formData.rgpdConsent) {
       return res.status(400).json({ 
-        error: 'RGPD consent is required for quote requests' 
+        error: 'RGPD consent is required for all form submissions' 
       });
     }
 
