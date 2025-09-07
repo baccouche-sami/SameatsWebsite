@@ -32,7 +32,7 @@ export interface ApiResponse {
 
 export async function submitContactForm(data: ContactFormData): Promise<ApiResponse> {
   try {
-    const response = await fetch('/api/form', {
+    const response = await fetch('/api/send-contact', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -53,7 +53,7 @@ export async function submitContactForm(data: ContactFormData): Promise<ApiRespo
 
 export async function subscribeNewsletter(email: string): Promise<ApiResponse> {
   try {
-    const response = await fetch('/api/newsletter', {
+    const response = await fetch('/api/send-newsletter', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

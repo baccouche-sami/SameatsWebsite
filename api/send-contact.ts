@@ -1,69 +1,45 @@
-// Configuration Brevo optimisée - API REST directe sans SDK
-console.log(
-    "Brevo API configuration:",
-    process.env.BREVO_API_KEY ? "API key found" : "API key missing",
-);
+import type { VercelRequest, VercelResponse } from '@vercel/node';
 
-interface EmailData {
-    to: string;
-    subject: string;
-    htmlContent: string;
-    textContent?: string;
-    senderName?: string;
-    senderEmail?: string;
+interface ContactFormData {
+  name: string;
+  email: string;
+  phone?: string;
+  company?: string;
+  subject?: string;
+  message: string;
+  type: 'contact' | 'quote';
+  restaurantName?: string;
+  restaurantType?: string;
+  address?: string;
+  website?: string;
+  currentSolution?: string;
+  urgency?: string;
+  needsApp?: boolean;
+  needsDelivery?: boolean;
+  locations?: string;
+  services?: string;
+  budget?: string;
+  timeline?: string;
+  rgpdConsent?: boolean;
 }
 
-export async function sendEmail(data: EmailData): Promise<boolean> {
-    try {
-        if (!process.env.BREVO_API_KEY) {
-            console.error("BREVO_API_KEY is not configured");
-            return false;
-        }
-
-        // Utilisation directe de l'API REST Brevo
-        const emailPayload = {
-            sender: {
-                name: data.senderName || "SAMEATS Contact",
-                email: data.senderEmail || "sameats.france@gmail.com",
-            },
-            to: [{ email: data.to }],
-            subject: data.subject,
-            htmlContent: data.htmlContent,
-        };
-
-        if (data.textContent) {
-            (emailPayload as any).textContent = data.textContent;
-        }
-
-        console.log("Sending email to:", data.to, "Subject:", data.subject);
-
-        const response = await fetch("https://api.brevo.com/v3/smtp/email", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-                "api-key": process.env.BREVO_API_KEY,
-            },
-            body: JSON.stringify(emailPayload),
-        });
-
-        if (response.ok) {
-            const result = await response.json();
-            console.log("Email sent successfully via Brevo API:", result);
-            return true;
-        } else {
-            const errorData = await response.text();
-            console.error("Brevo API error:", response.status, errorData);
-            return false;
-        }
-    } catch (error) {
-        console.error("Error sending email:", error);
-        return false;
-    }
+interface BrevoConfig {
+  apiKey: string;
+  senderEmail: string;
+  senderName: string;
+  recipientEmail: string;
 }
 
-// Templates d'emails
-export function getContactEmailTemplate(formData: any): EmailData {
-    const htmlContent = `
+const BREVO_CONFIG: BrevoConfig = {
+  apiKey: process.env.BREVO_API_KEY || '',
+  senderEmail: process.env.BREVO_SENDER_EMAIL || 'noreply@sameats.fr',
+  senderName: process.env.BREVO_SENDER_NAME || 'SAMEATS',
+  recipientEmail: process.env.BREVO_RECIPIENT_EMAIL || 'sameats.france@gmail.com'
+};
+
+// Template HTML pour le formulaire de contact
+const createContactEmailTemplate = (formData: ContactFormData): string => {
+  return `
     <!DOCTYPE html>
     <html>
     <head>
@@ -138,18 +114,11 @@ export function getContactEmailTemplate(formData: any): EmailData {
     </body>
     </html>
   `;
+};
 
-    return {
-        to: "contact@sameats.fr", // Changez par votre email
-        subject: `SAMEATS - Nouvelle demande de contact de ${formData.name || formData.email}`,
-        htmlContent,
-        senderName: "SAMEATS",
-        senderEmail: "sameats.france@gmail.com",
-    };
-}
-
-export function getQuoteEmailTemplate(formData: any): EmailData {
-    const htmlContent = `
+// Template HTML pour le formulaire de devis
+const createQuoteEmailTemplate = (formData: ContactFormData): string => {
+  return `
     <!DOCTYPE html>
     <html>
     <head>
@@ -244,54 +213,14 @@ export function getQuoteEmailTemplate(formData: any): EmailData {
                     </div>
                 </div>
 
-                <div class="section">
-                    <h3>Détails du restaurant</h3>
-                    <div class="field">
-                        <span class="label">Nom restaurant :</span>
-                        <span class="value">${formData.restaurantName || "Non spécifié"}</span>
-                    </div>
-                    <div class="field">
-                        <span class="label">Type :</span>
-                        <span class="value">${formData.restaurantType || "Non spécifié"}</span>
-                    </div>
-                    <div class="field">
-                        <span class="label">Adresse :</span>
-                        <span class="value">${formData.address || "Non spécifié"}</span>
-                    </div>
-                    <div class="field">
-                        <span class="label">Site web actuel :</span>
-                        <span class="value">${formData.currentWebsite || "Aucun"}</span>
-                    </div>
-                </div>
-
-                <div class="section">
-                    <h3>Services demandés</h3>
-                    <div class="field">
-                        <span class="label">Services :</span>
-                        <span class="value">${Array.isArray(formData.services) ? formData.services.join(", ") : "Non spécifié"}</span>
-                    </div>
-                    <div class="field">
-                        <span class="label">Budget :</span>
-                        <span class="value">${formData.budget || "Non spécifié"}</span>
-                    </div>
-                    <div class="field">
-                        <span class="label">Timeline :</span>
-                        <span class="value">${formData.timeline || "Non spécifié"}</span>
-                    </div>
-                </div>
-
-                ${
-                    formData.message
-                        ? `
+                ${formData.message ? `
                 <div class="section">
                     <h3>Message complémentaire</h3>
                     <div style="background: white; padding: 15px; border-radius: 5px;">
                         ${formData.message}
                     </div>
                 </div>
-                `
-                        : ""
-                }
+                ` : ''}
 
                 <div class="urgent">
                     <strong>⚡ Action requise :</strong> Contacter le prospect dans les 2 heures pour maximiser les chances de conversion.
@@ -305,53 +234,109 @@ export function getQuoteEmailTemplate(formData: any): EmailData {
     </body>
     </html>
   `;
+};
 
-    return {
-        to: "contact@sameats.fr", // Changez par votre email
-        subject: `SAMEATS - DEVIS URGENT de ${formData.name || formData.email} - ${formData.restaurantName || "Restaurant"}`,
-        htmlContent,
-        senderName: "Site SAMEATS",
-        senderEmail: "sameats.france@gmail.com",
-    };
-}
+// Fonction pour envoyer un email via Brevo
+const sendEmail = async (to: string, subject: string, htmlContent: string): Promise<boolean> => {
+  try {
+    const response = await fetch('https://api.brevo.com/v3/smtp/email', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'api-key': BREVO_CONFIG.apiKey,
+      },
+      body: JSON.stringify({
+        sender: {
+          email: BREVO_CONFIG.senderEmail,
+          name: BREVO_CONFIG.senderName,
+        },
+        to: [
+          {
+            email: to,
+            name: 'SAMEATS Team',
+          },
+        ],
+        subject: subject,
+        htmlContent: htmlContent,
+      }),
+    });
 
-export function getNewsletterEmailTemplate(email: string): EmailData {
-    const htmlContent = `
-    <!DOCTYPE html>
-    <html>
-    <head>
-        <meta charset="UTF-8">
-        <style>
-            body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
-            .container { max-width: 600px; margin: 0 auto; padding: 20px; }
-            .header { background: linear-gradient(135deg, #FF6A00 0%, #FFC700 100%); color: white; padding: 20px; border-radius: 8px 8px 0 0; }
-            .content { background: #f9f9f9; padding: 20px; border-radius: 0 0 8px 8px; }
-        </style>
-    </head>
-    <body>
-        <div class="container">
-            <div class="header">
-                <h2>📧 Nouvelle inscription newsletter SAMEATS</h2>
-            </div>
-            <div class="content">
-                <p><strong>Email :</strong> ${email}</p>
-                <p><strong>Date :</strong> ${new Date().toLocaleString("fr-FR")}</p>
-                <p><strong>Source :</strong> Site web SAMEATS</p>
-                
-                <div style="margin-top: 20px; padding: 15px; background: #e8f5e8; border-radius: 5px;">
-                    <strong>Action suggérée :</strong> Ajouter cet email à votre liste de diffusion marketing et envoyer un email de bienvenue.
-                </div>
-            </div>
-        </div>
-    </body>
-    </html>
-  `;
+    if (!response.ok) {
+      const errorData = await response.json();
+      console.error('Erreur Brevo:', errorData);
+      return false;
+    }
 
-    return {
-        to: "contact@sameats.fr", // Changez par votre email
-        subject: `SAMEATS - Nouvelle inscription newsletter : ${email}`,
-        htmlContent,
-        senderName: "SAMEATS",
-        senderEmail: "sameats.france@gmail.com",
-    };
+    return true;
+  } catch (error) {
+    console.error('Erreur lors de l\'envoi de l\'email:', error);
+    return false;
+  }
+};
+
+export default async function handler(req: VercelRequest, res: VercelResponse) {
+  // Vérifier que la méthode est POST
+  if (req.method !== 'POST') {
+    return res.status(405).json({ error: 'Method not allowed' });
+  }
+
+  // Vérifier que l'API key est configurée
+  if (!BREVO_CONFIG.apiKey) {
+    console.error('BREVO_API_KEY is not configured');
+    return res.status(500).json({ error: 'Email service not configured' });
+  }
+
+  try {
+    const formData: ContactFormData = req.body;
+
+    // Validation des données
+    if (!formData.name || !formData.email || !formData.message) {
+      return res.status(400).json({ 
+        error: 'Missing required fields: name, email, and message are required' 
+      });
+    }
+
+    // Validation de l'email
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(formData.email)) {
+      return res.status(400).json({ error: 'Invalid email format' });
+    }
+
+    // Validation RGPD pour les devis
+    if (formData.type === 'quote' && !formData.rgpdConsent) {
+      return res.status(400).json({ 
+        error: 'RGPD consent is required for quote requests' 
+      });
+    }
+
+    let subject: string;
+    let htmlContent: string;
+
+    if (formData.type === 'quote') {
+      subject = `SAMEATS - DEVIS URGENT de ${formData.name} - ${formData.restaurantName || "Restaurant"}`;
+      htmlContent = createQuoteEmailTemplate(formData);
+    } else {
+      subject = `SAMEATS - Nouvelle demande de contact de ${formData.name}`;
+      htmlContent = createContactEmailTemplate(formData);
+    }
+    
+    const success = await sendEmail(BREVO_CONFIG.recipientEmail, subject, htmlContent);
+
+    if (success) {
+      return res.status(200).json({ 
+        success: true, 
+        message: 'Email sent successfully',
+        emailSent: true
+      });
+    } else {
+      return res.status(500).json({ 
+        error: 'Failed to send email' 
+      });
+    }
+  } catch (error) {
+    console.error('Error in send-contact API:', error);
+    return res.status(500).json({ 
+      error: 'Internal server error' 
+    });
+  }
 }
