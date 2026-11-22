@@ -192,7 +192,7 @@ export function ModernPricingSection() {
                       €{billingCycle === 'monthly' ? plan.monthlyPrice : plan.yearlyPrice}
                     </span>
                     <span className="text-[var(--text-secondary)] ml-2">
-                      /{t("mois", "month")}
+                      {t("HT / mois", "excl. VAT / month")}
                     </span>
                   </div>
                   {billingCycle === 'yearly' && (
@@ -201,7 +201,7 @@ export function ModernPricingSection() {
                     </div>
                   )}
                   <div className="text-sm text-[var(--text-muted)] mt-2">
-                    + €{plan.setupFee} {t("frais d'installation unique", "one-time setup fee")}
+                    + €{plan.setupFee} {t("HT de frais d'installation unique", "one-time setup fee, excl. VAT")}
                   </div>
                 </div>
 

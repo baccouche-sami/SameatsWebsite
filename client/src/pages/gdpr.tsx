@@ -180,8 +180,8 @@ export default function GDPR() {
                 )}
               </p>
               <ul className="list-disc pl-6 space-y-2">
-                <li>{t("Par email à privacy@sameats.com", "By email at privacy@sameats.com")}</li>
-                <li>{t("Par téléphone au +33 1 23 45 67 89", "By phone at +33 1 23 45 67 89")}</li>
+                <li>{t("Par email à privacy@sameats.fr", "By email at privacy@sameats.fr")}</li>
+                <li>{t("Par téléphone au +33 7 58 23 19 96", "By phone at +33 7 58 23 19 96")}</li>
                 <li>{t("Par courrier à l'adresse indiquée ci-dessous", "By mail to the address indicated below")}</li>
               </ul>
               <p className="mb-4">
@@ -264,8 +264,8 @@ export default function GDPR() {
               </p>
               <div className="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg">
                 <p><strong>{t("Délégué à la protection des données", "Data Protection Officer")}</strong></p>
-                <p>{t("Email : dpo@sameats.com", "Email: dpo@sameats.com")}</p>
-                <p>{t("Téléphone : +33 1 23 45 67 89", "Phone: +33 1 23 45 67 89")}</p>
+                <p>{t("Email : dpo@sameats.fr", "Email: dpo@sameats.fr")}</p>
+                <p>{t("Téléphone : +33 7 58 23 19 96", "Phone: +33 7 58 23 19 96")}</p>
               </div>
             </section>
 
@@ -299,9 +299,8 @@ export default function GDPR() {
               </p>
               <div className="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg">
                 <p><strong>SAMEATS / Samkode IT Agency</strong></p>
-                <p>{t("Email : privacy@sameats.com", "Email: privacy@sameats.com")}</p>
-                <p>{t("Téléphone : +33 1 23 45 67 89", "Phone: +33 1 23 45 67 89")}</p>
-                <p>{t("Adresse : 123 Rue de la Paix, 75001 Paris, France", "Address: 123 Rue de la Paix, 75001 Paris, France")}</p>
+                <p>{t("Email : privacy@sameats.fr", "Email: privacy@sameats.fr")}</p>
+                <p>{t("Téléphone : +33 7 58 23 19 96", "Phone: +33 7 58 23 19 96")}</p>
               </div>
             </section>
 

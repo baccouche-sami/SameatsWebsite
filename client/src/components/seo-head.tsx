@@ -101,9 +101,8 @@ export function SEOHead({
     };
 
     const currentPath = window.location.pathname;
-    setLangAlternate('fr', `https://sameats.com${currentPath}`);
-    setLangAlternate('en', `https://sameats.com/en${currentPath}`);
-    setLangAlternate('x-default', `https://sameats.com${currentPath}`);
+    setLangAlternate('fr', `https://www.sameats.fr${currentPath}`);
+    setLangAlternate('x-default', `https://www.sameats.fr${currentPath}`);
 
   }, [title, description, keywords, ogImage, canonical, structuredData, language]);
 
@@ -118,8 +117,8 @@ export const generateOrganizationSchema = (language: string) => ({
   "description": language === 'fr' 
     ? "Solution complète de commande en ligne pour restaurants sans commission"
     : "Complete online ordering solution for restaurants without commission",
-  "url": "https://sameats.com",
-  "logo": "https://sameats.com/logo.png",
+  "url": "https://www.sameats.fr",
+  "logo": "https://www.sameats.fr/logo.png",
   "contactPoint": {
     "@type": "ContactPoint",
     "telephone": "+33-1-23-45-67-89",

@@ -155,14 +155,14 @@ export default function Contact() {
     {
       title: t("Support technique", "Technical support"),
       subtitle: t("Disponible 24/7", "Available 24/7"),
-      details: ["contact@sameats.com", "+33 07 58 23 19 96"],
+      details: ["contact@sameats.fr", "+33 7 58 23 19 96"],
       icon: "fas fa-headset",
       color: "text-blue-400"
     },
     {
       title: t("Ventes & Partenariats", "Sales & Partnerships"),
       subtitle: t("Lun-Ven 9h-18h", "Mon-Fri 9am-6pm"),
-      details: ["contact@sameats.com", "+33 07 58 23 19 96"],
+      details: ["contact@sameats.fr", "+33 7 58 23 19 96"],
       icon: "fas fa-handshake",
       color: "text-green-400"
     },
@@ -589,8 +589,8 @@ export default function Contact() {
                     />
                     <span className="text-sm text-[var(--text-secondary)] leading-relaxed">
                       {t(
-                        "J'accepte que mes données personnelles soient utilisées pour me recontacter dans le cadre de ma demande. Conformément au RGPD, vous pouvez exercer vos droits d'accès, de rectification et de suppression en nous contactant à privacy@sameats.com.",
-                        "I accept that my personal data be used to contact me regarding my request. In accordance with GDPR, you can exercise your rights of access, rectification and deletion by contacting us at privacy@sameats.com."
+                        "J'accepte que mes données personnelles soient utilisées pour me recontacter dans le cadre de ma demande. Conformément au RGPD, vous pouvez exercer vos droits d'accès, de rectification et de suppression en nous contactant à privacy@sameats.fr.",
+                        "I accept that my personal data be used to contact me regarding my request. In accordance with GDPR, you can exercise your rights of access, rectification and deletion by contacting us at privacy@sameats.fr."
                       )}
                     </span>
                   </label>

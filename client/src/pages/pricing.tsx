@@ -102,8 +102,8 @@ export default function Pricing() {
           "SAMEATS Pricing - Transparent plans without commission"
         )}
         description={t(
-          "Découvrez nos tarifs transparents : Start 69€, Grow 119€, Pro 199€. Installation 500€, 1 mois gratuit, 0% commission. Support 24/7 inclus.",
-          "Discover our transparent pricing: Start €69, Grow €119, Pro €199. €500 setup, 1 month free, 0% commission. 24/7 support included."
+          "Découvrez nos tarifs transparents : Starter 69 € HT, Professional 119 € HT, Enterprise 199 € HT par mois. Installation 500 € HT, 1 mois gratuit, 0% commission. Support 24/7 inclus.",
+          "Discover our transparent pricing: Starter €69, Professional €119, Enterprise €199 per month excl. VAT. €500 setup excl. VAT, 1 month free, 0% commission. 24/7 support included."
         )}
         keywords={t(
           "tarifs restaurant, prix solution restaurant, abonnement restaurant, sans commission",
