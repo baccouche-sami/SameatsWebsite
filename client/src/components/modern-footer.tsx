@@ -24,7 +24,8 @@ export function ModernFooter() {
       links: [
         { name: t("À propos", "About"), href: "/about" },
         { name: t("Contact", "Contact"), href: "/contact" },
-            ]
+        { name: t("Espace client", "Customer area"), href: "https://app.sameats.fr/admin", external: true }
+      ]
     },
     {
       title: t("Légal", "Legal"),
@@ -165,11 +166,17 @@ export function ModernFooter() {
                     <ul className="space-y-2 sm:space-y-3">
                       {section.links.map((link, linkIndex) => (
                         <li key={linkIndex}>
-                          <Link href={link.href}>
-                            <span className="text-[var(--text-secondary)] hover:text-[var(--primary)] transition-colors cursor-pointer text-xs sm:text-sm touch-target">
+                          {"external" in link && link.external ? (
+                            <a href={link.href} className="text-[var(--text-secondary)] hover:text-[var(--primary)] transition-colors cursor-pointer text-xs sm:text-sm touch-target">
                               {link.name}
-                            </span>
-                          </Link>
+                            </a>
+                          ) : (
+                            <Link href={link.href}>
+                              <span className="text-[var(--text-secondary)] hover:text-[var(--primary)] transition-colors cursor-pointer text-xs sm:text-sm touch-target">
+                                {link.name}
+                              </span>
+                            </Link>
+                          )}
                         </li>
                       ))}
                     </ul>
@@ -221,11 +228,11 @@ export function ModernFooter() {
             <div className="hidden lg:flex items-center gap-4 xl:gap-6 text-xs sm:text-sm text-[var(--text-muted)]">
               <div className="flex items-center gap-2">
                 <i className="fas fa-envelope text-[var(--primary)]"></i>
-                <span>contact@sameats.com</span>
+                <span>contact@sameats.fr</span>
               </div>
               <div className="flex items-center gap-2">
                 <i className="fas fa-phone text-[var(--primary)]"></i>
-                <span>+33 07 58 23 19 96</span>
+                <span>+33 7 58 23 19 96</span>
               </div>
             </div>
           </div>

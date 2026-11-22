@@ -92,6 +92,15 @@ export function ModernNavigation() {
               </button>
             </div>
 
+            {/* Accès à la plateforme */}
+            <a
+              href="https://app.sameats.fr/admin"
+              className="hidden sm:flex items-center px-3 py-2 text-xs sm:text-sm font-medium text-[var(--text-secondary)] hover:text-[var(--primary)] transition-colors touch-target"
+            >
+              <i className="fas fa-right-to-bracket mr-2"></i>
+              {t("Connexion", "Log in")}
+            </a>
+
             {/* CTA Button */}
             <Link href="/contact">
               <button className="hidden sm:flex items-center px-4 sm:px-6 py-2 sm:py-2.5 bg-gradient-to-r from-[var(--primary)] to-[var(--accent)] text-white text-xs sm:text-sm font-medium rounded-xl hover:shadow-[var(--shadow-glow)] transition-all duration-300 hover:scale-105 touch-target">
@@ -157,6 +166,16 @@ export function ModernNavigation() {
                 </button>
               </div>
             </div>
+
+            {/* Accès à la plateforme (mobile) */}
+            <a
+              href="https://app.sameats.fr/admin"
+              className="block mx-4 mt-4 text-center py-3 border border-[var(--primary)] text-[var(--primary)] text-base font-medium rounded-xl touch-target"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              <i className="fas fa-right-to-bracket mr-2"></i>
+              {t("Connexion à mon espace", "Log in to my account")}
+            </a>
 
             {/* Mobile CTA */}
             <Link href="/contact">

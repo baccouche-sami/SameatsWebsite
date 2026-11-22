@@ -247,9 +247,8 @@ export default function Cookies() {
               </p>
               <div className="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg">
                 <p><strong>SAMEATS / Samkode IT Agency</strong></p>
-                <p>{t("Email : privacy@sameats.com", "Email: privacy@sameats.com")}</p>
-                <p>{t("Téléphone : +33 1 23 45 67 89", "Phone: +33 1 23 45 67 89")}</p>
-                <p>{t("Adresse : 123 Rue de la Paix, 75001 Paris, France", "Address: 123 Rue de la Paix, 75001 Paris, France")}</p>
+                <p>{t("Email : privacy@sameats.fr", "Email: privacy@sameats.fr")}</p>
+                <p>{t("Téléphone : +33 7 58 23 19 96", "Phone: +33 7 58 23 19 96")}</p>
               </div>
             </section>
 

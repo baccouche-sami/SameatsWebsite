@@ -194,7 +194,31 @@ export default function Privacy() {
 
             <section>
               <h2 className="text-2xl font-semibold mb-4">
-                {t("10. Contact", "10. Contact")}
+                {t("10. Hébergement et prestataires techniques", "10. Hosting and technical providers")}
+              </h2>
+              <ul className="list-disc pl-6 space-y-2">
+                <li>{t(
+                  "Plateforme SAMEATS (app.sameats.fr) et ses bases de données : hébergées en France par OVHcloud.",
+                  "SAMEATS platform (app.sameats.fr) and its databases: hosted in France by OVHcloud."
+                )}</li>
+                <li>{t(
+                  "Site vitrine (www.sameats.fr) : hébergé par Vercel Inc.",
+                  "Marketing website (www.sameats.fr): hosted by Vercel Inc."
+                )}</li>
+                <li>{t(
+                  "Paiements : traités par Stripe ; SAMEATS ne reçoit ni ne conserve aucun numéro de carte bancaire.",
+                  "Payments: processed by Stripe; SAMEATS never receives or stores card numbers."
+                )}</li>
+                <li>{t(
+                  "Emails transactionnels et newsletter : envoyés via Brevo.",
+                  "Transactional emails and newsletter: sent via Brevo."
+                )}</li>
+              </ul>
+            </section>
+
+            <section>
+              <h2 className="text-2xl font-semibold mb-4">
+                {t("11. Contact", "11. Contact")}
               </h2>
               <p className="mb-4">
                 {t(
@@ -204,9 +228,8 @@ export default function Privacy() {
               </p>
               <div className="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg">
                 <p><strong>SAMEATS / Samkode IT Agency</strong></p>
-                <p>{t("Email : privacy@sameats.com", "Email: privacy@sameats.com")}</p>
-                <p>{t("Téléphone : +33 1 23 45 67 89", "Phone: +33 1 23 45 67 89")}</p>
-                <p>{t("Adresse : 123 Rue de la Paix, 75001 Paris, France", "Address: 123 Rue de la Paix, 75001 Paris, France")}</p>
+                <p>{t("Email : privacy@sameats.fr", "Email: privacy@sameats.fr")}</p>
+                <p>{t("Téléphone : +33 7 58 23 19 96", "Phone: +33 7 58 23 19 96")}</p>
               </div>
             </section>
 
