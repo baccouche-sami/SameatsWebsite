@@ -10,7 +10,11 @@ import { ClientsPage } from "@/pages/clients";
 import Pricing from "@/pages/pricing";
 import About from "@/pages/about";
 import Contact from "@/pages/contact";
-import { BlogPage, CareersPage, HelpPage, DocsPage, TrainingPage, StatusPage, PrivacyPage, TermsPage, CookiesPage, GDPRPage } from "@/pages/coming-soon";
+import { BlogPage, CareersPage, HelpPage, DocsPage, TrainingPage, StatusPage } from "@/pages/coming-soon";
+import PrivacyPage from "@/pages/privacy";
+import TermsPage from "@/pages/terms";
+import CookiesPage from "@/pages/cookies";
+import GDPRPage from "@/pages/gdpr";
 import NotFound from "@/pages/not-found";
 
 function Router() {
